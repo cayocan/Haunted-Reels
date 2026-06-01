@@ -1,0 +1,27 @@
+{
+  "name": "haunted-reels-backend",
+  "version": "0.1.0",
+  "description": "Backend para Haunted Reels",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon --watch src --exec node src/server.js",
+    "test": "node --test test/engine/config.test.js test/engine/spinEngine.test.js test/rng/rng.test.js test/provablyfair/pfManager.test.js test/routes/session.test.js test/routes/spin.test.js test/routes/verify.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.1.0",
+    "@fastify/swagger": "^8.0.0",
+    "@fastify/swagger-ui": "^4.2.0",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.23.0",
+    "pino": "^8.14.0",
+    "pino-pretty": "^10.1.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
