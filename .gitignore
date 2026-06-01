@@ -50,3 +50,6 @@ build/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# ─── Ref Projects ───────────────────────────────────────────────────────────────────────
+slot-dogs-unity

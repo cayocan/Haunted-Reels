@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-05-25T08:39:44.863Z",
+  "spins": 5000000,
+  "betPerLine": 1,
+  "totalBet": 75000000,
+  "totalWin": 64142161,
+  "rtp": 98.6802,
+  "hitRate": 43.352,
+  "scatterTriggerRate": 6.9836,
+  "freeSpinRate": 55.8688,
+  "winLevelDistribution": {
+    "none": 2580582,
+    "small": 1869311,
+    "big": 515976,
+    "mega": 33281,
+    "jackpot": 850
+  },
+  "symbolHits": {
+    "Husky": 5001796,
+    "Golden": 7495980,
+    "Shiba": 7501662,
+    "Pug": 7500153,
+    "Beagle": 11001634,
+    "Dachshund": 24992422,
+    "Wild": 2999830,
+    "Scatter": 5004719,
+    "Blank": 3501804
+  },
+  "elapsedSeconds": 7.16
+}
