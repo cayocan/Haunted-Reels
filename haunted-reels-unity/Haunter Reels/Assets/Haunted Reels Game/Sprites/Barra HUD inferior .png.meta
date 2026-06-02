@@ -1,0 +1,3153 @@
+fileFormatVersion: 2
+guid: 00cb94e52e673a14c8691940bcc3ffc2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1134227817651825457
+    second: Barra HUD inferior _0
+  - first:
+      213: 3705336707212857945
+    second: Barra HUD inferior _1
+  - first:
+      213: 811597735568418950
+    second: Barra HUD inferior _2
+  - first:
+      213: -2312513485886953592
+    second: Barra HUD inferior _3
+  - first:
+      213: 4803740345492836795
+    second: Barra HUD inferior _4
+  - first:
+      213: -8501008136947043731
+    second: Barra HUD inferior _5
+  - first:
+      213: -6321207432982331902
+    second: Barra HUD inferior _6
+  - first:
+      213: 7077868465472755183
+    second: Barra HUD inferior _7
+  - first:
+      213: 8608193661291177735
+    second: Barra HUD inferior _8
+  - first:
+      213: -6615704638087183027
+    second: Barra HUD inferior _9
+  - first:
+      213: 3241715882476523807
+    second: Barra HUD inferior _10
+  - first:
+      213: 8127681831172830210
+    second: Barra HUD inferior _11
+  - first:
+      213: 6758477393420160643
+    second: Barra HUD inferior _12
+  - first:
+      213: 8323987017960627078
+    second: Barra HUD inferior _13
+  - first:
+      213: -7826250878152906938
+    second: Barra HUD inferior _14
+  - first:
+      213: 2296453313047984341
+    second: Barra HUD inferior _15
+  - first:
+      213: -1823253206097765743
+    second: Barra HUD inferior _16
+  - first:
+      213: 4100471199687432
+    second: Barra HUD inferior _17
+  - first:
+      213: 5436597899045833591
+    second: Barra HUD inferior _18
+  - first:
+      213: -9098016691254210941
+    second: Barra HUD inferior _19
+  - first:
+      213: -5551219763406649714
+    second: Barra HUD inferior _20
+  - first:
+      213: 869797898076334496
+    second: Barra HUD inferior _21
+  - first:
+      213: 5577816967698070208
+    second: Barra HUD inferior _22
+  - first:
+      213: -4279895217009200080
+    second: Barra HUD inferior _23
+  - first:
+      213: -8715777168942029344
+    second: Barra HUD inferior _24
+  - first:
+      213: -8291652785396860629
+    second: Barra HUD inferior _25
+  - first:
+      213: 9023866238060455447
+    second: Barra HUD inferior _26
+  - first:
+      213: -5398092828827828427
+    second: Barra HUD inferior _27
+  - first:
+      213: -7443015090884871162
+    second: Barra HUD inferior _28
+  - first:
+      213: -7835909429350359745
+    second: Barra HUD inferior _29
+  - first:
+      213: 4431056442960387879
+    second: Barra HUD inferior _30
+  - first:
+      213: -3316035780984301480
+    second: Barra HUD inferior _31
+  - first:
+      213: -1692393054144605889
+    second: Barra HUD inferior _32
+  - first:
+      213: 5589008252185965850
+    second: Barra HUD inferior _33
+  - first:
+      213: -4084853129983538728
+    second: Barra HUD inferior _34
+  - first:
+      213: 741752504341144960
+    second: Barra HUD inferior _35
+  - first:
+      213: -7487516784853773408
+    second: Barra HUD inferior _36
+  - first:
+      213: 3691558991750314542
+    second: Barra HUD inferior _37
+  - first:
+      213: 3494684777509884654
+    second: Barra HUD inferior _38
+  - first:
+      213: -3124318478667298329
+    second: Barra HUD inferior _39
+  - first:
+      213: -7909023925759992797
+    second: Barra HUD inferior _40
+  - first:
+      213: -4954265214107512744
+    second: Barra HUD inferior _41
+  - first:
+      213: 1727852121219206675
+    second: Barra HUD inferior _42
+  - first:
+      213: -528069453893893738
+    second: Barra HUD inferior _43
+  - first:
+      213: -969672778340872025
+    second: Barra HUD inferior _44
+  - first:
+      213: -333270792531076332
+    second: Barra HUD inferior _45
+  - first:
+      213: -1005191569139042649
+    second: Barra HUD inferior _46
+  - first:
+      213: 79231167561249890
+    second: Barra HUD inferior _47
+  - first:
+      213: 7360459321143568723
+    second: Barra HUD inferior _48
+  - first:
+      213: -1811189691918683344
+    second: Barra HUD inferior _49
+  - first:
+      213: -3667869685340383863
+    second: Barra HUD inferior _50
+  - first:
+      213: -8861976964855146294
+    second: Barra HUD inferior _51
+  - first:
+      213: -3940095424774264742
+    second: Barra HUD inferior _52
+  - first:
+      213: 1972295769527246316
+    second: Barra HUD inferior _53
+  - first:
+      213: 5982222659467144055
+    second: Barra HUD inferior _54
+  - first:
+      213: -7094915990128528295
+    second: Barra HUD inferior _55
+  - first:
+      213: 1418582815732706444
+    second: Barra HUD inferior _56
+  - first:
+      213: -237507757068057357
+    second: Barra HUD inferior _57
+  - first:
+      213: 6824132653736519769
+    second: Barra HUD inferior _58
+  - first:
+      213: 5795932685752047233
+    second: Barra HUD inferior _59
+  - first:
+      213: -8244595417765505438
+    second: Barra HUD inferior _60
+  - first:
+      213: 3447789352051038277
+    second: Barra HUD inferior _61
+  - first:
+      213: -7735612986524412187
+    second: Barra HUD inferior _62
+  - first:
+      213: 8504203238957454042
+    second: Barra HUD inferior _63
+  - first:
+      213: -1512066886102134034
+    second: Barra HUD inferior _64
+  - first:
+      213: 1351754497601549096
+    second: Barra HUD inferior _65
+  - first:
+      213: 8379408625079768434
+    second: Barra HUD inferior _66
+  - first:
+      213: -408572180695705044
+    second: Barra HUD inferior _67
+  - first:
+      213: -65633711960592810
+    second: Barra HUD inferior _68
+  - first:
+      213: -8567120470095041577
+    second: Barra HUD inferior _69
+  - first:
+      213: -8668250699665667225
+    second: Barra HUD inferior _70
+  - first:
+      213: -3214997554285406966
+    second: Barra HUD inferior _71
+  - first:
+      213: 8396398748134059410
+    second: Barra HUD inferior _72
+  - first:
+      213: 2412812685160049326
+    second: Barra HUD inferior _73
+  - first:
+      213: -4450609788708710878
+    second: Barra HUD inferior _74
+  - first:
+      213: 6787434491771763692
+    second: Barra HUD inferior _75
+  - first:
+      213: 4503996344650434190
+    second: Barra HUD inferior _76
+  - first:
+      213: -2629561759785789371
+    second: Barra HUD inferior _77
+  - first:
+      213: -1359821135160621085
+    second: Barra HUD inferior _78
+  - first:
+      213: -3656615569330630044
+    second: Barra HUD inferior _79
+  - first:
+      213: 3932284275580560531
+    second: Barra HUD inferior _80
+  - first:
+      213: 382066735069017133
+    second: Barra HUD inferior _81
+  - first:
+      213: -8980437788898192753
+    second: Barra HUD inferior _82
+  - first:
+      213: -3297334977164229402
+    second: Barra HUD inferior _83
+  - first:
+      213: -1190536301336577630
+    second: Barra HUD inferior _84
+  - first:
+      213: -6784145619920492898
+    second: Barra HUD inferior _85
+  - first:
+      213: -8416903749920781122
+    second: Barra HUD inferior _86
+  - first:
+      213: 5357460473533492580
+    second: Barra HUD inferior _87
+  - first:
+      213: 1286880392230941243
+    second: Barra HUD inferior _88
+  - first:
+      213: 7622116853802837532
+    second: Barra HUD inferior _89
+  - first:
+      213: -8240641903411801729
+    second: Barra HUD inferior _90
+  - first:
+      213: 5209021319831038205
+    second: Barra HUD inferior _91
+  - first:
+      213: 8675545941962158254
+    second: Barra HUD inferior _92
+  - first:
+      213: -6104135221592227994
+    second: Barra HUD inferior _93
+  - first:
+      213: 2628454415151576763
+    second: Barra HUD inferior _94
+  - first:
+      213: -6811976973113723636
+    second: Barra HUD inferior _95
+  - first:
+      213: -3136826004606551001
+    second: Barra HUD inferior _96
+  - first:
+      213: 4691384543684525961
+    second: Barra HUD inferior _97
+  - first:
+      213: -2069117663747086924
+    second: Barra HUD inferior _98
+  - first:
+      213: -759399421030958074
+    second: Barra HUD inferior _99
+  - first:
+      213: -4355429965029570329
+    second: Barra HUD inferior _100
+  - first:
+      213: -1026433550824092620
+    second: Barra HUD inferior _101
+  - first:
+      213: -687174442221124918
+    second: Barra HUD inferior _102
+  - first:
+      213: -4536998071294357301
+    second: Barra HUD inferior _103
+  - first:
+      213: 7564771557479210760
+    second: Barra HUD inferior _104
+  - first:
+      213: 4358329115516006149
+    second: Barra HUD inferior _105
+  - first:
+      213: 7056298735443967119
+    second: Barra HUD inferior _106
+  - first:
+      213: 2247390771412682104
+    second: Barra HUD inferior _107
+  - first:
+      213: -2786883494307871172
+    second: Barra HUD inferior _108
+  - first:
+      213: 3770874112281838852
+    second: Barra HUD inferior _109
+  - first:
+      213: -6755128078696349400
+    second: Barra HUD inferior _110
+  - first:
+      213: 4278546984070019562
+    second: Barra HUD inferior _111
+  - first:
+      213: 8809126493122081480
+    second: Barra HUD inferior _112
+  - first:
+      213: 3350345162365838129
+    second: Barra HUD inferior _113
+  - first:
+      213: 6400352552882056899
+    second: Barra HUD inferior _114
+  - first:
+      213: 8280427822525720887
+    second: Barra HUD inferior _115
+  - first:
+      213: -2172657953147826493
+    second: Barra HUD inferior _116
+  - first:
+      213: -187056659318651273
+    second: Barra HUD inferior _117
+  - first:
+      213: 7737060053278702449
+    second: Barra HUD inferior _118
+  - first:
+      213: 8032876375169320171
+    second: Barra HUD inferior _119
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Barra HUD inferior _0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 927
+        width: 45
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13be085d0369dbf00800000000000000
+      internalID: 1134227817651825457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _1
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 915
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95253ae7a100c6330800000000000000
+      internalID: 3705336707212857945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _2
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 920
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 688211927df534b00800000000000000
+      internalID: 811597735568418950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _3
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 795
+        width: 107
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 887686f9c3d48efd0800000000000000
+      internalID: -2312513485886953592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _4
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 910
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb1105694605aa240800000000000000
+      internalID: 4803740345492836795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _5
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 921
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d62f094c32a560a80800000000000000
+      internalID: -8501008136947043731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _6
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 926
+        width: 64
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20e7785b45f8648a0800000000000000
+      internalID: -6321207432982331902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _7
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 924
+        width: 25
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe551738ed3a93260800000000000000
+      internalID: 7077868465472755183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _8
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 924
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 707a70bd682767770800000000000000
+      internalID: 8608193661291177735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _9
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 929
+        width: 51
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d45c8e3eeab4034a0800000000000000
+      internalID: -6615704638087183027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _10
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 918
+        width: 77
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1151c57b63ecfc20800000000000000
+      internalID: 3241715882476523807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _11
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 903
+        width: 52
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 204f37a20935bc070800000000000000
+      internalID: 8127681831172830210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _12
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 923
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38e0151a16feacd50800000000000000
+      internalID: 6758477393420160643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _13
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 923
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68b9188271eb48370800000000000000
+      internalID: 8323987017960627078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _14
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 905
+        width: 84
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6476b94aa42936390800000000000000
+      internalID: -7826250878152906938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _15
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 888
+        width: 57
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d87e7ffe14aedf10800000000000000
+      internalID: 2296453313047984341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _16
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 915
+        width: 36
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19a53fa7ed082b6e0800000000000000
+      internalID: -1823253206097765743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _17
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 918
+        width: 44
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 803e4495b519e0000800000000000000
+      internalID: 4100471199687432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _18
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 919
+        width: 36
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77b034f1cfca27b40800000000000000
+      internalID: 5436597899045833591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _19
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 909
+        width: 68
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38ec73dc50a5db180800000000000000
+      internalID: -9098016691254210941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _20
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 904
+        width: 143
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e86c40c690b16f2b0800000000000000
+      internalID: -5551219763406649714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _21
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 889
+        width: 40
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a9a8357494221c00800000000000000
+      internalID: 869797898076334496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _22
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 920
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca3ac5caf2686d40800000000000000
+      internalID: 5577816967698070208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _23
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 919
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 034f54ad9f1ca94c0800000000000000
+      internalID: -4279895217009200080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _24
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 905
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e520cfc7d65b0780800000000000000
+      internalID: -8715777168942029344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _25
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 903
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b29ba8509b12eec80800000000000000
+      internalID: -8291652785396860629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _26
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 910
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 716eb3478863b3d70800000000000000
+      internalID: 9023866238060455447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _27
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 900
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f32292c2f1615b0800000000000000
+      internalID: -5398092828827828427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _28
+      rect:
+        serializedVersion: 2
+        x: 1371
+        y: 852
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60c7fe9a53915b890800000000000000
+      internalID: -7443015090884871162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _29
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 850
+        width: 31
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3d1073f3e1414390800000000000000
+      internalID: -7835909429350359745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _30
+      rect:
+        serializedVersion: 2
+        x: 1660
+        y: 858
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72f1c5eab564e7d30800000000000000
+      internalID: 4431056442960387879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _31
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 765
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85812fbb6031bf1d0800000000000000
+      internalID: -3316035780984301480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _32
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 736
+        width: 31
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f315f53eb796388e0800000000000000
+      internalID: -1692393054144605889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _33
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 735
+        width: 32
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a15754eb465209d40800000000000000
+      internalID: 5589008252185965850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _34
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 732
+        width: 109
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d940b388bfaf47c0800000000000000
+      internalID: -4084853129983538728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _35
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 741
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 085a28409fb3b4a00800000000000000
+      internalID: 741752504341144960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _36
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 811
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a3140d972ff61890800000000000000
+      internalID: -7487516784853773408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _37
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 805
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2a3da2285d0b3330800000000000000
+      internalID: 3691558991750314542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _38
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 756
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee2117d1a4d9f7030800000000000000
+      internalID: 3494684777509884654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _39
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 758
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e9c8d1a5e034a4d0800000000000000
+      internalID: -3124318478667298329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _40
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 708
+        width: 82
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32c9201b4a08d3290800000000000000
+      internalID: -7909023925759992797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _41
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 758
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8501c0e590aee3bb0800000000000000
+      internalID: -4954265214107512744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _42
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 735
+        width: 81
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31e0da589509af710800000000000000
+      internalID: 1727852121219206675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _43
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 796
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6918be721abeba8f0800000000000000
+      internalID: -528069453893893738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _44
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 798
+        width: 11
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a050a2eeb70b82f0800000000000000
+      internalID: -969672778340872025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _45
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 738
+        width: 130
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41b1c2ddafbff5bf0800000000000000
+      internalID: -333270792531076332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _46
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 747
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a6ff36f797dc02f0800000000000000
+      internalID: -1005191569139042649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _47
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 758
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 264b0adb35c791100800000000000000
+      internalID: 79231167561249890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _48
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 777
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 359a97451ca952660800000000000000
+      internalID: 7360459321143568723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _49
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 793
+        width: 29
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0337650429c5dd6e0800000000000000
+      internalID: -1811189691918683344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _50
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 766
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 985dcd254fb191dc0800000000000000
+      internalID: -3667869685340383863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _51
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 756
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac85d1a37eee30580800000000000000
+      internalID: -8861976964855146294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _52
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 787
+        width: 116
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5820313618f159c0800000000000000
+      internalID: -3940095424774264742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _53
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 835
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ced5dae7d800f5b10800000000000000
+      internalID: 1972295769527246316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _54
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 799
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77be4d840df150350800000000000000
+      internalID: 5982222659467144055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _55
+      rect:
+        serializedVersion: 2
+        x: 1427
+        y: 722
+        width: 92
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95476295f7bc98d90800000000000000
+      internalID: -7094915990128528295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _56
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 726
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8ca8301e81dfa310800000000000000
+      internalID: 1418582815732706444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _57
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 1675
+        height: 673
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f40f8c04f334bcf0800000000000000
+      internalID: -237507757068057357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _58
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 712
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 958eb162e7034be50800000000000000
+      internalID: 6824132653736519769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _59
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 702
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 186935cc11a4f6050800000000000000
+      internalID: 5795932685752047233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _60
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 680
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26616473620559d80800000000000000
+      internalID: -8244595417765505438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _61
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 681
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5485065062209df20800000000000000
+      internalID: 3447789352051038277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _62
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 701
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e6505a49f495a490800000000000000
+      internalID: -7735612986524412187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _63
+      rect:
+        serializedVersion: 2
+        x: 1671
+        y: 672
+        width: 6
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad219c3e9cff40670800000000000000
+      internalID: 8504203238957454042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _64
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 642
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee25049ad2f040be0800000000000000
+      internalID: -1512066886102134034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _65
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 637
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 823b31dbd8562c210800000000000000
+      internalID: 1351754497601549096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _66
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 614
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27559bd9fb3a94470800000000000000
+      internalID: 8379408625079768434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _67
+      rect:
+        serializedVersion: 2
+        x: 1671
+        y: 561
+        width: 6
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2a968034c5745af0800000000000000
+      internalID: -408572180695705044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _68
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 537
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65e6c499c72d61ff0800000000000000
+      internalID: -65633711960592810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _69
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 473
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dbe100b2597b1980800000000000000
+      internalID: -8567120470095041577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _70
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 377
+        width: 11
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76b856e3aef24b780800000000000000
+      internalID: -8668250699665667225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _71
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 370
+        width: 13
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a05911712c80263d0800000000000000
+      internalID: -3214997554285406966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 334
+        width: 12
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29da017ec20068470800000000000000
+      internalID: 8396398748134059410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _73
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 330
+        width: 11
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaa65808a580c7120800000000000000
+      internalID: 2412812685160049326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _74
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 298
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 226142e3af14c32c0800000000000000
+      internalID: -4450609788708710878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 290
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb3a4a75bfc13e50800000000000000
+      internalID: 6787434491771763692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _76
+      rect:
+        serializedVersion: 2
+        x: 1671
+        y: 280
+        width: 6
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e860c80ffc8618e30800000000000000
+      internalID: 4503996344650434190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 271
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5485401f28be18bd0800000000000000
+      internalID: -2629561759785789371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _78
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 251
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e7cea8d1e1f02de0800000000000000
+      internalID: -1359821135160621085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _79
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 244
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46292e56387114dc0800000000000000
+      internalID: -3656615569330630044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _80
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 246
+        width: 32
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39465d9e6b7429630800000000000000
+      internalID: 3932284275580560531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _81
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 255
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d243848dbaf5d4500800000000000000
+      internalID: 382066735069017133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _82
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 240
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f829a3159631f5380800000000000000
+      internalID: -8980437788898192753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _83
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 242
+        width: 22
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e4c7acee438d32d0800000000000000
+      internalID: -3297334977164229402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _84
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 241
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a930aaaa8d5a7fe0800000000000000
+      internalID: -1190536301336577630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _85
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 245
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e96ed1ca08fd9d1a0800000000000000
+      internalID: -6784145619920492898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _86
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 227
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc815552a6213b80800000000000000
+      internalID: -8416903749920781122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _87
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 243
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46de8276ae5895a40800000000000000
+      internalID: 5357460473533492580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _88
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 242
+        width: 23
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b32375706eaebd110800000000000000
+      internalID: 1286880392230941243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _89
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 240
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c16af6315e237c960800000000000000
+      internalID: 7622116853802837532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _90
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 208
+        width: 10
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f71d0f189db53ad80800000000000000
+      internalID: -8240641903411801729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _91
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 234
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df827f3ba492a4840800000000000000
+      internalID: 5209021319831038205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _92
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 231
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea07c37b11bb56870800000000000000
+      internalID: 8675545941962158254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _93
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 216
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66f7b086b51c94ba0800000000000000
+      internalID: -6104135221592227994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _94
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 219
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb6ba6b4d552a7420800000000000000
+      internalID: 2628454415151576763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _95
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 217
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c057a6bc80ff671a0800000000000000
+      internalID: -6811976973113723636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _96
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 221
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72cf7315e51c774d0800000000000000
+      internalID: -3136826004606551001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _97
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 215
+        width: 33
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98ff21fe2652b1140800000000000000
+      internalID: 4691384543684525961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _98
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 221
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b56edd82740943e0800000000000000
+      internalID: -2069117663747086924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _99
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 217
+        width: 27
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60cffc200421675f0800000000000000
+      internalID: -759399421030958074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _100
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 217
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e8025ad5876e83c0800000000000000
+      internalID: -4355429965029570329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _101
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 205
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43c4691bf1061c1f0800000000000000
+      internalID: -1026433550824092620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _102
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 184
+        width: 11
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac2cea05c7aa676f0800000000000000
+      internalID: -687174442221124918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _103
+      rect:
+        serializedVersion: 2
+        x: 1670
+        y: 168
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc01eddca485901c0800000000000000
+      internalID: -4536998071294357301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _104
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 113
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80fd682d6a77bf860800000000000000
+      internalID: 7564771557479210760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 71
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50fe2983d35eb7c30800000000000000
+      internalID: 4358329115516006149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _106
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 0
+        width: 33
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8cfc2360520de160800000000000000
+      internalID: 7056298735443967119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _107
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 6
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8754b89dff5503f10800000000000000
+      internalID: 2247390771412682104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _108
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 0
+        width: 24
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c36416b3a300359d0800000000000000
+      internalID: -2786883494307871172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _109
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 0
+        width: 72
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4058643b606d45430800000000000000
+      internalID: 3770874112281838852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _110
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 0
+        width: 23
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82189097dc6f042a0800000000000000
+      internalID: -6755128078696349400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _111
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 0
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae9ff4430d3706b30800000000000000
+      internalID: 4278546984070019562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _112
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 0
+        width: 27
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c2360c6fdd404a70800000000000000
+      internalID: 8809126493122081480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _113
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 0
+        width: 30
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 133a3cd9c21de7e20800000000000000
+      internalID: 3350345162365838129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _114
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 4
+        width: 28
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ceaccf7cbe92d850800000000000000
+      internalID: 6400352552882056899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _115
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 0
+        width: 153
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73928e5ab3df9e270800000000000000
+      internalID: 8280427822525720887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _116
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 0
+        width: 47
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce42345a1b29d1e0800000000000000
+      internalID: -2172657953147826493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _117
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 0
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 776c07c95f0776df0800000000000000
+      internalID: -187056659318651273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _118
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 2
+        width: 19
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17bba81302f8f5b60800000000000000
+      internalID: 7737060053278702449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barra HUD inferior _119
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 0
+        width: 58
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be44892d0828a7f60800000000000000
+      internalID: 8032876375169320171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Barra HUD inferior _0: 1134227817651825457
+      Barra HUD inferior _1: 3705336707212857945
+      Barra HUD inferior _10: 3241715882476523807
+      Barra HUD inferior _100: -4355429965029570329
+      Barra HUD inferior _101: -1026433550824092620
+      Barra HUD inferior _102: -687174442221124918
+      Barra HUD inferior _103: -4536998071294357301
+      Barra HUD inferior _104: 7564771557479210760
+      Barra HUD inferior _105: 4358329115516006149
+      Barra HUD inferior _106: 7056298735443967119
+      Barra HUD inferior _107: 2247390771412682104
+      Barra HUD inferior _108: -2786883494307871172
+      Barra HUD inferior _109: 3770874112281838852
+      Barra HUD inferior _11: 8127681831172830210
+      Barra HUD inferior _110: -6755128078696349400
+      Barra HUD inferior _111: 4278546984070019562
+      Barra HUD inferior _112: 8809126493122081480
+      Barra HUD inferior _113: 3350345162365838129
+      Barra HUD inferior _114: 6400352552882056899
+      Barra HUD inferior _115: 8280427822525720887
+      Barra HUD inferior _116: -2172657953147826493
+      Barra HUD inferior _117: -187056659318651273
+      Barra HUD inferior _118: 7737060053278702449
+      Barra HUD inferior _119: 8032876375169320171
+      Barra HUD inferior _12: 6758477393420160643
+      Barra HUD inferior _13: 8323987017960627078
+      Barra HUD inferior _14: -7826250878152906938
+      Barra HUD inferior _15: 2296453313047984341
+      Barra HUD inferior _16: -1823253206097765743
+      Barra HUD inferior _17: 4100471199687432
+      Barra HUD inferior _18: 5436597899045833591
+      Barra HUD inferior _19: -9098016691254210941
+      Barra HUD inferior _2: 811597735568418950
+      Barra HUD inferior _20: -5551219763406649714
+      Barra HUD inferior _21: 869797898076334496
+      Barra HUD inferior _22: 5577816967698070208
+      Barra HUD inferior _23: -4279895217009200080
+      Barra HUD inferior _24: -8715777168942029344
+      Barra HUD inferior _25: -8291652785396860629
+      Barra HUD inferior _26: 9023866238060455447
+      Barra HUD inferior _27: -5398092828827828427
+      Barra HUD inferior _28: -7443015090884871162
+      Barra HUD inferior _29: -7835909429350359745
+      Barra HUD inferior _3: -2312513485886953592
+      Barra HUD inferior _30: 4431056442960387879
+      Barra HUD inferior _31: -3316035780984301480
+      Barra HUD inferior _32: -1692393054144605889
+      Barra HUD inferior _33: 5589008252185965850
+      Barra HUD inferior _34: -4084853129983538728
+      Barra HUD inferior _35: 741752504341144960
+      Barra HUD inferior _36: -7487516784853773408
+      Barra HUD inferior _37: 3691558991750314542
+      Barra HUD inferior _38: 3494684777509884654
+      Barra HUD inferior _39: -3124318478667298329
+      Barra HUD inferior _4: 4803740345492836795
+      Barra HUD inferior _40: -7909023925759992797
+      Barra HUD inferior _41: -4954265214107512744
+      Barra HUD inferior _42: 1727852121219206675
+      Barra HUD inferior _43: -528069453893893738
+      Barra HUD inferior _44: -969672778340872025
+      Barra HUD inferior _45: -333270792531076332
+      Barra HUD inferior _46: -1005191569139042649
+      Barra HUD inferior _47: 79231167561249890
+      Barra HUD inferior _48: 7360459321143568723
+      Barra HUD inferior _49: -1811189691918683344
+      Barra HUD inferior _5: -8501008136947043731
+      Barra HUD inferior _50: -3667869685340383863
+      Barra HUD inferior _51: -8861976964855146294
+      Barra HUD inferior _52: -3940095424774264742
+      Barra HUD inferior _53: 1972295769527246316
+      Barra HUD inferior _54: 5982222659467144055
+      Barra HUD inferior _55: -7094915990128528295
+      Barra HUD inferior _56: 1418582815732706444
+      Barra HUD inferior _57: -237507757068057357
+      Barra HUD inferior _58: 6824132653736519769
+      Barra HUD inferior _59: 5795932685752047233
+      Barra HUD inferior _6: -6321207432982331902
+      Barra HUD inferior _60: -8244595417765505438
+      Barra HUD inferior _61: 3447789352051038277
+      Barra HUD inferior _62: -7735612986524412187
+      Barra HUD inferior _63: 8504203238957454042
+      Barra HUD inferior _64: -1512066886102134034
+      Barra HUD inferior _65: 1351754497601549096
+      Barra HUD inferior _66: 8379408625079768434
+      Barra HUD inferior _67: -408572180695705044
+      Barra HUD inferior _68: -65633711960592810
+      Barra HUD inferior _69: -8567120470095041577
+      Barra HUD inferior _7: 7077868465472755183
+      Barra HUD inferior _70: -8668250699665667225
+      Barra HUD inferior _71: -3214997554285406966
+      Barra HUD inferior _72: 8396398748134059410
+      Barra HUD inferior _73: 2412812685160049326
+      Barra HUD inferior _74: -4450609788708710878
+      Barra HUD inferior _75: 6787434491771763692
+      Barra HUD inferior _76: 4503996344650434190
+      Barra HUD inferior _77: -2629561759785789371
+      Barra HUD inferior _78: -1359821135160621085
+      Barra HUD inferior _79: -3656615569330630044
+      Barra HUD inferior _8: 8608193661291177735
+      Barra HUD inferior _80: 3932284275580560531
+      Barra HUD inferior _81: 382066735069017133
+      Barra HUD inferior _82: -8980437788898192753
+      Barra HUD inferior _83: -3297334977164229402
+      Barra HUD inferior _84: -1190536301336577630
+      Barra HUD inferior _85: -6784145619920492898
+      Barra HUD inferior _86: -8416903749920781122
+      Barra HUD inferior _87: 5357460473533492580
+      Barra HUD inferior _88: 1286880392230941243
+      Barra HUD inferior _89: 7622116853802837532
+      Barra HUD inferior _9: -6615704638087183027
+      Barra HUD inferior _90: -8240641903411801729
+      Barra HUD inferior _91: 5209021319831038205
+      Barra HUD inferior _92: 8675545941962158254
+      Barra HUD inferior _93: -6104135221592227994
+      Barra HUD inferior _94: 2628454415151576763
+      Barra HUD inferior _95: -6811976973113723636
+      Barra HUD inferior _96: -3136826004606551001
+      Barra HUD inferior _97: 4691384543684525961
+      Barra HUD inferior _98: -2069117663747086924
+      Barra HUD inferior _99: -759399421030958074
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

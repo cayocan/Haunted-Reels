@@ -14,32 +14,31 @@ public class SlotMachinePresenter : MonoBehaviour
         var sp = SessionPresenter.Instance;
         if (sp == null)
         {
-            Debug.LogError("[SlotMachinePresenter] SessionPresenter.Instance é null. " +
-                "Certifique-se de que a MenuScene foi carregada antes da GameScene.");
+            Debug.LogError("[SlotMachinePresenter] SessionPresenter.Instance é null.");
             return;
         }
 
         if (_config == null)
         {
-            Debug.LogError("[SlotMachinePresenter] SlotMachineConfig não atribuído no Inspector.");
+            Debug.LogError("[SlotMachinePresenter] SlotMachineConfig não atribuído.");
             return;
         }
 
         var model = sp.Model;
 
         _stateMachine = new SlotStateMachine();
+        // paylineCount=1: BetPerLine no contexto representa a aposta total visível ao jogador
+        // o backend recebe esse valor e divide por nº de paylines internamente
         _ctx = new SlotGameContext(
             _view, sp, model, _stateMachine,
-            _config.minBet, _config.maxBet, _config.paylineCount, _config.minSpinDuration);
+            _config.minBet, _config.maxBet, 1, _config.minSpinDuration);
 
         _ctx.BetPerLine = Mathf.Clamp(model.BetPerLine, _config.minBet, _config.maxBet);
 
-        _view.OnSpinRequested        += OnSpinRequested;
-        _view.OnAutoSpinToggled      += OnAutoSpinToggled;
-        _view.OnBetIncreaseRequested += OnBetIncrease;
-        _view.OnBetDecreaseRequested += OnBetDecrease;
-
-        model.OnCoinsChanged += OnCoinsChanged;
+        _view.OnSpinRequested   += OnSpinRequested;
+        _view.OnAutoSpinToggled += OnAutoSpinToggled;
+        _view.OnBetSetRequested += OnBetSet;
+        model.OnCoinsChanged    += OnCoinsChanged;
 
         _view.UpdateCoins(_ctx.Model.Coins);
         _view.UpdateFreeSpins(model.FreeSpinsRemaining);
@@ -52,13 +51,12 @@ public class SlotMachinePresenter : MonoBehaviour
     {
         if (_view != null)
         {
-            _view.OnSpinRequested        -= OnSpinRequested;
-            _view.OnAutoSpinToggled      -= OnAutoSpinToggled;
-            _view.OnBetIncreaseRequested -= OnBetIncrease;
-            _view.OnBetDecreaseRequested -= OnBetDecrease;
+            _view.OnSpinRequested   -= OnSpinRequested;
+            _view.OnAutoSpinToggled -= OnAutoSpinToggled;
+            _view.OnBetSetRequested -= OnBetSet;
         }
 
-        var model = SessionPresenter.Instance?.Model;
+        var model = SessionPresenter.Instance != null ? SessionPresenter.Instance.Model : null;
         if (model != null) model.OnCoinsChanged -= OnCoinsChanged;
     }
 
@@ -77,18 +75,11 @@ public class SlotMachinePresenter : MonoBehaviour
             _stateMachine.Transition(new SpinningState(_ctx));
     }
 
-    private void OnBetIncrease()
+    private void OnBetSet(int newBet)
     {
+        // só altera aposta quando idle
         if (!_stateMachine.IsIn<IdleState>()) return;
-        _ctx.BetPerLine = Mathf.Min(_ctx.BetPerLine + 1, _config.maxBet);
-        _view.UpdateBetPerLine(_ctx.BetPerLine, _config.minBet, _config.maxBet, _ctx.TotalBet);
-        _view.SetSpinInteractable(_ctx.CanSpin);
-    }
-
-    private void OnBetDecrease()
-    {
-        if (!_stateMachine.IsIn<IdleState>()) return;
-        _ctx.BetPerLine = Mathf.Max(_ctx.BetPerLine - 1, _config.minBet);
+        _ctx.BetPerLine = newBet; // já vem clampado da view
         _view.UpdateBetPerLine(_ctx.BetPerLine, _config.minBet, _config.maxBet, _ctx.TotalBet);
         _view.SetSpinInteractable(_ctx.CanSpin);
     }

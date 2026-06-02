@@ -112,7 +112,7 @@ public class ApiClient
     {
         if (request.result == UnityWebRequest.Result.Success) return;
 
-        string body = request.downloadHandler?.text ?? string.Empty;
+        string body = request.downloadHandler != null ? request.downloadHandler.text : string.Empty;
 
         string apiError = string.Empty;
         if (!string.IsNullOrEmpty(body))

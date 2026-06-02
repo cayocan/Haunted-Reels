@@ -1,0 +1,628 @@
+fileFormatVersion: 2
+guid: 32f15bfc9d98f5947992318e3f8b6e04
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -198893874883561688
+    second: "L1 \u2014 Morcego (Bat)_0"
+  - first:
+      213: -167643273623307309
+    second: "L1 \u2014 Morcego (Bat)_1"
+  - first:
+      213: -3241291014657924773
+    second: "L1 \u2014 Morcego (Bat)_2"
+  - first:
+      213: -8405252052650479482
+    second: "L1 \u2014 Morcego (Bat)_3"
+  - first:
+      213: -3117117716771206805
+    second: "L1 \u2014 Morcego (Bat)_4"
+  - first:
+      213: 6811116358128567207
+    second: "L1 \u2014 Morcego (Bat)_5"
+  - first:
+      213: -178002307184279513
+    second: "L1 \u2014 Morcego (Bat)_6"
+  - first:
+      213: 1718413380539012195
+    second: "L1 \u2014 Morcego (Bat)_7"
+  - first:
+      213: -2472478856181985178
+    second: "L1 \u2014 Morcego (Bat)_8"
+  - first:
+      213: 2354795512089508357
+    second: "L1 \u2014 Morcego (Bat)_9"
+  - first:
+      213: 7853559385349446511
+    second: "L1 \u2014 Morcego (Bat)_10"
+  - first:
+      213: 7777190101334953339
+    second: "L1 \u2014 Morcego (Bat)_11"
+  - first:
+      213: -8409165833730744007
+    second: "L1 \u2014 Morcego (Bat)_12"
+  - first:
+      213: -7795376643939388120
+    second: "L1 \u2014 Morcego (Bat)_13"
+  - first:
+      213: 8848536146457144000
+    second: "L1 \u2014 Morcego (Bat)_14"
+  - first:
+      213: 901719136622334401
+    second: "L1 \u2014 Morcego (Bat)_15"
+  - first:
+      213: -4590001018208878166
+    second: "L1 \u2014 Morcego (Bat)_16"
+  - first:
+      213: -1973035184899909706
+    second: "L1 \u2014 Morcego (Bat)_17"
+  - first:
+      213: 568279809209504169
+    second: "L1 \u2014 Morcego (Bat)_18"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_0"
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 712
+        width: 24
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 827709713136d3df0800000000000000
+      internalID: -198893874883561688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_1"
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 758
+        width: 43
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dbf2b2b4596cadf0800000000000000
+      internalID: -167643273623307309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_2"
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 781
+        width: 84
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5126a9cefe9403d0800000000000000
+      internalID: -3241291014657924773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_3"
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 295
+        width: 780
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68035228acb8a5b80800000000000000
+      internalID: -8405252052650479482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_4"
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 768
+        width: 158
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6986c8a3f5cdb4d0800000000000000
+      internalID: -3117117716771206805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_5"
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 834
+        width: 17
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a30b1aad32f58e50800000000000000
+      internalID: 6811116358128567207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_6"
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 811
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 720c41f38db978df0800000000000000
+      internalID: -178002307184279513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_7"
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 651
+        width: 145
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3645e447dd709d710800000000000000
+      internalID: 1718413380539012195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_8"
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 491
+        width: 163
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 660db9e749dffadd0800000000000000
+      internalID: -2472478856181985178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_9"
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 639
+        width: 49
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a77c0ca0aeda020800000000000000
+      internalID: 2354795512089508357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_10"
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 679
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6b503aa6a27dfc60800000000000000
+      internalID: 7853559385349446511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_11"
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 639
+        width: 31
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d01cc11312eeb60800000000000000
+      internalID: 7777190101334953339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_12"
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 620
+        width: 29
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 931a0275a34ac4b80800000000000000
+      internalID: -8409165833730744007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_13"
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 451
+        width: 200
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 825bd977e3241d390800000000000000
+      internalID: -7795376643939388120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_14"
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 476
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca28cf5eb05cca70800000000000000
+      internalID: 8848536146457144000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_15"
+      rect:
+        serializedVersion: 2
+        x: 1309
+        y: 420
+        width: 83
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c1db89f6cc838c00800000000000000
+      internalID: 901719136622334401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_16"
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 466
+        width: 42
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa18afe846a0d40c0800000000000000
+      internalID: -4590001018208878166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_17"
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 500
+        width: 96
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b791b2f3fe5e94e0800000000000000
+      internalID: -1973035184899909706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L1 \u2014 Morcego (Bat)_18"
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 403
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a195f0c97fe2e700800000000000000
+      internalID: 568279809209504169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      "L1 \u2014 Morcego (Bat)_0": -198893874883561688
+      "L1 \u2014 Morcego (Bat)_1": -167643273623307309
+      "L1 \u2014 Morcego (Bat)_10": 7853559385349446511
+      "L1 \u2014 Morcego (Bat)_11": 7777190101334953339
+      "L1 \u2014 Morcego (Bat)_12": -8409165833730744007
+      "L1 \u2014 Morcego (Bat)_13": -7795376643939388120
+      "L1 \u2014 Morcego (Bat)_14": 8848536146457144000
+      "L1 \u2014 Morcego (Bat)_15": 901719136622334401
+      "L1 \u2014 Morcego (Bat)_16": -4590001018208878166
+      "L1 \u2014 Morcego (Bat)_17": -1973035184899909706
+      "L1 \u2014 Morcego (Bat)_18": 568279809209504169
+      "L1 \u2014 Morcego (Bat)_2": -3241291014657924773
+      "L1 \u2014 Morcego (Bat)_3": -8405252052650479482
+      "L1 \u2014 Morcego (Bat)_4": -3117117716771206805
+      "L1 \u2014 Morcego (Bat)_5": 6811116358128567207
+      "L1 \u2014 Morcego (Bat)_6": -178002307184279513
+      "L1 \u2014 Morcego (Bat)_7": 1718413380539012195
+      "L1 \u2014 Morcego (Bat)_8": -2472478856181985178
+      "L1 \u2014 Morcego (Bat)_9": 2354795512089508357
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

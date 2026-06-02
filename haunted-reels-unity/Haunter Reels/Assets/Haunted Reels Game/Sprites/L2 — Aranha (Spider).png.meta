@@ -1,0 +1,703 @@
+fileFormatVersion: 2
+guid: 030e32bafad36d447845353cefe6eaf4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6665021515137752720
+    second: "L2 \u2014 Aranha (Spider)_0"
+  - first:
+      213: -4939871916320807670
+    second: "L2 \u2014 Aranha (Spider)_1"
+  - first:
+      213: 4291831445954731417
+    second: "L2 \u2014 Aranha (Spider)_2"
+  - first:
+      213: 2137518178732269681
+    second: "L2 \u2014 Aranha (Spider)_3"
+  - first:
+      213: -9020200716759345608
+    second: "L2 \u2014 Aranha (Spider)_4"
+  - first:
+      213: -5395426920381513108
+    second: "L2 \u2014 Aranha (Spider)_5"
+  - first:
+      213: -8715409957065129659
+    second: "L2 \u2014 Aranha (Spider)_6"
+  - first:
+      213: -2766954181781971725
+    second: "L2 \u2014 Aranha (Spider)_7"
+  - first:
+      213: -8545372012421190899
+    second: "L2 \u2014 Aranha (Spider)_8"
+  - first:
+      213: 1941342952044991412
+    second: "L2 \u2014 Aranha (Spider)_9"
+  - first:
+      213: 2162535772684432665
+    second: "L2 \u2014 Aranha (Spider)_10"
+  - first:
+      213: -4900894580240047205
+    second: "L2 \u2014 Aranha (Spider)_11"
+  - first:
+      213: 3357799544711096544
+    second: "L2 \u2014 Aranha (Spider)_12"
+  - first:
+      213: -1117178071700341898
+    second: "L2 \u2014 Aranha (Spider)_13"
+  - first:
+      213: -2553035234227649520
+    second: "L2 \u2014 Aranha (Spider)_14"
+  - first:
+      213: 7789565984125549337
+    second: "L2 \u2014 Aranha (Spider)_15"
+  - first:
+      213: 8497241217119594721
+    second: "L2 \u2014 Aranha (Spider)_16"
+  - first:
+      213: 6871348160811206124
+    second: "L2 \u2014 Aranha (Spider)_17"
+  - first:
+      213: -8790219802842482331
+    second: "L2 \u2014 Aranha (Spider)_18"
+  - first:
+      213: -524855775588612110
+    second: "L2 \u2014 Aranha (Spider)_19"
+  - first:
+      213: 437746468494400884
+    second: "L2 \u2014 Aranha (Spider)_20"
+  - first:
+      213: 8246416392117068965
+    second: "L2 \u2014 Aranha (Spider)_21"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_0"
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 712
+        width: 24
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 071e0e9ae361183a0800000000000000
+      internalID: -6665021515137752720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_1"
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 758
+        width: 43
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0525c72aac027bb0800000000000000
+      internalID: -4939871916320807670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_2"
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 781
+        width: 89
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99d9bf306f5af8b30800000000000000
+      internalID: 4291831445954731417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_3"
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 303
+        width: 687
+        height: 532
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170e640657df9ad10800000000000000
+      internalID: 2137518178732269681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_4"
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 768
+        width: 158
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 836d5da3d3fc1d280800000000000000
+      internalID: -9020200716759345608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_5"
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 834
+        width: 17
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6284175dc79f15b0800000000000000
+      internalID: -5395426920381513108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_6"
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 811
+        width: 97
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5410b3df1d4ac0780800000000000000
+      internalID: -8715409957065129659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_7"
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 651
+        width: 145
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fc9a15e4ddc999d0800000000000000
+      internalID: -2766954181781971725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_8"
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 797
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0be1161e6db86980800000000000000
+      internalID: -8545372012421190899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_9"
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 781
+        width: 21
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b399d3112901fa10800000000000000
+      internalID: 1941342952044991412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_10"
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 491
+        width: 163
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9153ee0e3ded20e10800000000000000
+      internalID: 2162535772684432665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_11"
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 639
+        width: 49
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b93a72768568cfbb0800000000000000
+      internalID: -4900894580240047205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_12"
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 679
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e8297145ec499e20800000000000000
+      internalID: 3357799544711096544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_13"
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 639
+        width: 31
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67bf17d767cfe70f0800000000000000
+      internalID: -1117178071700341898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_14"
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 620
+        width: 29
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0140ec42bfbc19cd0800000000000000
+      internalID: -2553035234227649520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_15"
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 451
+        width: 200
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91bf44eddf81a1c60800000000000000
+      internalID: 7789565984125549337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_16"
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 476
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e8a83dddd34ce570800000000000000
+      internalID: 8497241217119594721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_17"
+      rect:
+        serializedVersion: 2
+        x: 1309
+        y: 420
+        width: 83
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce58f2d0fbeeb5f50800000000000000
+      internalID: 6871348160811206124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_18"
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 466
+        width: 42
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56938f179add20680800000000000000
+      internalID: -8790219802842482331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_19"
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 500
+        width: 96
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f78ab1f37657b8f0800000000000000
+      internalID: -524855775588612110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_20"
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 405
+        width: 59
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47d5a440810331600800000000000000
+      internalID: 437746468494400884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "L2 \u2014 Aranha (Spider)_21"
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 403
+        width: 105
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a4a81a6408217270800000000000000
+      internalID: 8246416392117068965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      "L2 \u2014 Aranha (Spider)_0": -6665021515137752720
+      "L2 \u2014 Aranha (Spider)_1": -4939871916320807670
+      "L2 \u2014 Aranha (Spider)_10": 2162535772684432665
+      "L2 \u2014 Aranha (Spider)_11": -4900894580240047205
+      "L2 \u2014 Aranha (Spider)_12": 3357799544711096544
+      "L2 \u2014 Aranha (Spider)_13": -1117178071700341898
+      "L2 \u2014 Aranha (Spider)_14": -2553035234227649520
+      "L2 \u2014 Aranha (Spider)_15": 7789565984125549337
+      "L2 \u2014 Aranha (Spider)_16": 8497241217119594721
+      "L2 \u2014 Aranha (Spider)_17": 6871348160811206124
+      "L2 \u2014 Aranha (Spider)_18": -8790219802842482331
+      "L2 \u2014 Aranha (Spider)_19": -524855775588612110
+      "L2 \u2014 Aranha (Spider)_2": 4291831445954731417
+      "L2 \u2014 Aranha (Spider)_20": 437746468494400884
+      "L2 \u2014 Aranha (Spider)_21": 8246416392117068965
+      "L2 \u2014 Aranha (Spider)_3": 2137518178732269681
+      "L2 \u2014 Aranha (Spider)_4": -9020200716759345608
+      "L2 \u2014 Aranha (Spider)_5": -5395426920381513108
+      "L2 \u2014 Aranha (Spider)_6": -8715409957065129659
+      "L2 \u2014 Aranha (Spider)_7": -2766954181781971725
+      "L2 \u2014 Aranha (Spider)_8": -8545372012421190899
+      "L2 \u2014 Aranha (Spider)_9": 1941342952044991412
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

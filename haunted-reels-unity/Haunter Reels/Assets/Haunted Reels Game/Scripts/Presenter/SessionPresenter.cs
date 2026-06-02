@@ -30,7 +30,7 @@ public class SessionPresenter : MonoBehaviour, ISpinProvider
         _model = new SessionModel();
         _cts   = new CancellationTokenSource();
 
-        _model.OnCoinsChanged  += coins  => _view?.UpdateCoins(coins);
+        _model.OnCoinsChanged  += _      => _view?.UpdateCoins(_model.CoinsFloat);
         _model.OnSpinCompleted += result => _view?.ShowSpinResult(result);
         _model.OnSeedRotated   += result => _view?.ShowRotateResult(result);
     }
@@ -196,7 +196,7 @@ public class SessionPresenter : MonoBehaviour, ISpinProvider
     private void RefreshView()
     {
         if (_view == null) return;
-        _view.UpdateCoins(_model.Coins);
+        _view.UpdateCoins(_model.CoinsFloat);
         _view.UpdateFreeSpins(_model.FreeSpinsRemaining);
         _view.UpdateServerSeedHash(_model.ServerSeedHash);
         _view.UpdateClientSeed(_model.ClientSeed ?? string.Empty);

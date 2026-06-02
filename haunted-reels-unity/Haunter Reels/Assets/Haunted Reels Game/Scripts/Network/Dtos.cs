@@ -16,8 +16,8 @@ public class SessionStateResponse
 {
     public string sessionId;
     public string serverSeedHash;
-    public int coins;
-    public int betPerLine;
+    public float  coins;
+    public int    betPerLine;
     public int nonce;
     public int freeSpinsRemaining;
     public string clientSeed;
@@ -64,11 +64,11 @@ public class SpinRequest
 [Serializable]
 public class LineWin
 {
-    public int lineId;
-    public int symbolId;
-    public int count;
-    public int multiplier;
-    public int coins;
+    public int   lineId;
+    public int   symbolId;
+    public int   count;
+    public float multiplier; // paytable pode ter valores como 1.5
+    public float coins;      // multiplier × betPerLine pode ser float
     public int[][] cells;
 }
 
@@ -78,23 +78,23 @@ public class SpinData
     public int[] stopPositions;
     public int[][] grid;
     public LineWin[] lineWins;
-    public int lineWinTotal;
-    public int scatterCount;
+    public float lineWinTotal;  // soma de multiplier × betPerLine (pode ser float)
+    public int   scatterCount;
     public int[][] scatterPositions;
-    public int scatterCoins;
-    public bool triggerFreeSpins;
-    public int freeSpinsAwarded;
-    public int totalBet;
-    public int totalWin;
+    public int   scatterCoins;
+    public bool  triggerFreeSpins;
+    public int   freeSpinsAwarded;
+    public int   totalBet;
+    public float totalWin;      // lineWinTotal + scatterCoins (pode ser float)
     public string winLevel;
 }
 
 [Serializable]
 public class SpinSessionData
 {
-    public int coins;
-    public int freeSpinsRemaining;
-    public int nonce;
+    public float  coins;
+    public int    freeSpinsRemaining;
+    public int    nonce;
     public string serverSeedHash;
 }
 

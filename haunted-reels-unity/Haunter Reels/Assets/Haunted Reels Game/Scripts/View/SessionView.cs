@@ -27,13 +27,13 @@ public class SessionView : MonoBehaviour, ISessionView
     private void Start()
     {
         SessionPresenter.Instance.SetView(this);
-        _rotateSeedButton?.onClick.AddListener(OnRotateSeedClicked);
+        if (_rotateSeedButton != null) _rotateSeedButton.onClick.AddListener(OnRotateSeedClicked);
     }
 
     private void OnDestroy()
     {
-        SessionPresenter.Instance?.ClearView();
-        _rotateSeedButton?.onClick.RemoveListener(OnRotateSeedClicked);
+        if (SessionPresenter.Instance != null) SessionPresenter.Instance.ClearView();
+        if (_rotateSeedButton != null) _rotateSeedButton.onClick.RemoveListener(OnRotateSeedClicked);
     }
 
     private void OnRotateSeedClicked() => RotateSeedAsync().Forget();
@@ -49,10 +49,10 @@ public class SessionView : MonoBehaviour, ISessionView
         if (_rotateSeedButton != null) _rotateSeedButton.interactable = !isLoading;
     }
 
-    public void UpdateCoins(int coins)
+    public void UpdateCoins(float coins)
     {
         if (_coinsText != null)
-            _coinsText.text = coins.ToString("N0");
+            _coinsText.text = coins.ToString("N2");
     }
 
     public void UpdateFreeSpins(int freeSpinsRemaining)
@@ -79,14 +79,14 @@ public class SessionView : MonoBehaviour, ISessionView
     public void ShowSpinResult(SpinResponse result)
     {
         SetError(null);
-        if (result?.spin == null) return;
+        if (result == null || result.spin == null) return;
         if (result.spin.totalWin > 0)
             ShowWinFeedback(result.spin.totalWin, result.spin.winLevel);
     }
 
     public void ShowRotateResult(RotateResponse result)
     {
-        if (result?.revealed == null) return;
+        if (result == null || result.revealed == null) return;
         Debug.Log($"[SessionView] Seed revelado: {result.revealed.serverSeed} | " +
                   $"Nonces: {result.revealed.nonceRange[0]}–{result.revealed.nonceRange[1]}");
     }
@@ -106,7 +106,7 @@ public class SessionView : MonoBehaviour, ISessionView
         if (hasError) _errorText.text = message;
     }
 
-    private void ShowWinFeedback(int totalWin, string winLevel)
+    private void ShowWinFeedback(float totalWin, string winLevel)
     {
         Debug.Log($"[SessionView] Vitória! +{totalWin} coins | level: {winLevel}");
     }

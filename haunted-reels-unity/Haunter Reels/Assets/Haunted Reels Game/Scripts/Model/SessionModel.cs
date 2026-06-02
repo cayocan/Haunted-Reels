@@ -7,13 +7,17 @@ public class SessionModel : IGameModel
     public string SessionId          { get; private set; }
     public string ServerSeedHash     { get; private set; }
     public string ClientSeed         { get; private set; }
-    public int    Coins              { get; private set; }
     public int    BetPerLine         { get; private set; }
     public int    Nonce              { get; private set; }
     public int    FreeSpinsRemaining { get; private set; }
 
-    public SpinResponse LastSpin     { get; private set; }
-    ISpinResult IGameModel.LastSpin  => LastSpin;
+    // saldo completo em float — IGameModel.Coins expõe int truncado para o engine
+    private float _coinsFloat;
+    public float CoinsFloat => _coinsFloat;
+    public int   Coins      => (int)_coinsFloat; // IGameModel
+
+    public SpinResponse LastSpin    { get; private set; }
+    ISpinResult IGameModel.LastSpin => LastSpin;
 
     public RotateRevealedData LastRevealedSeed { get; private set; }
 
@@ -21,7 +25,7 @@ public class SessionModel : IGameModel
     public bool HasClientSeed => !string.IsNullOrEmpty(ClientSeed);
 
     public event Action OnChanged;
-    public event Action<int> OnCoinsChanged;
+    public event Action<int> OnCoinsChanged; // int por contrato IGameModel
     public event Action<SpinResponse> OnSpinCompleted;
     public event Action<RotateResponse> OnSeedRotated;
 
@@ -32,7 +36,7 @@ public class SessionModel : IGameModel
         SessionId          = r.sessionId;
         ServerSeedHash     = r.serverSeedHash;
         ClientSeed         = r.clientSeed;
-        Coins              = r.coins;
+        _coinsFloat        = r.coins;
         BetPerLine         = r.betPerLine;
         Nonce              = r.nonce;
         FreeSpinsRemaining = r.freeSpinsRemaining;
@@ -48,14 +52,14 @@ public class SessionModel : IGameModel
 
         if (r.session != null)
         {
-            int previousCoins = Coins;
+            float previous = _coinsFloat;
 
-            Coins              = r.session.coins;
+            _coinsFloat        = r.session.coins;
             Nonce              = r.session.nonce;
             FreeSpinsRemaining = r.session.freeSpinsRemaining;
             ServerSeedHash     = r.session.serverSeedHash;
 
-            if (Coins != previousCoins)
+            if (_coinsFloat != previous)
                 OnCoinsChanged?.Invoke(Coins);
         }
 
@@ -98,7 +102,7 @@ public class SessionModel : IGameModel
         SessionId          = null;
         ServerSeedHash     = null;
         ClientSeed         = null;
-        Coins              = 0;
+        _coinsFloat        = 0f;
         BetPerLine         = 0;
         Nonce              = 0;
         FreeSpinsRemaining = 0;

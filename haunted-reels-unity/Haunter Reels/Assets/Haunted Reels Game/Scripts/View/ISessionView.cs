@@ -1,7 +1,7 @@
 public interface ISessionView
 {
     void ShowLoading(bool isLoading);
-    void UpdateCoins(int coins);
+    void UpdateCoins(float coins);
     void UpdateFreeSpins(int freeSpinsRemaining);
     void UpdateServerSeedHash(string hash);
     void UpdateClientSeed(string seed);
