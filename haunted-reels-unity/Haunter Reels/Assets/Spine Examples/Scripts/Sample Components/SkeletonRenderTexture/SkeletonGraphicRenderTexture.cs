@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -126,7 +126,7 @@ namespace Spine.Unity.Examples {
 			skeletonGraphic.AssignMeshOverrideMultipleRenderers += RenderMultipleMeshesToRenderTexture;
 			skeletonGraphic.disableMeshAssignmentOnOverride = true;
 			skeletonGraphic.OnMeshAndMaterialsUpdated += RenderOntoQuad;
-			skeletonGraphic.OnRebuild += OnRebuild;
+			skeletonGraphic.OnAnimationRebuild += OnRebuild;
 			List<CanvasRenderer> canvasRenderers = skeletonGraphic.canvasRenderers;
 			for (int i = 0; i < canvasRenderers.Count; ++i)
 				canvasRenderers[i].cull = true;
@@ -141,7 +141,7 @@ namespace Spine.Unity.Examples {
 			skeletonGraphic.AssignMeshOverrideMultipleRenderers -= RenderMultipleMeshesToRenderTexture;
 			skeletonGraphic.disableMeshAssignmentOnOverride = false;
 			skeletonGraphic.OnMeshAndMaterialsUpdated -= RenderOntoQuad;
-			skeletonGraphic.OnRebuild -= OnRebuild;
+			skeletonGraphic.OnAnimationRebuild -= OnRebuild;
 			List<CanvasRenderer> canvasRenderers = skeletonGraphic.canvasRenderers;
 			for (int i = 0; i < canvasRenderers.Count; ++i)
 				canvasRenderers[i].cull = false;
@@ -158,11 +158,11 @@ namespace Spine.Unity.Examples {
 			SetupQuad();
 		}
 
-		void RenderOntoQuad (ISkeletonRenderer skeletonRenderer) {
+		void RenderOntoQuad (SkeletonGraphic skeletonRenderer) {
 			AssignAtQuad();
 		}
 
-		void OnRebuild (ISkeletonRenderer skeletonGraphic) {
+		void OnRebuild (ISkeletonAnimation skeletonGraphic) {
 			ResetMeshRendererMaterials();
 		}
 

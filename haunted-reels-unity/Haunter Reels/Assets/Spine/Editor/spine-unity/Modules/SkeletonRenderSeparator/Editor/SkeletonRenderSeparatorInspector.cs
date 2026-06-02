@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -48,8 +48,8 @@ namespace Spine.Unity.Examples {
 		static bool partsRenderersExpanded = false;
 
 		// For separator field.
-		SerializedObject skeletonRendererSerialized;
-		SerializedProperty separatorSlotNames, enableSeparatorSlots;
+		SerializedObject skeletonRendererSerializedObject;
+		SerializedProperty separatorNamesProp;
 		static bool skeletonRendererExpanded = true;
 		bool slotsReapplyRequired = false;
 		bool partsRendererInitRequired = false;
@@ -75,7 +75,7 @@ namespace Spine.Unity.Examples {
 				if (Application.isPlaying)
 					return component.SkeletonRenderer.separatorSlots.Count;
 				else
-					return separatorSlotNames == null ? 0 : separatorSlotNames.arraySize;
+					return separatorNamesProp == null ? 0 : separatorNamesProp.arraySize;
 			}
 		}
 
@@ -109,7 +109,7 @@ namespace Spine.Unity.Examples {
 					Undo.RecordObject(target, "Enable SkeletonRenderSeparator");
 					EditorUtility.SetObjectEnabled(target, checkBox);
 				}
-				if (component.SkeletonRenderer && component.SkeletonRenderer.disableRenderingOnOverride && !component.enabled)
+				if (component.SkeletonRenderer.disableRenderingOnOverride && !component.enabled)
 					EditorGUILayout.HelpBox("By default, SkeletonRenderer's MeshRenderer is disabled while the SkeletonRenderSeparator takes over rendering. It is re-enabled when SkeletonRenderSeparator is disabled.", MessageType.Info);
 
 				EditorGUILayout.PropertyField(copyPropertyBlock_);
@@ -137,22 +137,19 @@ namespace Spine.Unity.Examples {
 				if (component.SkeletonRenderer != null) {
 					// Separators from SkeletonRenderer
 					{
-						bool skeletonRendererMismatch = skeletonRendererSerialized != null && skeletonRendererSerialized.targetObject != component.SkeletonRenderer;
-						if (separatorSlotNames == null || skeletonRendererMismatch) {
+						bool skeletonRendererMismatch = skeletonRendererSerializedObject != null && skeletonRendererSerializedObject.targetObject != component.SkeletonRenderer;
+						if (separatorNamesProp == null || skeletonRendererMismatch) {
 							if (component.SkeletonRenderer != null) {
-								skeletonRendererSerialized = new SerializedObject(component.SkeletonRenderer);
-								separatorSlotNames = skeletonRendererSerialized.FindProperty("separatorSlotNames");
-								enableSeparatorSlots = skeletonRendererSerialized.FindProperty("enableSeparatorSlots");
-								separatorSlotNames.isExpanded = true;
+								skeletonRendererSerializedObject = new SerializedObject(component.SkeletonRenderer);
+								separatorNamesProp = skeletonRendererSerializedObject.FindProperty("separatorSlotNames");
+								separatorNamesProp.isExpanded = true;
 							}
 						}
 
-						if (separatorSlotNames != null) {
+						if (separatorNamesProp != null) {
 							if (skeletonRendererExpanded) {
 								EditorGUI.indentLevel++;
-								using (new EditorGUILayout.VerticalScope(EditorStyles.helpBox)) {
-									SkeletonRendererInspector.SeparatorSlotProperties(separatorSlotNames, enableSeparatorSlots);
-								}
+								SkeletonRendererInspector.SeparatorsField(separatorNamesProp);
 								EditorGUI.indentLevel--;
 							}
 							separatorCount = this.SkeletonRendererSeparatorCount;
@@ -165,7 +162,7 @@ namespace Spine.Unity.Examples {
 				}
 
 				if (EditorGUI.EndChangeCheck()) {
-					skeletonRendererSerialized.ApplyModifiedProperties();
+					skeletonRendererSerializedObject.ApplyModifiedProperties();
 
 					if (!Application.isPlaying)
 						slotsReapplyRequired = true;
@@ -189,7 +186,7 @@ namespace Spine.Unity.Examples {
 					EditorGUILayout.HelpBox("Some items in the parts renderers list are null and may cause problems.\n\nYou can right-click on that element and choose 'Delete Array Element' to remove it.", MessageType.Warning);
 
 				// (Button) Match Separators count
-				if (separatorSlotNames != null) {
+				if (separatorNamesProp != null) {
 					int currentRenderers = 0;
 					foreach (SkeletonPartsRenderer r in componentRenderers) {
 						if (r != null)
@@ -247,7 +244,7 @@ namespace Spine.Unity.Examples {
 
 			if (slotsReapplyRequired && UnityEngine.Event.current.type == EventType.Repaint) {
 				component.SkeletonRenderer.ReapplySeparatorSlotNames();
-				component.SkeletonRenderer.UpdateMesh();
+				component.SkeletonRenderer.LateUpdateMesh();
 				SceneView.RepaintAll();
 				slotsReapplyRequired = false;
 			}

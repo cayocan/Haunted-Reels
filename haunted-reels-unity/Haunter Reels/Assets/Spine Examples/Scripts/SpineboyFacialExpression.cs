@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -77,11 +77,11 @@ namespace Spine.Unity.Examples {
 				shockTimer -= Time.deltaTime;
 
 			if (shockTimer > 0) {
-				eyeSlot.AppliedPose.Attachment = shockEye;
-				mouthSlot.AppliedPose.Attachment = shockMouth;
+				eyeSlot.Attachment = shockEye;
+				mouthSlot.Attachment = shockMouth;
 			} else {
-				eyeSlot.AppliedPose.Attachment = normalEye;
-				mouthSlot.AppliedPose.Attachment = normalMouth;
+				eyeSlot.Attachment = normalEye;
+				mouthSlot.Attachment = normalMouth;
 			}
 		}
 	}

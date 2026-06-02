@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -167,7 +167,7 @@ namespace Spine.Unity.Examples {
 
 		RaycastHit2D[] hits = new RaycastHit2D[1];
 
-		private void UpdateLocal (ISkeletonRenderer skeletonRenderer) {
+		private void UpdateLocal (ISkeletonAnimation animated) {
 			Transform thisTransform = transform;
 
 			Vector2 thisTransformPosition = thisTransform.position;

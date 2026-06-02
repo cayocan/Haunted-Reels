@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -34,7 +34,7 @@ using UnityEngine;
 namespace Spine.Unity.Examples {
 	public class SpineboyBeginnerView : MonoBehaviour {
 
-#region Inspector
+		#region Inspector
 		[Header("Components")]
 		public SpineboyBeginnerModel model;
 		public SkeletonAnimation skeletonAnimation;
@@ -49,7 +49,7 @@ namespace Spine.Unity.Examples {
 
 		[Header("Effects")]
 		public ParticleSystem gunParticles;
-#endregion
+		#endregion
 
 		SpineBeginnerBodyState previousViewState;
 
@@ -116,23 +116,23 @@ namespace Spine.Unity.Examples {
 		[ContextMenu("Check Tracks")]
 		void CheckTracks () {
 			AnimationState state = skeletonAnimation.AnimationState;
-			Debug.Log(state.GetTrack(0));
-			Debug.Log(state.GetTrack(1));
+			Debug.Log(state.GetCurrent(0));
+			Debug.Log(state.GetCurrent(1));
 		}
 
-#region Transient Actions
+		#region Transient Actions
 		public void PlayShoot () {
 			// Play the shoot animation on track 1.
 			TrackEntry shootTrack = skeletonAnimation.AnimationState.SetAnimation(1, shoot, false);
 			shootTrack.MixAttachmentThreshold = 1f;
 			shootTrack.SetMixDuration(0f, 0f);
-			skeletonAnimation.AnimationState.AddEmptyAnimation(1, 0.5f, 0.1f);
+			skeletonAnimation.state.AddEmptyAnimation(1, 0.5f, 0.1f);
 
 			// Play the aim animation on track 2 to aim at the mouse target.
 			TrackEntry aimTrack = skeletonAnimation.AnimationState.SetAnimation(2, aim, false);
 			aimTrack.MixAttachmentThreshold = 1f;
 			aimTrack.SetMixDuration(0f, 0f);
-			skeletonAnimation.AnimationState.AddEmptyAnimation(2, 0.5f, 0.1f);
+			skeletonAnimation.state.AddEmptyAnimation(2, 0.5f, 0.1f);
 
 			gunSource.pitch = GetRandomPitch(gunsoundPitchOffset);
 			gunSource.Play();
@@ -148,20 +148,20 @@ namespace Spine.Unity.Examples {
 		}
 
 		public void StopPlayingAim () {
-			skeletonAnimation.AnimationState.AddEmptyAnimation(2, 0.5f, 0.1f);
+			skeletonAnimation.state.AddEmptyAnimation(2, 0.5f, 0.1f);
 		}
 
 		public void Turn (bool facingLeft) {
 			skeletonAnimation.Skeleton.ScaleX = facingLeft ? -1f : 1f;
 			// Maybe play a transient turning animation too, then call ChangeStableAnimation.
 		}
-#endregion
+		#endregion
 
-#region Utility
+		#region Utility
 		public float GetRandomPitch (float maxPitchOffset) {
 			return 1f + Random.Range(-maxPitchOffset, maxPitchOffset);
 		}
-#endregion
+		#endregion
 	}
 
 }

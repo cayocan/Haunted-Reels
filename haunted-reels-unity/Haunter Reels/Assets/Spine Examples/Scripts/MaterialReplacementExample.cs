@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -30,7 +30,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Spine.Unity.Examples {
 	public class MaterialReplacementExample : MonoBehaviour {
@@ -39,7 +38,6 @@ namespace Spine.Unity.Examples {
 		public Material replacementMaterial;
 		public bool replacementEnabled = true;
 		public SkeletonAnimation skeletonAnimation;
-		public SkeletonRenderer skeletonRenderer;
 
 		[Space]
 		public string phasePropertyName = "_FillPhase";
@@ -49,8 +47,6 @@ namespace Spine.Unity.Examples {
 		MaterialPropertyBlock mpb;
 
 		void Start () {
-			if (skeletonRenderer == null && skeletonAnimation != null)
-				skeletonRenderer = skeletonAnimation.GetComponent<SkeletonRenderer>();
 			// Use the code below to programmatically query the original material.
 			// Note: using MeshRenderer.material will fail since it creates an instance copy of the Material,
 			// MeshRenderer.sharedMaterial might also fail when called too early or when no Attachments
@@ -76,9 +72,9 @@ namespace Spine.Unity.Examples {
 
 		void SetReplacementEnabled (bool active) {
 			if (replacementEnabled) {
-				skeletonRenderer.CustomMaterialOverride[originalMaterial] = replacementMaterial;
+				skeletonAnimation.CustomMaterialOverride[originalMaterial] = replacementMaterial;
 			} else {
-				skeletonRenderer.CustomMaterialOverride.Remove(originalMaterial);
+				skeletonAnimation.CustomMaterialOverride.Remove(originalMaterial);
 			}
 		}
 

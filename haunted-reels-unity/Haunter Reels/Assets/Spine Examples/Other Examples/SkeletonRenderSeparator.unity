@@ -318,7 +318,6 @@ GameObject:
   - component: {fileID: 93048077}
   - component: {fileID: 93048076}
   - component: {fileID: 93048075}
-  - component: {fileID: 93048080}
   m_Layer: 0
   m_Name: Spine GameObject (spineboy) (1)
   m_TagString: Untagged
@@ -337,14 +336,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c70a5b35f6ff2541aed8e8346b7e4d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonRenderer: {fileID: 93048080}
+  skeletonRenderer: {fileID: 93048076}
   copyPropertyBlock: 1
   copyMeshRendererFlags: 1
   partsRenderers:
   - {fileID: 1769987560}
   - {fileID: 1619823301}
-  previousSkeletonRenderer: {fileID: 93048076}
-  wasUpgradedTo43: 1
 --- !u!114 &93048076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,34 +353,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateTiming: 1
-  threadedAnimation: 2
-  isUpdatedExternally: 0
-  animationName: run
+  skeletonDataAsset: {fileID: 11400000, guid: a467507a4ffb1d542a558739b2fede77, type: 2}
+  initialSkinName: base
+  initialFlipX: 0
+  initialFlipY: 0
+  separatorSlotNames:
+  - --B
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  _animationName: run
   loop: 1
   timeScale: 0.1
-  unscaledTime: 0
-  wasDeprecatedTransferred: 1
-  skeletonDataAssetDeprecated: {fileID: 11400000, guid: a467507a4ffb1d542a558739b2fede77,
-    type: 2}
-  initialSkinNameDeprecated: base
-  editorSkipSkinSyncDeprecated: 0
-  initialFlipXDeprecated: 0
-  initialFlipYDeprecated: 0
-  updateModeDeprecated: 3
-  updateWhenInvisibleDeprecated: 3
-  separatorSlotNamesDeprecated:
-  - --B
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  clearStateOnDisableDeprecated: 0
-  tintBlackDeprecated: 0
-  singleSubmeshDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
-  maskInteractionDeprecated: 0
 --- !u!23 &93048077
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -439,51 +432,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &93048080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 93048074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e075b9a3e08e2f74fbd651c858ab16ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: a467507a4ffb1d542a558739b2fede77, type: 2}
-  initialSkinName: base
-  initialFlipX: 0
-  initialFlipY: 0
-  meshSettings:
-    useClipping: 1
-    zSpacing: 0
-    tintBlack: 0
-    canvasGroupCompatible: 0
-    pmaVertexColors: 1
-    addNormals: 0
-    calculateTangents: 0
-    immutableTriangles: 0
-  updateWhenInvisible: 3
-  clearStateOnDisable: 0
-  separatorSlotNames:
-  - --B
-  enableSeparatorSlots: 1
-  disableRenderingOnOverride: 1
-  physicsPositionInheritanceFactor: {x: 1, y: 1}
-  physicsRotationInheritanceFactor: 1
-  physicsMovementRelativeTo: {fileID: 0}
-  threadedMeshGeneration: 2
-  singleSubmesh: 0
-  maskInteraction: 0
-  fixPrefabOverrideViaMeshFilter: 2
-  wasDeprecatedTransferred: 1
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  tintBlackDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
 --- !u!1 &105238416
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +656,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 565117361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3628246, y: 3.7229319, z: 0}
+  m_LocalPosition: {x: -1.3628243, y: 3.7229316, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 93048079}
@@ -777,19 +725,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1fd8daaed7b64148a34acb96ba14ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonRenderer: {fileID: 93048080}
+  skeletonRenderer: {fileID: 93048076}
   boneName: front_fist
   followXYPosition: 1
   followZPosition: 0
-  followAttachmentZSpacing: 0
   followBoneRotation: 0
   followSkeletonFlip: 0
   followLocalScale: 0
-  followParentWorldScale: 0
-  maintainedAxisOrientation: 1
   initializeOnAwake: 1
-  previousSkeletonRenderer: {fileID: 93048076}
-  wasUpgradedTo43: 1
 --- !u!198 &565117365
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4420,7 +4363,6 @@ GameObject:
   - component: {fileID: 1185404040}
   - component: {fileID: 1185404039}
   - component: {fileID: 1185404041}
-  - component: {fileID: 1185404042}
   m_Layer: 0
   m_Name: SkeletonGraphic (spineboy-unity)
   m_TagString: Untagged
@@ -4458,7 +4400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85b887af7e6c3f45a2e2d2920d641bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 9c6ec24bca5fc42489fe47358fef0d4a, type: 2}
+  m_Material: {fileID: 2100000, guid: b66cf7a186d13054989b33a5c90044e4, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -4470,52 +4412,31 @@ MonoBehaviour:
   initialSkinName: base
   initialFlipX: 0
   initialFlipY: 0
-  meshSettings:
-    useClipping: 1
-    zSpacing: 0
-    tintBlack: 0
-    canvasGroupCompatible: 0
-    pmaVertexColors: 1
-    addNormals: 0
-    calculateTangents: 0
-    immutableTriangles: 0
-  updateWhenInvisible: 3
-  clearStateOnDisable: 0
-  separatorSlotNames:
-  - --A
-  enableSeparatorSlots: 1
-  disableRenderingOnOverride: 1
-  physicsPositionInheritanceFactor: {x: 1, y: 1}
-  physicsRotationInheritanceFactor: 1
-  physicsMovementRelativeTo: {fileID: 0}
-  threadedMeshGeneration: 2
-  m_SkeletonColor: {r: 1, g: 1, b: 1, a: 1}
+  startingAnimation: 
+  startingLoop: 1
+  timeScale: 1
   freeze: 0
+  unscaledTime: 0
   allowMultipleCanvasRenderers: 1
-  updateSeparatorPartLocation: 1
-  updateSeparatorPartScale: 0
-  additiveMaterial: {fileID: 0}
-  multiplyMaterial: {fileID: 0}
-  screenMaterial: {fileID: 0}
-  layoutScaleMode: 0
-  referenceSize: {x: 371.0865, y: 731.54474}
-  pivotOffset: {x: 0, y: 0}
-  referenceScale: 1
-  layoutScale: 1
-  rectTransformSize: {x: 371.0865, y: 731.54474}
-  editReferenceRect: 0
   canvasRenderers:
   - {fileID: 1882323272}
   - {fileID: 1211557620}
+  separatorSlotNames:
+  - --A
+  enableSeparatorSlots: 1
   separatorParts:
   - {fileID: 835737018}
   - {fileID: 415442240}
-  disableMeshAssignmentOnOverride: 1
-  wasDeprecatedTransferred: 1
-  startingAnimationDeprecated: 
-  startingLoopDeprecated: 1
-  timeScaleDeprecated: 1
-  unscaledTimeDeprecated: 0
+  updateSeparatorPartLocation: 1
+  meshGenerator:
+    settings:
+      useClipping: 1
+      zSpacing: 0
+      pmaVertexColors: 1
+      tintBlack: 0
+      calculateTangents: 0
+      addNormals: 0
+      immutableTriangles: 0
 --- !u!222 &1185404040
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4534,48 +4455,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonGraphic: {fileID: 1185404039}
-  skeletonAnimation: {fileID: 0}
   run: {fileID: 11400000, guid: 2d841d20c203ff24a859b8c73f9c3817, type: 2}
   pole: {fileID: 11400000, guid: dff7c26e6e007e748b47240522cff0c8, type: 2}
   startX: -600
   endX: 0
---- !u!114 &1185404042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1185404037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateTiming: 1
-  threadedAnimation: 2
-  isUpdatedExternally: 0
-  animationName: 
-  loop: 1
-  timeScale: 1
-  unscaledTime: 0
-  wasDeprecatedTransferred: 1
-  skeletonDataAssetDeprecated: {fileID: 0}
-  initialSkinNameDeprecated: 
-  editorSkipSkinSyncDeprecated: 0
-  initialFlipXDeprecated: 0
-  initialFlipYDeprecated: 0
-  updateModeDeprecated: 3
-  updateWhenInvisibleDeprecated: 3
-  separatorSlotNamesDeprecated: []
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  clearStateOnDisableDeprecated: 0
-  tintBlackDeprecated: 0
-  singleSubmeshDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
-  maskInteractionDeprecated: 0
 --- !u!1 &1211557618
 GameObject:
   m_ObjectHideFlags: 0
@@ -4585,7 +4468,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1211557619}
   - component: {fileID: 1211557620}
-  - component: {fileID: 1211557621}
   m_Layer: 0
   m_Name: Renderer1
   m_TagString: Untagged
@@ -4606,36 +4488,17 @@ RectTransform:
   m_Father: {fileID: 415442240}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -9.614487, y: 48.831177}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.59614486, y: 0.011688247}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1211557620
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1211557618}
---- !u!114 &1211557621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1211557618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deeb12332c062954093c24a3fab10b83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1406277772
 GameObject:
   m_ObjectHideFlags: 0
@@ -5186,7 +5049,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1882323273}
   - component: {fileID: 1882323272}
-  - component: {fileID: 1882323274}
   m_Layer: 0
   m_Name: Renderer0
   m_TagString: Untagged
@@ -5213,30 +5075,11 @@ RectTransform:
   m_Father: {fileID: 835737018}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -9.614487, y: 48.831177}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.59614486, y: 0.011688247}
---- !u!114 &1882323274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1882323271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deeb12332c062954093c24a3fab10b83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1918225114
 GameObject:
   m_ObjectHideFlags: 0
@@ -5250,7 +5093,6 @@ GameObject:
   - component: {fileID: 1918225116}
   - component: {fileID: 1918225115}
   - component: {fileID: 1918225120}
-  - component: {fileID: 1918225121}
   m_Layer: 0
   m_Name: Spine GameObject (spineboy)
   m_TagString: Untagged
@@ -5269,14 +5111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c70a5b35f6ff2541aed8e8346b7e4d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonRenderer: {fileID: 1918225121}
+  skeletonRenderer: {fileID: 1918225116}
   copyPropertyBlock: 1
   copyMeshRendererFlags: 1
   partsRenderers:
   - {fileID: 122287540}
   - {fileID: 1698487792}
-  previousSkeletonRenderer: {fileID: 1918225116}
-  wasUpgradedTo43: 1
 --- !u!114 &1918225116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5288,34 +5128,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateTiming: 1
-  threadedAnimation: 2
-  isUpdatedExternally: 0
-  animationName: 
+  skeletonDataAsset: {fileID: 11400000, guid: a467507a4ffb1d542a558739b2fede77, type: 2}
+  initialSkinName: base
+  initialFlipX: 0
+  initialFlipY: 0
+  separatorSlotNames:
+  - --A
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  _animationName: 
   loop: 0
   timeScale: 1
-  unscaledTime: 0
-  wasDeprecatedTransferred: 1
-  skeletonDataAssetDeprecated: {fileID: 11400000, guid: a467507a4ffb1d542a558739b2fede77,
-    type: 2}
-  initialSkinNameDeprecated: base
-  editorSkipSkinSyncDeprecated: 0
-  initialFlipXDeprecated: 0
-  initialFlipYDeprecated: 0
-  updateModeDeprecated: 3
-  updateWhenInvisibleDeprecated: 3
-  separatorSlotNamesDeprecated:
-  - --A
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  clearStateOnDisableDeprecated: 0
-  tintBlackDeprecated: 0
-  singleSubmeshDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
-  maskInteractionDeprecated: 0
 --- !u!23 &1918225117
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5387,51 +5223,6 @@ MonoBehaviour:
   pole: {fileID: 11400000, guid: dff7c26e6e007e748b47240522cff0c8, type: 2}
   startX: -11.5
   endX: 2.8
---- !u!114 &1918225121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1918225114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e075b9a3e08e2f74fbd651c858ab16ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: a467507a4ffb1d542a558739b2fede77, type: 2}
-  initialSkinName: base
-  initialFlipX: 0
-  initialFlipY: 0
-  meshSettings:
-    useClipping: 1
-    zSpacing: 0
-    tintBlack: 0
-    canvasGroupCompatible: 0
-    pmaVertexColors: 1
-    addNormals: 0
-    calculateTangents: 0
-    immutableTriangles: 0
-  updateWhenInvisible: 3
-  clearStateOnDisable: 0
-  separatorSlotNames:
-  - --A
-  enableSeparatorSlots: 1
-  disableRenderingOnOverride: 1
-  physicsPositionInheritanceFactor: {x: 1, y: 1}
-  physicsRotationInheritanceFactor: 1
-  physicsMovementRelativeTo: {fileID: 0}
-  threadedMeshGeneration: 2
-  singleSubmesh: 0
-  maskInteraction: 0
-  fixPrefabOverrideViaMeshFilter: 2
-  wasDeprecatedTransferred: 1
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  tintBlackDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
 --- !u!1 &1983276685
 GameObject:
   m_ObjectHideFlags: 0

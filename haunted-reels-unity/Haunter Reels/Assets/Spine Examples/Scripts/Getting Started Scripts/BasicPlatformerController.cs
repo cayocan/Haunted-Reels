@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -115,7 +115,7 @@ namespace Spine.Unity.Examples {
 			}
 
 			// Dummy physics and controller using UnityEngine.CharacterController.
-			Vector3 gravityDeltaVelocity = UnityEngine.Physics.gravity * gravityScale * dt;
+			Vector3 gravityDeltaVelocity = Physics.gravity * gravityScale * dt;
 
 			if (doJump) {
 				velocity.y = jumpSpeed;

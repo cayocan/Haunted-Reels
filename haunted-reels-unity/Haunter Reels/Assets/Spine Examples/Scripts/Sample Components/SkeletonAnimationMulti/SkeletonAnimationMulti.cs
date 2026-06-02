@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -98,21 +98,18 @@ namespace Spine.Unity {
 			MeshGenerator.Settings settings = this.meshGeneratorSettings;
 			Transform thisTransform = this.transform;
 			foreach (SkeletonDataAsset dataAsset in skeletonDataAssets) {
-				SkeletonComponents<SkeletonRenderer, SkeletonAnimation> components
-					= SkeletonAnimation.NewSkeletonAnimationGameObject(dataAsset);
-				SkeletonAnimation skeletonAnimation = components.skeletonAnimation;
-				SkeletonRenderer skeletonRenderer  = components.skeletonRenderer;
-				skeletonAnimation.transform.SetParent(thisTransform, false);
+				SkeletonAnimation newSkeletonAnimation = SkeletonAnimation.NewSkeletonAnimationGameObject(dataAsset);
+				newSkeletonAnimation.transform.SetParent(thisTransform, false);
 
-				skeletonRenderer.SetMeshSettings(settings);
-				skeletonRenderer.initialFlipX = this.initialFlipX;
-				skeletonRenderer.initialFlipY = this.initialFlipY;
-				Skeleton skeleton = skeletonRenderer.skeleton;
+				newSkeletonAnimation.SetMeshSettings(settings);
+				newSkeletonAnimation.initialFlipX = this.initialFlipX;
+				newSkeletonAnimation.initialFlipY = this.initialFlipY;
+				Skeleton skeleton = newSkeletonAnimation.skeleton;
 				skeleton.ScaleX = this.initialFlipX ? -1 : 1;
 				skeleton.ScaleY = this.initialFlipY ? -1 : 1;
 
-				skeletonAnimation.Initialize(false);
-				skeletonAnimations.Add(skeletonAnimation);
+				newSkeletonAnimation.Initialize(false);
+				skeletonAnimations.Add(newSkeletonAnimation);
 			}
 
 			// Build cache
@@ -147,8 +144,8 @@ namespace Spine.Unity {
 
 			if (skeletonAnimation != null) {
 				SetActiveSkeleton(skeletonAnimation);
-				skeletonAnimation.skeleton.SetupPose();
-				TrackEntry trackEntry = skeletonAnimation.AnimationState.SetAnimation(MainTrackIndex, animation, loop);
+				skeletonAnimation.skeleton.SetToSetupPose();
+				TrackEntry trackEntry = skeletonAnimation.state.SetAnimation(MainTrackIndex, animation, loop);
 				skeletonAnimation.Update(0);
 				return trackEntry;
 			}
@@ -156,15 +153,15 @@ namespace Spine.Unity {
 		}
 
 		public void SetEmptyAnimation (float mixDuration) {
-			currentSkeletonAnimation.AnimationState.SetEmptyAnimation(MainTrackIndex, mixDuration);
+			currentSkeletonAnimation.state.SetEmptyAnimation(MainTrackIndex, mixDuration);
 		}
 
 		public void ClearAnimation () {
-			currentSkeletonAnimation.AnimationState.ClearTrack(MainTrackIndex);
+			currentSkeletonAnimation.state.ClearTrack(MainTrackIndex);
 		}
 
 		public TrackEntry GetCurrent () {
-			return currentSkeletonAnimation.AnimationState.GetTrack(MainTrackIndex);
+			return currentSkeletonAnimation.state.GetCurrent(MainTrackIndex);
 		}
 		#endregion
 	}

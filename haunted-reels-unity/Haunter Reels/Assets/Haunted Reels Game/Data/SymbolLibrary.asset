@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80e1f47e9db2e84d9ea8fbfcc88115b, type: 3}
+  m_Name: SymbolLibrary
+  m_EditorClassIdentifier: SlotEngine.Runtime::SlotEngine.SymbolLibrary
+  _entries:
+  - symbolId: 0
+    displayName: Witch
+    prefab: {fileID: 4398907419370113071, guid: 78b3ca864f562bf489d82c25c16c5cac, type: 3}
+  - symbolId: 1
+    displayName: Pumpkin
+    prefab: {fileID: 1747728454980611580, guid: e650a19e300c8da4a92c6132df3f23b8, type: 3}
+  - symbolId: 2
+    displayName: Skull
+    prefab: {fileID: 357875906454456433, guid: ebe6e57ceebc7da43929b4265c9ef619, type: 3}
+  - symbolId: 3
+    displayName: Bat
+    prefab: {fileID: 8288685998676736506, guid: f360608d98b4737469deb787c1401311, type: 3}
+  - symbolId: 4
+    displayName: Spider
+    prefab: {fileID: 705953353812206940, guid: c5ee9d381ea726e42b7a5b8ba229b03f, type: 3}
+  - symbolId: 5
+    displayName: Potion
+    prefab: {fileID: 8571333060016906925, guid: ac2c3fbb2850b144583344748eda25e5, type: 3}
+  - symbolId: 6
+    displayName: Ghost Wild
+    prefab: {fileID: 4394134022208641363, guid: 655133476ccaf474a9d83ffffb579603, type: 3}
+  - symbolId: 7
+    displayName: Caldron Scatter
+    prefab: {fileID: 6839193538484977858, guid: 409ceba1ea80cc3419febc434f6acaa0, type: 3}

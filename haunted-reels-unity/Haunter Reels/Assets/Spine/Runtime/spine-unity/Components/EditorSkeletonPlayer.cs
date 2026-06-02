@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -44,12 +44,12 @@ namespace Spine.Unity {
 	/// </summary>
 	[ExecuteInEditMode]
 	[AddComponentMenu("Spine/EditorSkeletonPlayer")]
-	[RequireComponent(typeof(SkeletonAnimation))]
+	[RequireComponent(typeof(ISkeletonAnimation))]
 	public class EditorSkeletonPlayer : MonoBehaviour {
 		public bool playWhenSelected = true;
 		public bool playWhenDeselected = true;
 		public float fixedTrackTime = 0.0f;
-		private SkeletonAnimation skeletonAnimation;
+		private IEditorSkeletonWrapper skeletonWrapper;
 		private TrackEntry trackEntry;
 		private string oldAnimationName;
 		private bool oldLoop;
@@ -79,8 +79,13 @@ namespace Spine.Unity {
 		private void Start () {
 			if (Application.isPlaying) return;
 
-			if (skeletonAnimation == null) {
-				skeletonAnimation = this.GetComponent<SkeletonAnimation>();
+			if (skeletonWrapper == null) {
+				SkeletonAnimation skeletonAnimation;
+				SkeletonGraphic skeletonGraphic;
+				if (skeletonAnimation = this.GetComponent<SkeletonAnimation>())
+					skeletonWrapper = new SkeletonAnimationWrapper(skeletonAnimation);
+				else if (skeletonGraphic = this.GetComponent<SkeletonGraphic>())
+					skeletonWrapper = new SkeletonGraphicWrapper(skeletonGraphic);
 			}
 
 			oldTime = EditorApplication.timeSinceStartup;
@@ -93,11 +98,10 @@ namespace Spine.Unity {
 
 		private void Update () {
 			if (enabled == false || Application.isPlaying) return;
-			if (skeletonAnimation == null) return;
-			AnimationState animationState = skeletonAnimation.AnimationState;
-			if (animationState == null || animationState.Tracks.Count == 0) return;
+			if (skeletonWrapper == null) return;
+			if (skeletonWrapper.State == null || skeletonWrapper.State.Tracks.Count == 0) return;
 
-			TrackEntry currentEntry = animationState.Tracks.Items[0];
+			TrackEntry currentEntry = skeletonWrapper.State.Tracks.Items[0];
 			if (currentEntry != null && fixedTrackTime != 0) {
 				currentEntry.TrackTime = fixedTrackTime;
 			}
@@ -105,36 +109,32 @@ namespace Spine.Unity {
 
 		private void EditorUpdate () {
 			if (enabled == false || Application.isPlaying) return;
-			if (skeletonAnimation == null) return;
-			AnimationState animationState = skeletonAnimation.AnimationState;
-			if (animationState == null) return;
+			if (skeletonWrapper == null) return;
+			if (skeletonWrapper.State == null) return;
 			bool isSelected = Selection.Contains(this.gameObject);
 			if (!this.playWhenSelected && isSelected) return;
 			if (!this.playWhenDeselected && !isSelected) return;
 			if (fixedTrackTime != 0) return;
 
 			// Update animation
-			string animationName = skeletonAnimation.AnimationName;
-			bool loop = skeletonAnimation.loop;
-			if (oldAnimationName != animationName || oldLoop != loop) {
-				SkeletonData skeletonData = skeletonAnimation.Skeleton.Data;
-				Spine.Animation animation = (skeletonData == null || animationName == null) ?
-					null : skeletonData.FindAnimation(animationName);
+			if (oldAnimationName != skeletonWrapper.AnimationName || oldLoop != skeletonWrapper.Loop) {
+				SkeletonData skeletonData = skeletonWrapper.SkeletonData;
+				Spine.Animation animation = (skeletonData == null || skeletonWrapper.AnimationName == null) ?
+					null : skeletonData.FindAnimation(skeletonWrapper.AnimationName);
 				if (animation != null)
-					trackEntry = animationState.SetAnimation(0, animationName, loop);
+					trackEntry = skeletonWrapper.State.SetAnimation(0, skeletonWrapper.AnimationName, skeletonWrapper.Loop);
 				else
-					trackEntry = animationState.SetEmptyAnimation(0, 0);
-				oldAnimationName = animationName;
-				oldLoop = loop;
+					trackEntry = skeletonWrapper.State.SetEmptyAnimation(0, 0);
+				oldAnimationName = skeletonWrapper.AnimationName;
+				oldLoop = skeletonWrapper.Loop;
 			}
 
 			// Update speed
 			if (trackEntry != null)
-				trackEntry.TimeScale = skeletonAnimation.timeScale;
+				trackEntry.TimeScale = skeletonWrapper.Speed;
 
 			float deltaTime = (float)(EditorApplication.timeSinceStartup - oldTime);
-			skeletonAnimation.Update(deltaTime);
-			skeletonAnimation.Renderer.UpdateMesh();
+			skeletonWrapper.Update(deltaTime);
 			oldTime = EditorApplication.timeSinceStartup;
 
 			// Force repaint to update animation smoothly
@@ -143,6 +143,57 @@ namespace Spine.Unity {
 #else
 			SceneView.RepaintAll();
 #endif
+		}
+
+		private class SkeletonAnimationWrapper : IEditorSkeletonWrapper {
+			private SkeletonAnimation skeletonAnimation;
+
+			public SkeletonAnimationWrapper (SkeletonAnimation skeletonAnimation) {
+				this.skeletonAnimation = skeletonAnimation;
+			}
+
+			public Spine.SkeletonData SkeletonData {
+				get {
+					if (!skeletonAnimation.SkeletonDataAsset) return null;
+					return skeletonAnimation.SkeletonDataAsset.GetSkeletonData(true);
+				}
+			}
+
+			public string AnimationName { get { return skeletonAnimation.AnimationName; } }
+			public bool Loop { get { return skeletonAnimation.loop; } }
+			public float Speed { get { return skeletonAnimation.timeScale; } }
+			public Spine.AnimationState State { get { return skeletonAnimation.state; } }
+
+			public void Update (float deltaTime) {
+				skeletonAnimation.Update(deltaTime);
+			}
+		}
+
+		private class SkeletonGraphicWrapper : IEditorSkeletonWrapper {
+			private SkeletonGraphic skeletonGraphic;
+
+			public SkeletonGraphicWrapper (SkeletonGraphic skeletonGraphic) {
+				this.skeletonGraphic = skeletonGraphic;
+			}
+
+			public Spine.SkeletonData SkeletonData { get { return skeletonGraphic.SkeletonData; } }
+			public string AnimationName { get { return skeletonGraphic.startingAnimation; } }
+			public bool Loop { get { return skeletonGraphic.startingLoop; } }
+			public float Speed { get { return skeletonGraphic.timeScale; } }
+			public Spine.AnimationState State { get { return skeletonGraphic.AnimationState; } }
+
+			public void Update (float deltaTime) {
+				skeletonGraphic.Update(deltaTime);
+			}
+		}
+
+		private interface IEditorSkeletonWrapper {
+			string AnimationName { get; }
+			Spine.SkeletonData SkeletonData { get; }
+			bool Loop { get; }
+			float Speed { get; }
+			Spine.AnimationState State { get; }
+			void Update (float deltaTime);
 		}
 	}
 }

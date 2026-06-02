@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -139,7 +139,7 @@ namespace Spine.Unity {
 			bool isProblematic = false;
 			if (material) {
 				isProblematic |= IsMaterialSetupProblematic(material, ref errorMessage);
-				MeshGenerator.Settings settings = skeletonGraphic.MeshSettings;
+				MeshGenerator.Settings settings = skeletonGraphic.MeshGenerator.settings;
 				if (settings.zSpacing == 0) {
 					isProblematic |= IsZSpacingRequired(material, ref errorMessage);
 				}
@@ -343,7 +343,7 @@ namespace Spine.Unity {
 			Canvas canvas = skeletonGraphic.canvas;
 			if (!canvas)
 				return false;
-			AdditionalCanvasShaderChannels requiredChannels =
+			var requiredChannels =
 				AdditionalCanvasShaderChannels.TexCoord1 |
 				AdditionalCanvasShaderChannels.TexCoord2;
 			return (canvas.additionalShaderChannels & requiredChannels) != requiredChannels;

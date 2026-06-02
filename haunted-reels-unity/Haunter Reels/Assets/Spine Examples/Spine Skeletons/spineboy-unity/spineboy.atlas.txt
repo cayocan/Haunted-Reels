@@ -1,57 +1,65 @@
 spineboy.png
 	size: 1024, 1024
 	filter: Linear, Linear
+	pma: true
 eye_indifferent
-	bounds: 330, 530, 93, 89
+	bounds: 550, 694, 93, 89
 eye_surprised
-	bounds: 235, 530, 93, 89
+	bounds: 834, 856, 93, 89
 front_bracer
-	bounds: 956, 454, 58, 80
+	bounds: 678, 774, 58, 80
 front_fist_closed
-	bounds: 425, 457, 75, 82
+	bounds: 466, 593, 75, 82
+	rotate: 90
 front_fist_open
-	bounds: 727, 466, 86, 87
+	bounds: 550, 605, 86, 87
 front_foot
-	bounds: 2, 550, 126, 69
+	bounds: 550, 785, 126, 69
 front_foot_bend1
-	bounds: 837, 578, 128, 70
+	bounds: 375, 492, 128, 70
+	rotate: 90
 front_foot_bend2
-	bounds: 727, 555, 108, 93
+	bounds: 275, 330, 108, 93
+	rotate: 90
 front_shin
-	bounds: 566, 537, 82, 184
+	bounds: 466, 670, 82, 184
 front_thigh
-	bounds: 967, 635, 48, 112
+	bounds: 214, 208, 48, 112
 front_upper_arm
-	bounds: 967, 536, 54, 97
+	bounds: 214, 109, 54, 97
 goggles
-	bounds: 739, 855, 261, 166
+	bounds: 466, 856, 261, 166
 gun
-	bounds: 739, 650, 210, 203
+	bounds: 2, 117, 210, 203
 head
-	bounds: 466, 723, 271, 298
+	bounds: 2, 322, 271, 298
 mouth_grind
-	bounds: 117, 475, 93, 59
+	bounds: 929, 896, 93, 59
 mouth_oooo
-	bounds: 597, 476, 93, 59
+	bounds: 929, 835, 93, 59
 mouth_smile
-	bounds: 502, 476, 93, 59
+	bounds: 447, 532, 93, 59
 muzzle
-	bounds: 2, 621, 462, 400
+	bounds: 2, 622, 462, 400
 neck
-	bounds: 425, 578, 36, 41
+	bounds: 796, 819, 36, 41
 rear_bracer
-	bounds: 261, 456, 56, 72
+	bounds: 738, 788, 56, 72
 rear_foot
-	bounds: 2, 488, 113, 60
+	bounds: 2, 2, 113, 60
+	rotate: 90
 rear_foot_bend1
-	bounds: 837, 510, 117, 66
+	bounds: 64, 49, 117, 66
 rear_foot_bend2
-	bounds: 130, 536, 103, 83
+	bounds: 729, 862, 103, 83
 rear_shin
-	bounds: 650, 543, 75, 178
+	bounds: 729, 947, 75, 178
+	rotate: 90
 rear_thigh
-	bounds: 951, 749, 65, 104
+	bounds: 909, 957, 65, 104
+	rotate: 90
 rear_upper_arm
-	bounds: 212, 441, 47, 87
+	bounds: 447, 483, 47, 87
+	rotate: 90
 torso
-	bounds: 466, 541, 98, 180
+	bounds: 275, 440, 98, 180

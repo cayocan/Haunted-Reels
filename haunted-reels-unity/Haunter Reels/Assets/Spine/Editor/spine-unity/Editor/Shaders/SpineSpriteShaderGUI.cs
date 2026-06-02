@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -44,10 +44,6 @@ public class SpineSpriteShaderGUI : SpineShaderWithOutlineGUI {
 	static readonly string kShaderLitLW = "Lightweight Render Pipeline/Spine/Sprite";
 	static readonly string kShaderLitURP = "Universal Render Pipeline/Spine/Sprite";
 	static readonly string kShaderLitURP2D = "Universal Render Pipeline/2D/Spine/Sprite";
-
-	static readonly string kShaderLitURPOutline = "Universal Render Pipeline/Spine/Outline/Sprite";
-	static readonly string kShaderLitURP2DOutline = "Universal Render Pipeline/2D/Spine/Outline/Sprite";
-
 	static readonly int kSolidQueue = 2000;
 	static readonly int kAlphaTestQueue = 2450;
 	static readonly int kTransparentQueue = 3000;
@@ -221,8 +217,8 @@ public class SpineSpriteShaderGUI : SpineShaderWithOutlineGUI {
 		if (oldShader.name != kShaderVertexLit && oldShader.name != kShaderPixelLit && oldShader.name != kShaderUnlit &&
 			oldShader.name != kShaderVertexLitOutline && oldShader.name != kShaderPixelLitOutline && oldShader.name != kShaderUnlitOutline &&
 			oldShader.name != kShaderLitLW &&
-			oldShader.name != kShaderLitURP && oldShader.name != kShaderLitURPOutline &&
-			oldShader.name != kShaderLitURP2D && oldShader.name != kShaderLitURP2DOutline) {
+			oldShader.name != kShaderLitURP &&
+			oldShader.name != kShaderLitURP2D) {
 			SetDefaultSpriteKeywords(material, newShader);
 		}
 
@@ -366,15 +362,15 @@ public class SpineSpriteShaderGUI : SpineShaderWithOutlineGUI {
 				foreach (Material material in _materialEditor.targets) {
 					switch (lightMode) {
 					case eLightMode.VertexLit:
-						if (material.shader.name != kShaderVertexLit && material.shader.name != kShaderVertexLitOutline)
+						if (material.shader.name != kShaderVertexLit)
 							_materialEditor.SetShader(Shader.Find(kShaderVertexLit), false);
 						break;
 					case eLightMode.PixelLit:
-						if (material.shader.name != kShaderPixelLit && material.shader.name != kShaderPixelLitOutline)
+						if (material.shader.name != kShaderPixelLit)
 							_materialEditor.SetShader(Shader.Find(kShaderPixelLit), false);
 						break;
 					case eLightMode.Unlit:
-						if (material.shader.name != kShaderUnlit && material.shader.name != kShaderUnlitOutline)
+						if (material.shader.name != kShaderUnlit)
 							_materialEditor.SetShader(Shader.Find(kShaderUnlit), false);
 						break;
 					case eLightMode.LitLightweight:
@@ -382,11 +378,11 @@ public class SpineSpriteShaderGUI : SpineShaderWithOutlineGUI {
 							_materialEditor.SetShader(Shader.Find(kShaderLitLW), false);
 						break;
 					case eLightMode.LitUniversal:
-						if (material.shader.name != kShaderLitURP && material.shader.name != kShaderLitURPOutline)
+						if (material.shader.name != kShaderLitURP)
 							_materialEditor.SetShader(Shader.Find(kShaderLitURP), false);
 						break;
 					case eLightMode.LitUniversal2D:
-						if (material.shader.name != kShaderLitURP2D && material.shader.name != kShaderLitURP2DOutline)
+						if (material.shader.name != kShaderLitURP2D)
 							_materialEditor.SetShader(Shader.Find(kShaderLitURP2D), false);
 						break;
 					}
@@ -1007,13 +1003,11 @@ public class SpineSpriteShaderGUI : SpineShaderWithOutlineGUI {
 	}
 
 	static bool IsURP3DShader (MaterialEditor editor, out bool mixedValue) {
-		return IsShaderType(kShaderLitURP, editor, out mixedValue) ||
-			IsShaderType(kShaderLitURPOutline, editor, out mixedValue);
+		return IsShaderType(kShaderLitURP, editor, out mixedValue);
 	}
 
 	static bool IsURP2DShader (MaterialEditor editor, out bool mixedValue) {
-		return IsShaderType(kShaderLitURP2D, editor, out mixedValue) ||
-			IsShaderType(kShaderLitURP2DOutline, editor, out mixedValue);
+		return IsShaderType(kShaderLitURP2D, editor, out mixedValue);
 	}
 
 	static bool IsShaderType (string shaderType, MaterialEditor editor, out bool mixedValue) {
@@ -1053,11 +1047,9 @@ public class SpineSpriteShaderGUI : SpineShaderWithOutlineGUI {
 			return eLightMode.Unlit;
 		} else if (material.shader.name == kShaderLitLW) {
 			return eLightMode.LitLightweight;
-		} else if (material.shader.name == kShaderLitURP ||
-				  material.shader.name == kShaderLitURPOutline) {
+		} else if (material.shader.name == kShaderLitURP) {
 			return eLightMode.LitUniversal;
-		} else if (material.shader.name == kShaderLitURP2D ||
-				  material.shader.name == kShaderLitURP2DOutline) {
+		} else if (material.shader.name == kShaderLitURP2D) {
 			return eLightMode.LitUniversal2D;
 		} else { // if (material.shader.name == kShaderVertexLit || kShaderVertexLitOutline)
 			return eLightMode.VertexLit;

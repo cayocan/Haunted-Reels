@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -35,13 +35,10 @@
 #define HAS_PROPERTY_BLOCK_QUERY
 #endif
 
-#if !SPINE_AUTO_UPGRADE_COMPONENTS_OFF
-#define AUTO_UPGRADE_TO_43_COMPONENTS
-#endif
+#define SPINE_OPTIONAL_RENDEROVERRIDE
 
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Spine.Unity {
 
@@ -50,8 +47,8 @@ namespace Spine.Unity {
 #else
 	[ExecuteInEditMode]
 #endif
-	[HelpURL("https://esotericsoftware.com/spine-unity-utility-components#SkeletonRenderSeparator")]
-	public class SkeletonRenderSeparator : MonoBehaviour, IUpgradable {
+	[HelpURL("http://esotericsoftware.com/spine-unity#SkeletonRenderSeparator")]
+	public class SkeletonRenderSeparator : MonoBehaviour {
 		public const int DefaultSortingOrderIncrement = 5;
 
 		#region Inspector
@@ -60,8 +57,10 @@ namespace Spine.Unity {
 		public SkeletonRenderer SkeletonRenderer {
 			get { return skeletonRenderer; }
 			set {
+#if SPINE_OPTIONAL_RENDEROVERRIDE
 				if (skeletonRenderer != null)
 					skeletonRenderer.GenerateMeshOverride -= HandleRender;
+#endif
 
 				skeletonRenderer = value;
 				if (value == null)
@@ -87,7 +86,7 @@ namespace Spine.Unity {
 		#region Callback Delegates
 		/// <summary>OnMeshAndMaterialsUpdated is called at the end of LateUpdate after the Mesh and
 		/// all materials have been updated.</summary>
-		public event SkeletonRendererDelegate OnMeshAndMaterialsUpdated;
+		public event SkeletonRenderer.SkeletonRendererDelegate OnMeshAndMaterialsUpdated;
 		#endregion
 
 		#region Runtime Instantiation
@@ -131,7 +130,7 @@ namespace Spine.Unity {
 			if (!Application.isPlaying) {
 				skeletonRenderer.enabled = false;
 				skeletonRenderer.enabled = true;
-				skeletonRenderer.UpdateMesh();
+				skeletonRenderer.LateUpdateMesh();
 			}
 #endif
 
@@ -163,22 +162,15 @@ namespace Spine.Unity {
 		}
 		#endregion
 
-#if UNITY_EDITOR && AUTO_UPGRADE_TO_43_COMPONENTS
-		public virtual void Awake () {
-			if (!Application.isPlaying && !wasUpgradedTo43) {
-				UpgradeTo43();
-			}
-		}
-#endif
-
 		public void OnEnable () {
 			if (skeletonRenderer == null) return;
 			if (copiedBlock == null) copiedBlock = new MaterialPropertyBlock();
 			mainMeshRenderer = skeletonRenderer.GetComponent<MeshRenderer>();
 
-			skeletonRenderer.enableSeparatorSlots = true;
+#if SPINE_OPTIONAL_RENDEROVERRIDE
 			skeletonRenderer.GenerateMeshOverride -= HandleRender;
 			skeletonRenderer.GenerateMeshOverride += HandleRender;
+#endif
 
 			if (copyMeshRendererFlags) {
 				var lightProbeUsage = mainMeshRenderer.lightProbeUsage;
@@ -189,10 +181,10 @@ namespace Spine.Unity {
 				var probeAnchor = mainMeshRenderer.probeAnchor;
 
 				for (int i = 0; i < partsRenderers.Count; i++) {
-					SkeletonPartsRenderer currentRenderer = partsRenderers[i];
+					var currentRenderer = partsRenderers[i];
 					if (currentRenderer == null) continue; // skip null items.
 
-					MeshRenderer mr = currentRenderer.MeshRenderer;
+					var mr = currentRenderer.MeshRenderer;
 					mr.lightProbeUsage = lightProbeUsage;
 					mr.receiveShadows = receiveShadows;
 					mr.reflectionProbeUsage = reflectionProbeUsage;
@@ -203,7 +195,7 @@ namespace Spine.Unity {
 			}
 
 			if (skeletonRenderer.updateWhenInvisible != UpdateMode.FullUpdate)
-				skeletonRenderer.UpdateMesh();
+				skeletonRenderer.LateUpdateMesh();
 		}
 
 		public void Update () {
@@ -212,11 +204,10 @@ namespace Spine.Unity {
 
 		public void OnDisable () {
 			if (skeletonRenderer == null) return;
-
-			skeletonRenderer.enableSeparatorSlots = false;
+#if SPINE_OPTIONAL_RENDEROVERRIDE
 			skeletonRenderer.GenerateMeshOverride -= HandleRender;
-
-			skeletonRenderer.UpdateMesh();
+#endif
+			skeletonRenderer.LateUpdateMesh();
 			ClearPartsRendererMeshes();
 		}
 
@@ -253,15 +244,14 @@ namespace Spine.Unity {
 			if (assignPropertyBlock)
 				mainMeshRenderer.GetPropertyBlock(copiedBlock);
 
-			MeshGenerator.Settings originalSettings = skeletonRenderer.MeshSettings;
 			MeshGenerator.Settings settings = new MeshGenerator.Settings {
-				addNormals = originalSettings.addNormals,
-				calculateTangents = originalSettings.calculateTangents,
+				addNormals = skeletonRenderer.addNormals,
+				calculateTangents = skeletonRenderer.calculateTangents,
 				immutableTriangles = false, // parts cannot do immutable triangles.
-				pmaVertexColors = originalSettings.pmaVertexColors,
-				tintBlack = originalSettings.tintBlack,
+				pmaVertexColors = skeletonRenderer.pmaVertexColors,
+				tintBlack = skeletonRenderer.tintBlack,
 				useClipping = true,
-				zSpacing = originalSettings.zSpacing
+				zSpacing = skeletonRenderer.zSpacing
 			};
 
 			ExposedList<SubmeshInstruction> submeshInstructions = instruction.submeshInstructions;
@@ -281,7 +271,7 @@ namespace Spine.Unity {
 					if (assignPropertyBlock)
 						currentRenderer.SetPropertyBlock(copiedBlock);
 					// Render
-					currentRenderer.RenderParts(skeletonRenderer, instruction.submeshInstructions, start, si + 1);
+					currentRenderer.RenderParts(instruction.submeshInstructions, start, si + 1);
 
 					start = si + 1;
 					rendererIndex++;
@@ -311,21 +301,5 @@ namespace Spine.Unity {
 					partsRenderer.ClearMesh();
 			}
 		}
-		#region Transfer of Deprecated Fields
-#if UNITY_EDITOR && AUTO_UPGRADE_TO_43_COMPONENTS
-		public virtual void UpgradeTo43 () {
-			wasUpgradedTo43 = true;
-			if (skeletonRenderer == null) {
-				Component previousReference = previousSkeletonRenderer != null ? previousSkeletonRenderer : this;
-				skeletonRenderer = previousReference.GetComponent<SkeletonRenderer>();
-				if (skeletonRenderer == null)
-					Debug.LogError("Please manually re-assign SkeletonRenderer at SkeletonRenderSeparator, " +
-						"automatic upgrade failed.", this);
-			}
-		}
-		[SerializeField, HideInInspector, FormerlySerializedAs("skeletonRenderer")] Component previousSkeletonRenderer;
-		[SerializeField] protected bool wasUpgradedTo43 = false;
-#endif
-		#endregion
 	}
 }

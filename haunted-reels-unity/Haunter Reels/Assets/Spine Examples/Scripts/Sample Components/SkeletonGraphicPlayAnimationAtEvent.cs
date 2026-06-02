@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -33,25 +33,20 @@ using UnityEngine;
 public class SkeletonGraphicPlayAnimationAtEvent : MonoBehaviour {
 
 	public SkeletonGraphic skeletonGraphic;
-	public SkeletonAnimation skeletonAnimation;
 	public int trackIndex = 0;
 	public float playbackSpeed = 1.0f;
 
-	public void Awake () {
-		if (skeletonAnimation == null)
-			skeletonAnimation = skeletonGraphic.GetComponent<SkeletonAnimation>();
-	}
 	public void PlayAnimationLooping (string animation) {
-		Spine.TrackEntry entry = skeletonAnimation.AnimationState.SetAnimation(trackIndex, animation, true);
+		Spine.TrackEntry entry = skeletonGraphic.AnimationState.SetAnimation(trackIndex, animation, true);
 		entry.TimeScale = playbackSpeed;
 	}
 
 	public void PlayAnimationOnce (string animation) {
-		Spine.TrackEntry entry = skeletonAnimation.AnimationState.SetAnimation(trackIndex, animation, false);
+		Spine.TrackEntry entry = skeletonGraphic.AnimationState.SetAnimation(trackIndex, animation, false);
 		entry.TimeScale = playbackSpeed;
 	}
 
 	public void ClearTrack () {
-		skeletonAnimation.AnimationState.ClearTrack(trackIndex);
+		skeletonGraphic.AnimationState.ClearTrack(trackIndex);
 	}
 }

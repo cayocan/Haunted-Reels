@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -31,13 +31,8 @@
 #define NEW_PREFAB_SYSTEM
 #endif
 
-#if !SPINE_AUTO_UPGRADE_COMPONENTS_OFF
-#define AUTO_UPGRADE_TO_43_COMPONENTS
-#endif
-
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Spine.Unity {
 
@@ -48,8 +43,8 @@ namespace Spine.Unity {
 	[ExecuteInEditMode]
 #endif
 	[AddComponentMenu("Spine/BoneFollower")]
-	[HelpURL("https://esotericsoftware.com/spine-unity-utility-components#BoneFollower")]
-	public class BoneFollower : MonoBehaviour, IUpgradable {
+	[HelpURL("http://esotericsoftware.com/spine-unity#BoneFollower")]
+	public class BoneFollower : MonoBehaviour {
 
 		#region Inspector
 		public SkeletonRenderer skeletonRenderer;
@@ -112,15 +107,10 @@ namespace Spine.Unity {
 		}
 
 		public void Awake () {
-#if UNITY_EDITOR && AUTO_UPGRADE_TO_43_COMPONENTS
-			if (!Application.isPlaying && !wasUpgradedTo43) {
-				UpgradeTo43();
-			}
-#endif
 			if (initializeOnAwake) Initialize();
 		}
 
-		public void HandleRebuildRenderer (ISkeletonRenderer skeletonRenderer) {
+		public void HandleRebuildRenderer (SkeletonRenderer skeletonRenderer) {
 			Initialize();
 		}
 
@@ -136,6 +126,7 @@ namespace Spine.Unity {
 
 			if (!string.IsNullOrEmpty(boneName))
 				bone = skeletonRenderer.skeleton.FindBone(boneName);
+
 #if UNITY_EDITOR
 			if (Application.isEditor)
 				LateUpdate();
@@ -157,52 +148,24 @@ namespace Spine.Unity {
 			if (!Application.isPlaying)
 				skeletonTransformIsParent = Transform.ReferenceEquals(skeletonTransform, transform.parent);
 #endif
-			Skeleton skeleton = skeletonRenderer.skeleton;
+
 			if (bone == null) {
 				if (string.IsNullOrEmpty(boneName)) return;
-				bone = skeleton.FindBone(boneName);
+				bone = skeletonRenderer.skeleton.FindBone(boneName);
 				if (!SetBone(boneName)) return;
 			}
 
 			Transform thisTransform = this.transform;
 			float additionalFlipScale = 1;
-
-			float scaleSignX = 1;
-			float scaleSignY = 1;
-			Bone parentBone = bone.Parent;
-			if (followParentWorldScale || followLocalScale || followSkeletonFlip) {
-				Vector3 localScale = new Vector3(1f, 1f, 1f);
-				if (followParentWorldScale && parentBone != null) {
-					float cumulativeScaleX = 1.0f;
-					float cumulativeScaleY = 1.0f;
-					Bone p = parentBone;
-					while (p != null) {
-						cumulativeScaleX *= p.AppliedPose.ScaleX;
-						cumulativeScaleY *= p.AppliedPose.ScaleY;
-						p = p.Parent;
-					};
-					scaleSignX = Mathf.Sign(cumulativeScaleX);
-					scaleSignY = Mathf.Sign(cumulativeScaleY);
-					localScale = new Vector3(parentBone.AppliedPose.WorldScaleX * scaleSignX, parentBone.AppliedPose.WorldScaleY * scaleSignY, 1f);
-				}
-				if (followLocalScale)
-					localScale.Scale(new Vector3(bone.AppliedPose.ScaleX, bone.AppliedPose.ScaleY, 1f));
-				if (followSkeletonFlip)
-					localScale.y *= Mathf.Sign(skeleton.ScaleX * skeleton.ScaleY) * additionalFlipScale;
-				thisTransform.localScale = localScale;
-			}
-
 			if (skeletonTransformIsParent) {
 				// Recommended setup: Use local transform properties if Spine GameObject is the immediate parent
 				thisTransform.localPosition = new Vector3(
-					followXYPosition ? bone.AppliedPose.WorldX : thisTransform.localPosition.x,
-					followXYPosition ? bone.AppliedPose.WorldY : thisTransform.localPosition.y,
+					followXYPosition ? bone.WorldX : thisTransform.localPosition.x,
+					followXYPosition ? bone.WorldY : thisTransform.localPosition.y,
 					followZPosition ? (followAttachmentZSpacing ? GetAttachmentZPosition() : 0f) : thisTransform.localPosition.z);
 				if (followBoneRotation) {
-					float halfRotation = Mathf.Atan2(bone.AppliedPose.C, bone.AppliedPose.A) * 0.5f;
-					if (followLocalScale && bone.AppliedPose.ScaleX < 0) // Negate rotation from negative scaleX. Don't use negative determinant. local scaleY doesn't factor into used rotation.
-						halfRotation += Mathf.PI * 0.5f;
-					if (followParentWorldScale && scaleSignX < 0)
+					float halfRotation = Mathf.Atan2(bone.C, bone.A) * 0.5f;
+					if (followLocalScale && bone.ScaleX < 0) // Negate rotation from negative scaleX. Don't use negative determinant. local scaleY doesn't factor into used rotation.
 						halfRotation += Mathf.PI * 0.5f;
 
 					Quaternion q = default(Quaternion);
@@ -214,7 +177,7 @@ namespace Spine.Unity {
 				if (!skeletonTransform) return;
 
 				float z0Position = (followZPosition && followAttachmentZSpacing) ? GetAttachmentZPosition() : 0f;
-				Vector3 targetWorldPosition = skeletonTransform.TransformPoint(new Vector3(bone.AppliedPose.WorldX, bone.AppliedPose.WorldY, z0Position));
+				Vector3 targetWorldPosition = skeletonTransform.TransformPoint(new Vector3(bone.WorldX, bone.WorldY, z0Position));
 				if (!followZPosition) targetWorldPosition.z = thisTransform.position.z;
 				if (!followXYPosition) {
 					targetWorldPosition.x = thisTransform.position.x;
@@ -225,7 +188,7 @@ namespace Spine.Unity {
 				Transform transformParent = thisTransform.parent;
 				Vector3 parentLossyScale = transformParent != null ? transformParent.lossyScale : Vector3.one;
 				if (followBoneRotation) {
-					float boneWorldRotation = bone.AppliedPose.WorldRotationX;
+					float boneWorldRotation = bone.WorldRotationX;
 
 					if ((skeletonLossyScale.x * skeletonLossyScale.y) < 0)
 						boneWorldRotation = -boneWorldRotation;
@@ -237,11 +200,9 @@ namespace Spine.Unity {
 						if ((skeletonLossyScale.y * parentLossyScale.y < 0))
 							boneWorldRotation += 180f;
 					}
-					if (followParentWorldScale && scaleSignX < 0)
-						boneWorldRotation += 180f;
 
 					Vector3 worldRotation = skeletonTransform.rotation.eulerAngles;
-					if (followLocalScale && bone.AppliedPose.ScaleX < 0) boneWorldRotation += 180f;
+					if (followLocalScale && bone.ScaleX < 0) boneWorldRotation += 180f;
 					thisTransform.SetPositionAndRotation(targetWorldPosition, Quaternion.Euler(worldRotation.x, worldRotation.y, worldRotation.z + boneWorldRotation));
 				} else {
 					thisTransform.position = targetWorldPosition;
@@ -250,30 +211,24 @@ namespace Spine.Unity {
 				additionalFlipScale = Mathf.Sign(skeletonLossyScale.x * parentLossyScale.x
 												* skeletonLossyScale.y * parentLossyScale.y);
 			}
+
+			Bone parentBone = bone.Parent;
+			if (followParentWorldScale || followLocalScale || followSkeletonFlip) {
+				Vector3 localScale = new Vector3(1f, 1f, 1f);
+				if (followParentWorldScale && parentBone != null)
+					localScale = new Vector3(parentBone.WorldScaleX, parentBone.WorldScaleY, 1f);
+				if (followLocalScale)
+					localScale.Scale(new Vector3(bone.ScaleX, bone.ScaleY, 1f));
+				if (followSkeletonFlip)
+					localScale.y *= Mathf.Sign(bone.Skeleton.ScaleX * bone.Skeleton.ScaleY) * additionalFlipScale;
+				thisTransform.localScale = localScale;
+			}
 		}
 
 		float GetAttachmentZPosition () {
-			var drawOrderPose = skeletonRenderer.Skeleton.DrawOrder.Pose;
-			int boneIndex = drawOrderPose.FindIndex(slot => slot.Bone == bone);
+			int boneIndex = skeletonRenderer.Skeleton.DrawOrder.FindIndex(slot => slot.Bone == bone);
 			if (boneIndex < 0) return 0f;
 			return skeletonRenderer.zSpacing * boneIndex;
 		}
-
-		#region Transfer of Deprecated Fields
-#if UNITY_EDITOR && AUTO_UPGRADE_TO_43_COMPONENTS
-		public virtual void UpgradeTo43 () {
-			wasUpgradedTo43 = true;
-			if (skeletonRenderer == null) {
-				Component previousReference = previousSkeletonRenderer != null ? previousSkeletonRenderer : this;
-				skeletonRenderer = previousReference.GetComponent<SkeletonRenderer>();
-				if (skeletonRenderer == null)
-					Debug.LogError("Please manually re-assign SkeletonRenderer at BoneFollower, " +
-						"automatic upgrade failed.", this);
-			}
-		}
-		[SerializeField, HideInInspector, FormerlySerializedAs("skeletonRenderer")] Component previousSkeletonRenderer;
-		[SerializeField] protected bool wasUpgradedTo43 = false;
-#endif
-		#endregion
 	}
 }

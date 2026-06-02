@@ -121,7 +121,6 @@ GameObject:
   - component: {fileID: 432616244}
   - component: {fileID: 432616243}
   - component: {fileID: 432616245}
-  - component: {fileID: 432616246}
   m_Layer: 5
   m_Name: SkeletonGraphic (Doi)
   m_TagString: Untagged
@@ -144,7 +143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6787501, y: 0.23321827}
   m_AnchorMax: {x: 0.95375, y: 0.69778174}
-  m_AnchoredPosition: {x: 0.46844482, y: -4.064636}
+  m_AnchoredPosition: {x: 0.46844482, y: -4.064621}
   m_SizeDelta: {x: 463.732, y: 480.53192}
   m_Pivot: {x: 0.41940212, y: 0.14496017}
 --- !u!114 &432616241
@@ -158,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85b887af7e6c3f45a2e2d2920d641bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 9c6ec24bca5fc42489fe47358fef0d4a, type: 2}
+  m_Material: {fileID: 2100000, guid: b66cf7a186d13054989b33a5c90044e4, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -170,47 +169,28 @@ MonoBehaviour:
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
-  meshSettings:
-    useClipping: 1
-    zSpacing: 0
-    tintBlack: 0
-    canvasGroupCompatible: 0
-    pmaVertexColors: 1
-    addNormals: 0
-    calculateTangents: 0
-    immutableTriangles: 0
+  startingAnimation: main
+  startingLoop: 1
+  timeScale: 1
+  freeze: 0
+  updateMode: 3
   updateWhenInvisible: 3
-  clearStateOnDisable: 0
+  unscaledTime: 0
+  allowMultipleCanvasRenderers: 0
+  canvasRenderers: []
   separatorSlotNames: []
   enableSeparatorSlots: 0
-  disableRenderingOnOverride: 1
-  physicsPositionInheritanceFactor: {x: 1, y: 1}
-  physicsRotationInheritanceFactor: 1
-  physicsMovementRelativeTo: {fileID: 0}
-  threadedMeshGeneration: 2
-  m_SkeletonColor: {r: 1, g: 1, b: 1, a: 1}
-  freeze: 0
-  allowMultipleCanvasRenderers: 0
-  updateSeparatorPartLocation: 1
-  updateSeparatorPartScale: 0
-  additiveMaterial: {fileID: 0}
-  multiplyMaterial: {fileID: 0}
-  screenMaterial: {fileID: 0}
-  layoutScaleMode: 0
-  referenceSize: {x: 683.73193, y: 689.73535}
-  pivotOffset: {x: 0, y: 0}
-  referenceScale: 1
-  layoutScale: 1
-  rectTransformSize: {x: 877.2259, y: 873.4519}
-  editReferenceRect: 0
-  canvasRenderers: []
   separatorParts: []
-  disableMeshAssignmentOnOverride: 1
-  wasDeprecatedTransferred: 1
-  startingAnimationDeprecated: main
-  startingLoopDeprecated: 1
-  timeScaleDeprecated: 1
-  unscaledTimeDeprecated: 0
+  updateSeparatorPartLocation: 1
+  meshGenerator:
+    settings:
+      useClipping: 1
+      zSpacing: 0
+      pmaVertexColors: 1
+      tintBlack: 0
+      calculateTangents: 0
+      addNormals: 0
+      immutableTriangles: 0
 --- !u!222 &432616242
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -229,9 +209,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonGraphic: {fileID: 432616241}
-  materialWithoutOutline: {fileID: 2100000, guid: 9c6ec24bca5fc42489fe47358fef0d4a,
+  materialWithoutOutline: {fileID: 2100000, guid: b66cf7a186d13054989b33a5c90044e4,
     type: 2}
-  materialWithOutline: {fileID: 2100000, guid: eb5fcf8085792c14088ce1aeb552cfba, type: 2}
+  materialWithOutline: {fileID: 2100000, guid: c4ee0f8f4be17434aa3df5774a03b366, type: 2}
 --- !u!114 &432616244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,46 +293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonGraphic: {fileID: 432616241}
-  skeletonAnimation: {fileID: 0}
   trackIndex: 1
   playbackSpeed: 0.3
---- !u!114 &432616246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 432616239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  updateTiming: 1
-  threadedAnimation: 2
-  isUpdatedExternally: 0
-  animationName: main
-  loop: 1
-  timeScale: 1
-  unscaledTime: 0
-  wasDeprecatedTransferred: 1
-  skeletonDataAssetDeprecated: {fileID: 0}
-  initialSkinNameDeprecated: 
-  editorSkipSkinSyncDeprecated: 0
-  initialFlipXDeprecated: 0
-  initialFlipYDeprecated: 0
-  updateModeDeprecated: 3
-  updateWhenInvisibleDeprecated: 3
-  separatorSlotNamesDeprecated: []
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  clearStateOnDisableDeprecated: 0
-  tintBlackDeprecated: 0
-  singleSubmeshDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
-  maskInteractionDeprecated: 0
 --- !u!1 &438713513
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +644,6 @@ GameObject:
   - component: {fileID: 988957977}
   - component: {fileID: 988957976}
   - component: {fileID: 988957975}
-  - component: {fileID: 988957982}
   m_Layer: 0
   m_Name: Spine GameObject (hero-pro) Z-Spacing
   m_TagString: Untagged
@@ -815,15 +756,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26947ae098a8447408d80c0c86e35b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonRenderer: {fileID: 988957982}
+  skeletonRenderer: {fileID: 988957978}
   customSlotMaterials: []
   customMaterialOverrides:
   - overrideDisabled: 0
     originalMaterial: {fileID: 2100000, guid: 9aa2023c2c91b254f9cb0a4fba19af00, type: 2}
     replacementMaterial: {fileID: 2100000, guid: aadb1a26bea9b8d4381c38e65e64c192,
       type: 2}
-  previousSkeletonRenderer: {fileID: 988957978}
-  wasUpgradedTo43: 1
 --- !u!114 &988957978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -835,33 +774,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateTiming: 1
-  threadedAnimation: 2
-  isUpdatedExternally: 0
-  animationName: idle
+  skeletonDataAsset: {fileID: 11400000, guid: 2f899e95232e6144786de8fb99678a8d, type: 2}
+  initialSkinName: weapon/sword
+  initialFlipX: 0
+  initialFlipY: 0
+  updateMode: 3
+  updateWhenInvisible: 3
+  separatorSlotNames: []
+  zSpacing: -0.0122
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  _animationName: idle
   loop: 1
   timeScale: 0.4
-  unscaledTime: 0
-  wasDeprecatedTransferred: 1
-  skeletonDataAssetDeprecated: {fileID: 11400000, guid: 2f899e95232e6144786de8fb99678a8d,
-    type: 2}
-  initialSkinNameDeprecated: weapon/sword
-  editorSkipSkinSyncDeprecated: 0
-  initialFlipXDeprecated: 0
-  initialFlipYDeprecated: 0
-  updateModeDeprecated: 3
-  updateWhenInvisibleDeprecated: 3
-  separatorSlotNamesDeprecated: []
-  zSpacingDeprecated: -0.0122
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  clearStateOnDisableDeprecated: 0
-  tintBlackDeprecated: 0
-  singleSubmeshDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
-  maskInteractionDeprecated: 0
 --- !u!23 &988957979
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -914,50 +851,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &988957982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 988957974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e075b9a3e08e2f74fbd651c858ab16ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 2f899e95232e6144786de8fb99678a8d, type: 2}
-  initialSkinName: weapon/sword
-  initialFlipX: 0
-  initialFlipY: 0
-  meshSettings:
-    useClipping: 1
-    zSpacing: -0.0122
-    tintBlack: 0
-    canvasGroupCompatible: 0
-    pmaVertexColors: 1
-    addNormals: 0
-    calculateTangents: 0
-    immutableTriangles: 0
-  updateWhenInvisible: 3
-  clearStateOnDisable: 0
-  separatorSlotNames: []
-  enableSeparatorSlots: 0
-  disableRenderingOnOverride: 1
-  physicsPositionInheritanceFactor: {x: 1, y: 1}
-  physicsRotationInheritanceFactor: 1
-  physicsMovementRelativeTo: {fileID: 0}
-  threadedMeshGeneration: 2
-  singleSubmesh: 0
-  maskInteraction: 0
-  fixPrefabOverrideViaMeshFilter: 2
-  wasDeprecatedTransferred: 1
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  tintBlackDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
 --- !u!1 &1028287913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,7 +1033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.40375003, y: 0.031118065}
   m_AnchorMax: {x: 0.6937501, y: 0.1287785}
-  m_AnchoredPosition: {x: 1.8300018, y: 0.16601562}
+  m_AnchoredPosition: {x: 1.8299999, y: 0.16599989}
   m_SizeDelta: {x: 0.84000015, y: 0.33199978}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1612003164
@@ -1277,7 +1170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0275, y: 0.031118065}
   m_AnchorMax: {x: 0.38875, y: 0.16210914}
-  m_AnchoredPosition: {x: -0.5, y: -2.7999878}
+  m_AnchoredPosition: {x: -0.5, y: -2.800003}
   m_SizeDelta: {x: -0.3999939, y: 2.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1758924603
@@ -1353,7 +1246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.048750002, y: 0}
   m_AnchorMax: {x: 0.38875, y: 0.23321827}
-  m_AnchoredPosition: {x: 1, y: -1.7000122}
+  m_AnchoredPosition: {x: 1, y: -1.699997}
   m_SizeDelta: {x: -3.5, y: -1.7000122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1847925715
@@ -1409,7 +1302,6 @@ GameObject:
   - component: {fileID: 1851462487}
   - component: {fileID: 1851462480}
   - component: {fileID: 1851462486}
-  - component: {fileID: 1851462485}
   m_Layer: 0
   m_Name: Spine GameObject (raptor)
   m_TagString: Untagged
@@ -1497,33 +1389,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateTiming: 1
-  threadedAnimation: 2
-  isUpdatedExternally: 0
-  animationName: walk
+  skeletonDataAsset: {fileID: 11400000, guid: 784054e42b1ea374cb535eaf51bf4369, type: 2}
+  initialSkinName: 
+  initialFlipX: 0
+  initialFlipY: 0
+  updateMode: 3
+  updateWhenInvisible: 3
+  separatorSlotNames: []
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  _animationName: walk
   loop: 1
   timeScale: 0.6
-  unscaledTime: 0
-  wasDeprecatedTransferred: 1
-  skeletonDataAssetDeprecated: {fileID: 11400000, guid: 784054e42b1ea374cb535eaf51bf4369,
-    type: 2}
-  initialSkinNameDeprecated: 
-  editorSkipSkinSyncDeprecated: 0
-  initialFlipXDeprecated: 0
-  initialFlipYDeprecated: 0
-  updateModeDeprecated: 3
-  updateWhenInvisibleDeprecated: 3
-  separatorSlotNamesDeprecated: []
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  clearStateOnDisableDeprecated: 0
-  tintBlackDeprecated: 0
-  singleSubmeshDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
-  maskInteractionDeprecated: 0
 --- !u!23 &1851462482
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1576,50 +1466,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1851462485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1851462479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e075b9a3e08e2f74fbd651c858ab16ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 784054e42b1ea374cb535eaf51bf4369, type: 2}
-  initialSkinName: 
-  initialFlipX: 0
-  initialFlipY: 0
-  meshSettings:
-    useClipping: 1
-    zSpacing: 0
-    tintBlack: 0
-    canvasGroupCompatible: 0
-    pmaVertexColors: 1
-    addNormals: 0
-    calculateTangents: 0
-    immutableTriangles: 0
-  updateWhenInvisible: 3
-  clearStateOnDisable: 0
-  separatorSlotNames: []
-  enableSeparatorSlots: 0
-  disableRenderingOnOverride: 1
-  physicsPositionInheritanceFactor: {x: 1, y: 1}
-  physicsRotationInheritanceFactor: 1
-  physicsMovementRelativeTo: {fileID: 0}
-  threadedMeshGeneration: 2
-  singleSubmesh: 0
-  maskInteraction: 0
-  fixPrefabOverrideViaMeshFilter: 2
-  wasDeprecatedTransferred: 1
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  tintBlackDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
 --- !u!61 &1851462486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1656,15 +1502,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26947ae098a8447408d80c0c86e35b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonRenderer: {fileID: 1851462485}
+  skeletonRenderer: {fileID: 1851462481}
   customSlotMaterials: []
   customMaterialOverrides:
   - overrideDisabled: 0
     originalMaterial: {fileID: 2100000, guid: 3d645292a7b9c7547bf7b14caa569410, type: 2}
     replacementMaterial: {fileID: 2100000, guid: b4a994702bba90348beb1c28734bda8b,
       type: 2}
-  previousSkeletonRenderer: {fileID: 1851462481}
-  wasUpgradedTo43: 1
 --- !u!1 &2051539989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,7 +1523,6 @@ GameObject:
   - component: {fileID: 2051539990}
   - component: {fileID: 2051539995}
   - component: {fileID: 2051539996}
-  - component: {fileID: 2051539997}
   m_Layer: 0
   m_Name: Spine GameObject (hero-pro)
   m_TagString: Untagged
@@ -1698,15 +1541,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26947ae098a8447408d80c0c86e35b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonRenderer: {fileID: 2051539997}
+  skeletonRenderer: {fileID: 2051539991}
   customSlotMaterials: []
   customMaterialOverrides:
   - overrideDisabled: 0
     originalMaterial: {fileID: 2100000, guid: 9aa2023c2c91b254f9cb0a4fba19af00, type: 2}
     replacementMaterial: {fileID: 2100000, guid: aadb1a26bea9b8d4381c38e65e64c192,
       type: 2}
-  previousSkeletonRenderer: {fileID: 2051539991}
-  wasUpgradedTo43: 1
 --- !u!114 &2051539991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1718,33 +1559,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateTiming: 1
-  threadedAnimation: 2
-  isUpdatedExternally: 0
-  animationName: idle
+  skeletonDataAsset: {fileID: 11400000, guid: 2f899e95232e6144786de8fb99678a8d, type: 2}
+  initialSkinName: weapon/sword
+  initialFlipX: 0
+  initialFlipY: 0
+  updateMode: 3
+  updateWhenInvisible: 3
+  separatorSlotNames: []
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  _animationName: idle
   loop: 1
   timeScale: 0.4
-  unscaledTime: 0
-  wasDeprecatedTransferred: 1
-  skeletonDataAssetDeprecated: {fileID: 11400000, guid: 2f899e95232e6144786de8fb99678a8d,
-    type: 2}
-  initialSkinNameDeprecated: weapon/sword
-  editorSkipSkinSyncDeprecated: 0
-  initialFlipXDeprecated: 0
-  initialFlipYDeprecated: 0
-  updateModeDeprecated: 3
-  updateWhenInvisibleDeprecated: 3
-  separatorSlotNamesDeprecated: []
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  clearStateOnDisableDeprecated: 0
-  tintBlackDeprecated: 0
-  singleSubmeshDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
-  maskInteractionDeprecated: 0
 --- !u!23 &2051539992
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1891,47 +1730,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.7975626, y: 5.72394}
   m_EdgeRadius: 0
---- !u!114 &2051539997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2051539989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e075b9a3e08e2f74fbd651c858ab16ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 2f899e95232e6144786de8fb99678a8d, type: 2}
-  initialSkinName: weapon/sword
-  initialFlipX: 0
-  initialFlipY: 0
-  meshSettings:
-    useClipping: 1
-    zSpacing: 0
-    tintBlack: 0
-    canvasGroupCompatible: 0
-    pmaVertexColors: 1
-    addNormals: 0
-    calculateTangents: 0
-    immutableTriangles: 0
-  updateWhenInvisible: 3
-  clearStateOnDisable: 0
-  separatorSlotNames: []
-  enableSeparatorSlots: 0
-  disableRenderingOnOverride: 1
-  physicsPositionInheritanceFactor: {x: 1, y: 1}
-  physicsRotationInheritanceFactor: 1
-  physicsMovementRelativeTo: {fileID: 0}
-  threadedMeshGeneration: 2
-  singleSubmesh: 0
-  maskInteraction: 0
-  fixPrefabOverrideViaMeshFilter: 2
-  wasDeprecatedTransferred: 1
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  tintBlackDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0

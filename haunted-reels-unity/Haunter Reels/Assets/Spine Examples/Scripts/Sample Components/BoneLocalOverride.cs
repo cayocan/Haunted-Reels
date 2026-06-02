@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -47,28 +47,28 @@ namespace Spine.Unity.Examples {
 		public bool overrideRotation = true;
 		[Range(0, 360)] public float rotation = 0;
 
-		ISkeletonRenderer spineComponent;
+		ISkeletonAnimation spineComponent;
 		Bone bone;
 
 #if UNITY_EDITOR
 		void OnValidate () {
 			if (Application.isPlaying) return;
-			if (spineComponent == null) spineComponent = GetComponent<ISkeletonRenderer>();
+			if (spineComponent == null) spineComponent = GetComponent<ISkeletonAnimation>();
 			if (spineComponent.IsNullOrDestroyed()) return;
-			if (bone != null) bone.SetupPose();
+			if (bone != null) bone.SetToSetupPose();
 			OverrideLocal(spineComponent);
 		}
 #endif
 
 		void Awake () {
-			spineComponent = GetComponent<ISkeletonRenderer>();
+			spineComponent = GetComponent<ISkeletonAnimation>();
 			if (spineComponent == null) { this.enabled = false; return; }
 			spineComponent.UpdateLocal += OverrideLocal;
 
 			if (bone == null) { this.enabled = false; return; }
 		}
 
-		void OverrideLocal (ISkeletonRenderer skeletonRenderer) {
+		void OverrideLocal (ISkeletonAnimation animated) {
 			if (bone == null || bone.Data.Name != boneName) {
 				if (string.IsNullOrEmpty(boneName)) return;
 				bone = spineComponent.Skeleton.FindBone(boneName);
@@ -78,14 +78,13 @@ namespace Spine.Unity.Examples {
 				}
 			}
 
-			var bonePose = bone.Pose;
 			if (overridePosition) {
-				bonePose.X = Mathf.Lerp(bonePose.X, localPosition.x, alpha);
-				bonePose.Y = Mathf.Lerp(bonePose.Y, localPosition.y, alpha);
+				bone.X = Mathf.Lerp(bone.X, localPosition.x, alpha);
+				bone.Y = Mathf.Lerp(bone.Y, localPosition.y, alpha);
 			}
 
 			if (overrideRotation)
-				bonePose.Rotation = Mathf.Lerp(bonePose.Rotation, rotation, alpha);
+				bone.Rotation = Mathf.Lerp(bone.Rotation, rotation, alpha);
 		}
 
 	}

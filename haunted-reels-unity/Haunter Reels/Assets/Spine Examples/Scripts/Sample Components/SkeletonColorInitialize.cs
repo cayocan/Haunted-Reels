@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -50,7 +50,7 @@ namespace Spine.Unity.Prototyping {
 		void OnValidate () {
 			ISkeletonComponent skeletonComponent = GetComponent<ISkeletonComponent>();
 			if (skeletonComponent != null) {
-				skeletonComponent.Skeleton.SetupPoseSlots();
+				skeletonComponent.Skeleton.SetSlotsToSetupPose();
 				IAnimationStateComponent animationStateComponent = GetComponent<IAnimationStateComponent>();
 				if (animationStateComponent != null && animationStateComponent.AnimationState != null) {
 					animationStateComponent.AnimationState.Apply(skeletonComponent.Skeleton);

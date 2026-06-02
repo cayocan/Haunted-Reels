@@ -22,7 +22,7 @@ MonoBehaviour:
     applyAdditiveMaterial: 0
     additiveMaterials: []
     multiplyMaterials:
-    - pageName: celestial-circus.png
+    - pageName: celestial-circus-pma.png
       material: {fileID: 2100000, guid: 51ea24e83c232c34994854424cd89413, type: 2}
     screenMaterials: []
   skeletonDataModifiers: []

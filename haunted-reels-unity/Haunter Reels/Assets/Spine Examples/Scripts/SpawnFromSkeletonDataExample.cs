@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -48,24 +48,21 @@ namespace Spine.Unity.Examples {
 
 			Animation spineAnimation = skeletonDataAsset.GetSkeletonData(false).FindAnimation(startingAnimation);
 			for (int i = 0; i < count; i++) {
-				// Spawn a new SkeletonAnimation GameObject.
-				SkeletonComponents<SkeletonRenderer, SkeletonAnimation> components = SkeletonAnimation.NewSkeletonAnimationGameObject(skeletonDataAsset);
-				SkeletonAnimation sa = components.skeletonAnimation;
-				DoExtraStuff(sa, spineAnimation);
+				SkeletonAnimation sa = SkeletonAnimation.NewSkeletonAnimationGameObject(skeletonDataAsset); // Spawn a new SkeletonAnimation GameObject.
+				DoExtraStuff(sa, spineAnimation); // optional stuff for fun.
 				sa.gameObject.name = i.ToString();
 				yield return new WaitForSeconds(1f / 8f);
 			}
 
 		}
 
-		void DoExtraStuff (SkeletonAnimation skeletonAnimation, Spine.Animation spineAnimation) {
-			Transform transform = skeletonAnimation.transform;
-			transform.localPosition = Random.insideUnitCircle * 6f;
-			transform.SetParent(this.transform, false);
+		void DoExtraStuff (SkeletonAnimation sa, Spine.Animation spineAnimation) {
+			sa.transform.localPosition = Random.insideUnitCircle * 6f;
+			sa.transform.SetParent(this.transform, false);
 
 			if (spineAnimation != null) {
-				skeletonAnimation.Initialize(false);
-				skeletonAnimation.AnimationState.SetAnimation(0, spineAnimation, true);
+				sa.Initialize(false);
+				sa.AnimationState.SetAnimation(0, spineAnimation, true);
 			}
 		}
 

@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -202,7 +202,7 @@ namespace Spine.Unity.Editor {
 		protected virtual void HandleSelect (object menuItemObject) {
 			SpineDrawerValuePair clickedItem = (SpineDrawerValuePair)menuItemObject;
 			SerializedProperty serializedProperty = clickedItem.property;
-			if (serializedProperty.serializedObject.isEditingMultipleObjects) serializedProperty.stringValue = "oaifnoiasf°ñ123526"; // HACK: to trigger change on multi-editing.
+			if (serializedProperty.serializedObject.isEditingMultipleObjects) serializedProperty.stringValue = "oaifnoiasf��123526"; // HACK: to trigger change on multi-editing.
 			serializedProperty.stringValue = clickedItem.stringValue;
 			serializedProperty.serializedObject.ApplyModifiedProperties();
 		}
@@ -463,16 +463,17 @@ namespace Spine.Unity.Editor {
 		protected override Texture2D Icon { get { return SpineEditorUtilities.Icons.constraintIK; } }
 
 		protected override bool IsValueValid (SkeletonData skeletonData, SerializedProperty property) {
-			return skeletonData.FindConstraint<IkConstraintData>(property.stringValue) != null;
+			return skeletonData.FindIkConstraint(property.stringValue) != null;
 		}
 
 		protected override void PopulateMenu (GenericMenu menu, SerializedProperty property, SpineIkConstraint targetAttribute, SkeletonData data) {
+			ExposedList<IkConstraintData> constraints = skeletonDataAsset.GetSkeletonData(false).IkConstraints;
+
 			if (TargetAttribute.includeNone)
 				menu.AddItem(new GUIContent(NoneString), !property.hasMultipleDifferentValues && string.IsNullOrEmpty(property.stringValue), HandleSelect, new SpineDrawerValuePair(string.Empty, property));
 
-			var ikConstraints = skeletonDataAsset.GetSkeletonData(false).Constraints.OfType<IkConstraintData>();
-			foreach (var ikConstraint in ikConstraints) {
-				string name = ikConstraint.Name;
+			for (int i = 0; i < constraints.Count; i++) {
+				string name = constraints.Items[i].Name;
 				if (name.StartsWith(targetAttribute.startsWith, StringComparison.Ordinal))
 					menu.AddItem(new GUIContent(name), !property.hasMultipleDifferentValues && name == property.stringValue, HandleSelect, new SpineDrawerValuePair(name, property));
 			}
@@ -486,16 +487,17 @@ namespace Spine.Unity.Editor {
 		protected override Texture2D Icon { get { return SpineEditorUtilities.Icons.constraintTransform; } }
 
 		protected override bool IsValueValid (SkeletonData skeletonData, SerializedProperty property) {
-			return skeletonData.FindConstraint<TransformConstraintData>(property.stringValue) != null;
+			return skeletonData.FindTransformConstraint(property.stringValue) != null;
 		}
 
 		protected override void PopulateMenu (GenericMenu menu, SerializedProperty property, SpineTransformConstraint targetAttribute, SkeletonData data) {
+			ExposedList<TransformConstraintData> constraints = skeletonDataAsset.GetSkeletonData(false).TransformConstraints;
+
 			if (TargetAttribute.includeNone)
 				menu.AddItem(new GUIContent(NoneString), !property.hasMultipleDifferentValues && string.IsNullOrEmpty(property.stringValue), HandleSelect, new SpineDrawerValuePair(string.Empty, property));
 
-			var transformConstraints = skeletonDataAsset.GetSkeletonData(false).Constraints.OfType<TransformConstraintData>();
-			foreach (var constraint in transformConstraints) {
-				string name = constraint.Name;
+			for (int i = 0; i < constraints.Count; i++) {
+				string name = constraints.Items[i].Name;
 				if (name.StartsWith(targetAttribute.startsWith, StringComparison.Ordinal))
 					menu.AddItem(new GUIContent(name), !property.hasMultipleDifferentValues && name == property.stringValue, HandleSelect, new SpineDrawerValuePair(name, property));
 			}
@@ -508,16 +510,17 @@ namespace Spine.Unity.Editor {
 		protected override Texture2D Icon { get { return SpineEditorUtilities.Icons.constraintPath; } }
 
 		protected override bool IsValueValid (SkeletonData skeletonData, SerializedProperty property) {
-			return skeletonData.FindConstraint<PathConstraintData>(property.stringValue) != null;
+			return skeletonData.FindPathConstraint(property.stringValue) != null;
 		}
 
 		protected override void PopulateMenu (GenericMenu menu, SerializedProperty property, SpinePathConstraint targetAttribute, SkeletonData data) {
+			ExposedList<PathConstraintData> constraints = skeletonDataAsset.GetSkeletonData(false).PathConstraints;
+
 			if (TargetAttribute.includeNone)
 				menu.AddItem(new GUIContent(NoneString), !property.hasMultipleDifferentValues && string.IsNullOrEmpty(property.stringValue), HandleSelect, new SpineDrawerValuePair(string.Empty, property));
 
-			var pathConstraints = skeletonDataAsset.GetSkeletonData(false).Constraints.OfType<TransformConstraintData>();
-			foreach (var constraint in pathConstraints) {
-				string name = constraint.Name;
+			for (int i = 0; i < constraints.Count; i++) {
+				string name = constraints.Items[i].Name;
 				if (name.StartsWith(targetAttribute.startsWith, StringComparison.Ordinal))
 					menu.AddItem(new GUIContent(name), !property.hasMultipleDifferentValues && name == property.stringValue, HandleSelect, new SpineDrawerValuePair(name, property));
 			}
@@ -591,17 +594,17 @@ namespace Spine.Unity.Editor {
 					List<Skin.SkinEntry> skinEntries = new List<Skin.SkinEntry>();
 					skin.GetAttachments(i, skinEntries);
 					foreach (Skin.SkinEntry entry in skinEntries) {
-						attachmentNames.Add(entry.Placeholder);
+						attachmentNames.Add(entry.Name);
 					}
 
 					if (skin != defaultSkin) {
 						foreach (Skin.SkinEntry entry in skinEntries) {
-							placeholderNames.Add(entry.Placeholder);
+							placeholderNames.Add(entry.Name);
 						}
 						skinEntries.Clear();
 						defaultSkin.GetAttachments(i, skinEntries);
 						foreach (Skin.SkinEntry entry in skinEntries) {
-							attachmentNames.Add(entry.Placeholder);
+							attachmentNames.Add(entry.Name);
 						}
 					}
 

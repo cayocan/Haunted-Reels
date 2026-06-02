@@ -333,7 +333,6 @@ GameObject:
   - component: {fileID: 816033311}
   - component: {fileID: 816033310}
   - component: {fileID: 816033315}
-  - component: {fileID: 816033316}
   m_Layer: 0
   m_Name: VIEW Spineboy
   m_TagString: Untagged
@@ -352,33 +351,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateTiming: 1
-  threadedAnimation: 2
-  isUpdatedExternally: 0
-  animationName: idle
+  skeletonDataAsset: {fileID: 11400000, guid: af38a3de26ed9b84abc2fe7c7f3b209d, type: 2}
+  initialSkinName: 
+  initialFlipX: 0
+  initialFlipY: 0
+  separatorSlotNames: []
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  _animationName: idle
   loop: 1
   timeScale: 1
-  unscaledTime: 0
-  wasDeprecatedTransferred: 1
-  skeletonDataAssetDeprecated: {fileID: 11400000, guid: af38a3de26ed9b84abc2fe7c7f3b209d,
-    type: 2}
-  initialSkinNameDeprecated: 
-  editorSkipSkinSyncDeprecated: 0
-  initialFlipXDeprecated: 0
-  initialFlipYDeprecated: 0
-  updateModeDeprecated: 3
-  updateWhenInvisibleDeprecated: 3
-  separatorSlotNamesDeprecated: []
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  clearStateOnDisableDeprecated: 0
-  tintBlackDeprecated: 0
-  singleSubmeshDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
-  maskInteractionDeprecated: 0
 --- !u!23 &816033311
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -474,50 +469,6 @@ MonoBehaviour:
   skeletonAnimation: {fileID: 816033310}
   boneName: crosshair
   cam: {fileID: 611702905}
---- !u!114 &816033316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 816033309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e075b9a3e08e2f74fbd651c858ab16ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: af38a3de26ed9b84abc2fe7c7f3b209d, type: 2}
-  initialSkinName: 
-  initialFlipX: 0
-  initialFlipY: 0
-  meshSettings:
-    useClipping: 1
-    zSpacing: 0
-    tintBlack: 0
-    canvasGroupCompatible: 0
-    pmaVertexColors: 1
-    addNormals: 0
-    calculateTangents: 0
-    immutableTriangles: 0
-  updateWhenInvisible: 3
-  clearStateOnDisable: 0
-  separatorSlotNames: []
-  enableSeparatorSlots: 0
-  disableRenderingOnOverride: 1
-  physicsPositionInheritanceFactor: {x: 1, y: 1}
-  physicsRotationInheritanceFactor: 1
-  physicsMovementRelativeTo: {fileID: 0}
-  threadedMeshGeneration: 2
-  singleSubmesh: 0
-  maskInteraction: 0
-  fixPrefabOverrideViaMeshFilter: 2
-  wasDeprecatedTransferred: 1
-  zSpacingDeprecated: 0
-  useClippingDeprecated: 1
-  immutableTrianglesDeprecated: 0
-  pmaVertexColorsDeprecated: 1
-  tintBlackDeprecated: 0
-  addNormalsDeprecated: 0
-  calculateTangentsDeprecated: 0
 --- !u!1 &1090490184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1082,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2088845776}
   m_LocalRotation: {x: 0, y: 0, z: 0.08045987, w: 0.99675786}
-  m_LocalPosition: {x: 2.8367753, y: 2.7568536, z: 0}
+  m_LocalPosition: {x: 2.8367755, y: 2.7568526, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 816033313}
@@ -1148,19 +1099,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1fd8daaed7b64148a34acb96ba14ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonRenderer: {fileID: 816033316}
+  skeletonRenderer: {fileID: 816033310}
   boneName: gun-tip
   followXYPosition: 1
   followZPosition: 0
-  followAttachmentZSpacing: 0
   followBoneRotation: 0
   followSkeletonFlip: 1
   followLocalScale: 0
-  followParentWorldScale: 0
-  maintainedAxisOrientation: 1
   initializeOnAwake: 1
-  previousSkeletonRenderer: {fileID: 816033310}
-  wasUpgradedTo43: 1
 --- !u!199 &2088845779
 ParticleSystemRenderer:
   serializedVersion: 4

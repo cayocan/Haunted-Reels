@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -45,7 +45,7 @@ namespace Spine.Unity {
 #else
 	[ExecuteInEditMode]
 #endif
-	[HelpURL("http://esotericsoftware.com/spine-unity-utility-components#BoundingBoxFollowerGraphic")]
+	[HelpURL("http://esotericsoftware.com/spine-unity#BoundingBoxFollowerGraphic")]
 	public class BoundingBoxFollowerGraphic : MonoBehaviour {
 		internal static bool DebugMessages = true;
 
@@ -84,7 +84,7 @@ namespace Spine.Unity {
 			Initialize();
 		}
 
-		void HandleRebuild (ISkeletonRenderer sr) {
+		void HandleRebuild (SkeletonGraphic sr) {
 			//if (BoundingBoxFollowerGraphic.DebugMessages) Debug.Log("Skeleton was rebuilt. Repopulating BoundingBoxFollowerGraphic.");
 			Initialize();
 		}
@@ -103,6 +103,7 @@ namespace Spine.Unity {
 			// Don't reinitialize if the setup did not change.
 			if (!overwrite &&
 				colliderTable.Count > 0 && slot != null &&   // Slot is set and colliders already populated.
+				skeletonGraphic.Skeleton == slot.Skeleton && // Skeleton object did not change.
 				slotName == slot.Data.Name                   // Slot object did not change.
 			)
 				return;
@@ -130,10 +131,10 @@ namespace Spine.Unity {
 			if (this.gameObject.activeInHierarchy) {
 				float scale = skeletonGraphic.MeshScale;
 				foreach (Skin skin in skeleton.Data.Skins)
-					AddCollidersForSkin(skin, skeleton, slotIndex, colliders, scale, ref requiredCollidersCount);
+					AddCollidersForSkin(skin, slotIndex, colliders, scale, ref requiredCollidersCount);
 
 				if (skeleton.Skin != null)
-					AddCollidersForSkin(skeleton.Skin, skeleton, slotIndex, colliders, scale, ref requiredCollidersCount);
+					AddCollidersForSkin(skeleton.Skin, slotIndex, colliders, scale, ref requiredCollidersCount);
 			}
 			DisposeExcessCollidersAfter(requiredCollidersCount);
 			skinBoneEnabled = slot.Bone.Active;
@@ -149,13 +150,13 @@ namespace Spine.Unity {
 			}
 		}
 
-		void AddCollidersForSkin (Skin skin, Skeleton skeleton, int slotIndex, PolygonCollider2D[] previousColliders, float scale, ref int collidersCount) {
+		void AddCollidersForSkin (Skin skin, int slotIndex, PolygonCollider2D[] previousColliders, float scale, ref int collidersCount) {
 			if (skin == null) return;
 			List<Skin.SkinEntry> skinEntries = new List<Skin.SkinEntry>();
 			skin.GetAttachments(slotIndex, skinEntries);
 
 			foreach (Skin.SkinEntry entry in skinEntries) {
-				Attachment attachment = skin.GetAttachment(slotIndex, entry.Placeholder);
+				Attachment attachment = skin.GetAttachment(slotIndex, entry.Name);
 				BoundingBoxAttachment boundingBoxAttachment = attachment as BoundingBoxAttachment;
 
 				if (BoundingBoxFollowerGraphic.DebugMessages && attachment != null && boundingBoxAttachment == null)
@@ -166,7 +167,7 @@ namespace Spine.Unity {
 						PolygonCollider2D bbCollider = collidersCount < previousColliders.Length ?
 							previousColliders[collidersCount] : gameObject.AddComponent<PolygonCollider2D>();
 						++collidersCount;
-						SkeletonUtility.SetColliderPointsLocal(bbCollider, skeleton, slot, boundingBoxAttachment, scale);
+						SkeletonUtility.SetColliderPointsLocal(bbCollider, slot, boundingBoxAttachment, scale);
 						bbCollider.isTrigger = isTrigger;
 						bbCollider.usedByEffector = usedByEffector;
 #if USE_COLLIDER_COMPOSITE_OPERATION
@@ -178,7 +179,7 @@ namespace Spine.Unity {
 						bbCollider.enabled = false;
 						bbCollider.hideFlags = HideFlags.NotEditable;
 						colliderTable.Add(boundingBoxAttachment, bbCollider);
-						nameTable.Add(boundingBoxAttachment, entry.Placeholder);
+						nameTable.Add(boundingBoxAttachment, entry.Name);
 					}
 				}
 			}
@@ -220,10 +221,9 @@ namespace Spine.Unity {
 		}
 
 		void LateUpdate () {
-			var slotPose = slot.AppliedPose;
-			if (slot != null && (slotPose.Attachment != currentAttachment || skinBoneEnabled != slot.Bone.Active)) {
+			if (slot != null && (slot.Attachment != currentAttachment || skinBoneEnabled != slot.Bone.Active)) {
 				skinBoneEnabled = slot.Bone.Active;
-				MatchAttachment(slotPose.Attachment);
+				MatchAttachment(slot.Attachment);
 			}
 		}
 

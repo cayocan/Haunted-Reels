@@ -46,7 +46,7 @@ PlayerSettings:
   defaultScreenWidthWeb: 960
   defaultScreenHeightWeb: 600
   m_StereoRenderingPath: 0
-  m_ActiveColorSpace: 1
+  m_ActiveColorSpace: 0
   unsupportedMSAAFallback: 0
   m_SpriteBatchMaxVertexCount: 65535
   m_SpriteBatchVertexThreshold: 300
@@ -593,7 +593,7 @@ PlayerSettings:
     PS4: DOTWEEN;DOTWEEN_UITOOLKIT
     PS5: DOTWEEN;DOTWEEN_UITOOLKIT
     QNX: DOTWEEN;DOTWEEN_UITOOLKIT
-    Standalone: DOTWEEN;DOTWEEN_UITOOLKIT
+    Standalone: DOTWEEN;DOTWEEN_UITOOLKIT;SPINE_EXISTS
     VisionOS: DOTWEEN;DOTWEEN_UITOOLKIT
     WebGL: DOTWEEN;DOTWEEN_UITOOLKIT
     Windows Store Apps: DOTWEEN;DOTWEEN_UITOOLKIT
@@ -620,8 +620,8 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Haunter Reels
-  metroPackageVersion: 
+  metroPackageName: HaunterReels
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -629,7 +629,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Haunter Reels
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Haunter Reels
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -37,7 +37,7 @@ namespace Spine.Unity.Editor {
 
 	[CustomEditor(typeof(BoneFollower)), CanEditMultipleObjects]
 	public class BoneFollowerInspector : Editor {
-		SerializedProperty boneName, skeletonRenderer, followXYPosition, followZPosition, followAttachmentZSpacing, 
+		SerializedProperty boneName, skeletonRenderer, followXYPosition, followZPosition, followAttachmentZSpacing,
 			followBoneRotation, followLocalScale, followParentWorldScale, followSkeletonFlip, maintainedAxisOrientation;
 		BoneFollower targetBoneFollower;
 		bool needsReset;
@@ -63,7 +63,7 @@ namespace Spine.Unity.Editor {
 		[MenuItem("CONTEXT/SkeletonRenderer/Add BoneFollower GameObject", true)]
 		static bool ValidateAddBoneFollowerGameObject (MenuCommand cmd) {
 			SkeletonRenderer skeletonRenderer = cmd.context as SkeletonRenderer;
-			return skeletonRenderer.IsValid;
+			return skeletonRenderer.valid;
 		}
 
 		[MenuItem("CONTEXT/BoneFollower/Rename BoneFollower GameObject")]
@@ -109,7 +109,7 @@ namespace Spine.Unity.Editor {
 			if (skeletonRendererComponent == null) return;
 
 			Transform transform = skeletonRendererComponent.transform;
-			Skeleton skeleton = skeletonRendererComponent.Skeleton;
+			Skeleton skeleton = skeletonRendererComponent.skeleton;
 
 			if (string.IsNullOrEmpty(boneName.stringValue)) {
 				SpineHandles.DrawBones(transform, skeleton);
@@ -200,10 +200,10 @@ namespace Spine.Unity.Editor {
 				} else {
 					boneFollowerSkeletonRenderer.Initialize(false);
 
-					if (boneFollowerSkeletonRenderer.SkeletonDataAsset == null)
+					if (boneFollowerSkeletonRenderer.skeletonDataAsset == null)
 						EditorGUILayout.HelpBox("Assigned SkeletonRenderer does not have SkeletonData assigned to it.", MessageType.Warning);
 
-					if (!boneFollowerSkeletonRenderer.IsValid)
+					if (!boneFollowerSkeletonRenderer.valid)
 						EditorGUILayout.HelpBox("Assigned SkeletonRenderer is invalid. Check target SkeletonRenderer, its SkeletonData asset or the console for other errors.", MessageType.Warning);
 				}
 			}

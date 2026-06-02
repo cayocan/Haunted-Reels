@@ -22,10 +22,8 @@ MonoBehaviour:
     applyAdditiveMaterial: 0
     additiveMaterials: []
     multiplyMaterials:
-    - pageName: snowglobe.png
-      material: {fileID: 2100000, guid: 8fe6588f222e36643befb8dc4dd42d31, type: 2}
-    - pageName: snowglobe_2.png
-      material: {fileID: 2100000, guid: e85ae0548a0fe0041a1b7d9c9d92a41e, type: 2}
+    - pageName: snowglobe-pma_4.png
+      material: {fileID: 2100000, guid: 457f3020c684d35468371a3d1f701bf5, type: 2}
     screenMaterials: []
   skeletonDataModifiers: []
   fromAnimation: []

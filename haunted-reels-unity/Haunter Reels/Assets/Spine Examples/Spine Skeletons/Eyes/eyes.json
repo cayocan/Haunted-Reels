@@ -1,13 +1,14 @@
 {
 "skeleton": {
-	"hash": "YcKpk3y/1AQ",
-	"spine": "4.3.74-beta",
+	"hash": "bCPH+nfNatw",
+	"spine": "4.2.22",
 	"x": -434,
 	"y": -133,
 	"width": 868,
 	"height": 322,
+	"fps": 1,
 	"images": "./images/",
-	"audio": null
+	"audio": ""
 },
 "bones": [
 	{ "name": "root" },

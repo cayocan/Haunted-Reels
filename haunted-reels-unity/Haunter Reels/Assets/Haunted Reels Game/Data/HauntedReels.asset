@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16edbf52dc21dd41a776a98b1c6541f, type: 3}
+  m_Name: HauntedReels
+  m_EditorClassIdentifier: SlotEngine.Runtime::SlotEngine.SlotSetupData
+  gameName: Haunted Reels Game
+  outputPath: Assets/Haunted Reels Game/
+  gridColumns: 5
+  gridRows: 3
+  paylineCount: 10
+  minBet: 1
+  maxBet: 100
+  minSpinDuration: 1.5
+  symbols:
+  - symbolId: 0
+    displayName: Witch
+    type: 0
+    sprite: {fileID: 0}
+    useSpine: 1
+    spineAsset: {fileID: 11400000, guid: 41dea630ddfff94488bc80a496f9cfd8, type: 2}
+    spineSkin: witch
+    spineAnimation: idle
+  - symbolId: 1
+    displayName: Pumpkin
+    type: 0
+    sprite: {fileID: 0}
+    useSpine: 1
+    spineAsset: {fileID: 11400000, guid: 41dea630ddfff94488bc80a496f9cfd8, type: 2}
+    spineSkin: pumpkin
+    spineAnimation: idle
+  - symbolId: 2
+    displayName: Skull
+    type: 0
+    sprite: {fileID: 0}
+    useSpine: 1
+    spineAsset: {fileID: 11400000, guid: 41dea630ddfff94488bc80a496f9cfd8, type: 2}
+    spineSkin: skull
+    spineAnimation: idle
+  - symbolId: 3
+    displayName: Bat
+    type: 0
+    sprite: {fileID: -8405252052650479482, guid: 32f15bfc9d98f5947992318e3f8b6e04, type: 3}
+    useSpine: 0
+    spineAsset: {fileID: 0}
+    spineSkin: default
+    spineAnimation: idle
+  - symbolId: 4
+    displayName: Spider
+    type: 0
+    sprite: {fileID: 2137518178732269681, guid: 030e32bafad36d447845353cefe6eaf4, type: 3}
+    useSpine: 0
+    spineAsset: {fileID: 0}
+    spineSkin: default
+    spineAnimation: idle
+  - symbolId: 5
+    displayName: Potion
+    type: 0
+    sprite: {fileID: 1300116536119408302, guid: a396bda0970f509418a9b9bb4c445b8e, type: 3}
+    useSpine: 0
+    spineAsset: {fileID: 0}
+    spineSkin: default
+    spineAnimation: idle
+  - symbolId: 6
+    displayName: Ghost Wild
+    type: 0
+    sprite: {fileID: -2855351056039373605, guid: bafbb4a5c8587664fb92a08fa1fc7f9d, type: 3}
+    useSpine: 0
+    spineAsset: {fileID: 0}
+    spineSkin: default
+    spineAnimation: idle
+  - symbolId: 7
+    displayName: Caldron Scatter
+    type: 0
+    sprite: {fileID: -1834872323004688856, guid: ecc51520c52f8b84bb59546abf4575f1, type: 3}
+    useSpine: 0
+    spineAsset: {fileID: 0}
+    spineSkin: default
+    spineAnimation: idle
+  buttons:
+  - buttonId: Spin
+    role: 0
+    normalSprite: {fileID: -8177865825302488864, guid: f994c813b856e5343860404918cc78b4, type: 3}
+    highlightSprite: {fileID: 7045375033272746739, guid: 82d1c45c13360ad4a9a5defbc3e153d7, type: 3}
+    pressedSprite: {fileID: -1263554216986918879, guid: bf3096aae7e39ce4e9ad446cf1d34e60, type: 3}
+    disabledSprite: {fileID: 0}
+  - buttonId: Auto Spin
+    role: 1
+    normalSprite: {fileID: -2568239804196339015, guid: 128fd4c31b4e96d48b784f8ef27ce104, type: 3}
+    highlightSprite: {fileID: -9124680241407342921, guid: 074e586360a5f9046a2c70a7ebe76a29, type: 3}
+    pressedSprite: {fileID: 0}
+    disabledSprite: {fileID: 0}
+  gameBackground: {fileID: -7798532264094875051, guid: 25e10419663ecb8468eb68be5e565dd4, type: 3}
+  menuScene:
+    generate: 1
+    background: {fileID: -7798532264094875051, guid: 25e10419663ecb8468eb68be5e565dd4, type: 3}
+    logo: {fileID: 0}
+    playButton:
+      buttonId: Play
+      role: 4
+      normalSprite: {fileID: 0}
+      highlightSprite: {fileID: 0}
+      pressedSprite: {fileID: 0}
+      disabledSprite: {fileID: 0}

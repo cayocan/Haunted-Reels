@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -55,7 +55,7 @@ namespace Spine.Unity.Examples {
 				applyPMA = skeletonRenderer.pmaVertexColors;
 			} else {
 				SkeletonGraphic skeletonGraphic = skeletonComponent as SkeletonGraphic;
-				applyPMA = skeletonGraphic != null && skeletonGraphic.MeshSettings.pmaVertexColors;
+				applyPMA = skeletonGraphic != null && skeletonGraphic.MeshGenerator.settings.pmaVertexColors;
 			}
 
 			if (applyPMA) {
@@ -97,7 +97,7 @@ namespace Spine.Unity.Examples {
 				Attach();
 		}
 
-		void AnimationOverrideSpriteAttach (ISkeletonRenderer skeletonRenderer) {
+		void AnimationOverrideSpriteAttach (ISkeletonAnimation animated) {
 			if (overrideAnimation && isActiveAndEnabled)
 				Attach();
 		}
@@ -105,21 +105,31 @@ namespace Spine.Unity.Examples {
 		public void Initialize (bool overwrite = true) {
 			if (overwrite || attachment == null) {
 				// Get the applyPMA value.
-				ISkeletonRenderer skeletonRenderer = GetComponent<ISkeletonRenderer>();
-				if (skeletonRenderer != null) {
-					this.applyPMA = skeletonRenderer.MeshSettings.pmaVertexColors;
-					// Subscribe to UpdateComplete to override animation keys.
-					if (overrideAnimation) {
-						skeletonRenderer.UpdateComplete -= AnimationOverrideSpriteAttach;
-						skeletonRenderer.UpdateComplete += AnimationOverrideSpriteAttach;
+				ISkeletonComponent skeletonComponent = GetComponent<ISkeletonComponent>();
+				SkeletonRenderer skeletonRenderer = skeletonComponent as SkeletonRenderer;
+				if (skeletonRenderer != null)
+					this.applyPMA = skeletonRenderer.pmaVertexColors;
+				else {
+					SkeletonGraphic skeletonGraphic = skeletonComponent as SkeletonGraphic;
+					if (skeletonGraphic != null)
+						this.applyPMA = skeletonGraphic.MeshGenerator.settings.pmaVertexColors;
+				}
+
+				// Subscribe to UpdateComplete to override animation keys.
+				if (overrideAnimation) {
+					ISkeletonAnimation animatedSkeleton = skeletonComponent as ISkeletonAnimation;
+					if (animatedSkeleton != null) {
+						animatedSkeleton.UpdateComplete -= AnimationOverrideSpriteAttach;
+						animatedSkeleton.UpdateComplete += AnimationOverrideSpriteAttach;
 					}
 				}
-				spineSlot = spineSlot ?? skeletonRenderer.Skeleton.FindSlot(slot);
+
+				spineSlot = spineSlot ?? skeletonComponent.Skeleton.FindSlot(slot);
 				Shader attachmentShader = applyPMA ? Shader.Find(DefaultPMAShader) : Shader.Find(DefaultStraightAlphaShader);
 				if (sprite == null)
 					attachment = null;
 				else
-					attachment = applyPMA ? sprite.ToRegionAttachmentWithNewPMATexture(attachmentShader) : sprite.ToRegionAttachment(SpriteAttacher.GetPageFor(sprite.texture, attachmentShader));
+					attachment = applyPMA ? sprite.ToRegionAttachmentPMAClone(attachmentShader) : sprite.ToRegionAttachment(SpriteAttacher.GetPageFor(sprite.texture, attachmentShader));
 			}
 		}
 
@@ -132,7 +142,7 @@ namespace Spine.Unity.Examples {
 		/// <summary>Update the slot's attachment to the Attachment generated from the sprite.</summary>
 		public void Attach () {
 			if (spineSlot != null)
-				spineSlot.AppliedPose.Attachment = attachment;
+				spineSlot.Attachment = attachment;
 		}
 
 	}
@@ -151,14 +161,14 @@ namespace Spine.Unity.Examples {
 
 		[System.Obsolete]
 		public static RegionAttachment AttachUnitySprite (this Skeleton skeleton, string slotName, Sprite sprite, Shader shader, bool applyPMA, float rotation = 0f) {
-			RegionAttachment att = applyPMA ? sprite.ToRegionAttachmentWithNewPMATexture(shader, rotation: rotation) : sprite.ToRegionAttachment(new Material(shader), rotation: rotation);
-			skeleton.FindSlot(slotName).AppliedPose.Attachment = att;
+			RegionAttachment att = applyPMA ? sprite.ToRegionAttachmentPMAClone(shader, rotation: rotation) : sprite.ToRegionAttachment(new Material(shader), rotation: rotation);
+			skeleton.FindSlot(slotName).Attachment = att;
 			return att;
 		}
 
 		[System.Obsolete]
 		public static RegionAttachment AddUnitySprite (this SkeletonData skeletonData, string slotName, Sprite sprite, string skinName, Shader shader, bool applyPMA, float rotation = 0f) {
-			RegionAttachment att = applyPMA ? sprite.ToRegionAttachmentWithNewPMATexture(shader, rotation: rotation) : sprite.ToRegionAttachment(new Material(shader), rotation);
+			RegionAttachment att = applyPMA ? sprite.ToRegionAttachmentPMAClone(shader, rotation: rotation) : sprite.ToRegionAttachment(new Material(shader), rotation);
 
 			int slotIndex = skeletonData.FindSlot(slotName).Index;
 			Skin skin = skeletonData.DefaultSkin;

@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -171,13 +171,12 @@ namespace Spine.Unity.Editor {
 
 			Vector2 offset = positionOffset == null ? Vector2.zero : positionOffset.Value;
 			GUIStyle style = BoneNameStyle;
-			foreach (Bone bone in skeleton.Bones) {
-				if (!bone.Active) continue;
-				var bonePose = bone.AppliedPose;
-				Vector3 pos = new Vector3(bonePose.WorldX * positionScale + offset.x, bonePose.WorldY * positionScale + offset.y, 0)
-					+ (new Vector3(bonePose.A, bonePose.C) * (bone.Data.Length * 0.5f));
+			foreach (Bone b in skeleton.Bones) {
+				if (!b.Active) continue;
+				Vector3 pos = new Vector3(b.WorldX * positionScale + offset.x, b.WorldY * positionScale + offset.y, 0)
+					+ (new Vector3(b.A, b.C) * (b.Data.Length * 0.5f));
 				pos = transform.TransformPoint(pos);
-				Handles.Label(pos, bone.Data.Name, style);
+				Handles.Label(pos, b.Data.Name, style);
 			}
 		}
 
@@ -204,19 +203,18 @@ namespace Spine.Unity.Editor {
 			_boneWireBuffer[4] = _boneWireBuffer[0]; // closed polygon.
 			return _boneWireBuffer;
 		}
-		public static void DrawBoneWireframe (Transform transform, Bone bone, Color color, float skeletonRenderScale = 1f,
+		public static void DrawBoneWireframe (Transform transform, Bone b, Color color, float skeletonRenderScale = 1f,
 			Vector2? positionOffset = null) {
 			if (UnityEngine.Event.current.type != EventType.Repaint) return;
 
 			Vector2 offset = positionOffset == null ? Vector2.zero : positionOffset.Value;
 			Handles.color = color;
-			var bonePose = bone.AppliedPose;
-			Vector3 pos = new Vector3(bonePose.WorldX * skeletonRenderScale + offset.x, bonePose.WorldY * skeletonRenderScale + offset.y, 0);
-			float length = bone.Data.Length;
+			Vector3 pos = new Vector3(b.WorldX * skeletonRenderScale + offset.x, b.WorldY * skeletonRenderScale + offset.y, 0);
+			float length = b.Data.Length;
 
 			if (length > 0) {
-				Quaternion rot = Quaternion.Euler(0, 0, bonePose.WorldRotationX);
-				Vector3 scale = Vector3.one * length * bonePose.WorldScaleX * skeletonRenderScale;
+				Quaternion rot = Quaternion.Euler(0, 0, b.WorldRotationX);
+				Vector3 scale = Vector3.one * length * b.WorldScaleX * skeletonRenderScale;
 				const float my = 1.5f;
 				scale.y *= (SpineEditorUtilities.Preferences.handleScale + 1) * 0.5f;
 				scale.y = Mathf.Clamp(scale.x, -my * skeletonRenderScale, my * skeletonRenderScale);
@@ -229,17 +227,16 @@ namespace Spine.Unity.Editor {
 			}
 		}
 
-		public static void DrawBone (Transform transform, Bone bone, float boneScale, float skeletonRenderScale = 1f,
+		public static void DrawBone (Transform transform, Bone b, float boneScale, float skeletonRenderScale = 1f,
 			Vector2? positionOffset = null) {
 			if (UnityEngine.Event.current.type != EventType.Repaint) return;
 
-			var bonePose = bone.AppliedPose;
 			Vector2 offset = positionOffset == null ? Vector2.zero : positionOffset.Value;
-			Vector3 pos = new Vector3(bonePose.WorldX * skeletonRenderScale + offset.x, bonePose.WorldY * skeletonRenderScale + offset.y, 0);
-			float length = bone.Data.Length;
+			Vector3 pos = new Vector3(b.WorldX * skeletonRenderScale + offset.x, b.WorldY * skeletonRenderScale + offset.y, 0);
+			float length = b.Data.Length;
 			if (length > 0) {
-				Quaternion rot = Quaternion.Euler(0, 0, bonePose.WorldRotationX);
-				Vector3 scale = Vector3.one * length * bonePose.WorldScaleX * skeletonRenderScale;
+				Quaternion rot = Quaternion.Euler(0, 0, b.WorldRotationX);
+				Vector3 scale = Vector3.one * length * b.WorldScaleX * skeletonRenderScale;
 				const float my = 1.5f;
 				scale.y *= (SpineEditorUtilities.Preferences.handleScale + 1f) * 0.5f;
 				scale.y = Mathf.Clamp(scale.x, -my * skeletonRenderScale, my * skeletonRenderScale);
@@ -251,17 +248,16 @@ namespace Spine.Unity.Editor {
 			}
 		}
 
-		public static void DrawBone (Transform transform, Bone bone, float boneScale, Color color, float skeletonRenderScale = 1f,
+		public static void DrawBone (Transform transform, Bone b, float boneScale, Color color, float skeletonRenderScale = 1f,
 			Vector2? positionOffset = null) {
 			if (UnityEngine.Event.current.type != EventType.Repaint) return;
 
-			var bonePose = bone.AppliedPose;
 			Vector2 offset = positionOffset == null ? Vector2.zero : positionOffset.Value;
-			Vector3 pos = new Vector3(bonePose.WorldX * skeletonRenderScale + offset.x, bonePose.WorldY * skeletonRenderScale + offset.y, 0);
-			float length = bone.Data.Length;
+			Vector3 pos = new Vector3(b.WorldX * skeletonRenderScale + offset.x, b.WorldY * skeletonRenderScale + offset.y, 0);
+			float length = b.Data.Length;
 			if (length > 0) {
-				Quaternion rot = Quaternion.Euler(0, 0, bonePose.WorldRotationX);
-				Vector3 scale = Vector3.one * length * bonePose.WorldScaleX;
+				Quaternion rot = Quaternion.Euler(0, 0, b.WorldRotationX);
+				Vector3 scale = Vector3.one * length * b.WorldScaleX;
 				const float my = 1.5f;
 				scale.y *= (SpineEditorUtilities.Preferences.handleScale + 1f) * 0.5f;
 				scale.y = Mathf.Clamp(scale.x, -my, my);
@@ -276,14 +272,14 @@ namespace Spine.Unity.Editor {
 		public static void DrawPaths (Transform transform, Skeleton skeleton) {
 			if (UnityEngine.Event.current.type != EventType.Repaint) return;
 
-			foreach (Slot s in skeleton.DrawOrder.AppliedPose) {
-				PathAttachment p = s.AppliedPose.Attachment as PathAttachment;
-				if (p != null) SpineHandles.DrawPath(skeleton, s, p, transform, true);
+			foreach (Slot s in skeleton.DrawOrder) {
+				PathAttachment p = s.Attachment as PathAttachment;
+				if (p != null) SpineHandles.DrawPath(s, p, transform, true);
 			}
 		}
 
 		static float[] pathVertexBuffer;
-		public static void DrawPath (Skeleton skeleton, Slot s, PathAttachment p, Transform t, bool includeName) {
+		public static void DrawPath (Slot s, PathAttachment p, Transform t, bool includeName) {
 			if (UnityEngine.Event.current.type != EventType.Repaint) return;
 
 			int worldVerticesLength = p.WorldVerticesLength;
@@ -292,7 +288,7 @@ namespace Spine.Unity.Editor {
 				pathVertexBuffer = new float[worldVerticesLength];
 
 			float[] pv = pathVertexBuffer;
-			p.ComputeWorldVertices(skeleton, s, pv);
+			p.ComputeWorldVertices(s, pv);
 
 			Color ocolor = Handles.color;
 			Handles.color = SpineHandles.PathColor;
@@ -338,18 +334,18 @@ namespace Spine.Unity.Editor {
 			if (UnityEngine.Event.current.type != EventType.Repaint) return;
 
 			foreach (Slot slot in skeleton.Slots) {
-				BoundingBoxAttachment bba = slot.AppliedPose.Attachment as BoundingBoxAttachment;
-				if (bba != null) SpineHandles.DrawBoundingBox(skeleton, slot, bba, transform);
+				BoundingBoxAttachment bba = slot.Attachment as BoundingBoxAttachment;
+				if (bba != null) SpineHandles.DrawBoundingBox(slot, bba, transform);
 			}
 		}
 
-		public static void DrawBoundingBox (Skeleton skeleton, Slot slot, BoundingBoxAttachment box, Transform t) {
+		public static void DrawBoundingBox (Slot slot, BoundingBoxAttachment box, Transform t) {
 			if (UnityEngine.Event.current.type != EventType.Repaint) return;
 
 			if (box.Vertices.Length <= 2) return; // Handle cases where user creates a BoundingBoxAttachment but doesn't actually define it.
 
 			float[] worldVerts = new float[box.WorldVerticesLength];
-			box.ComputeWorldVertices(skeleton, slot, worldVerts);
+			box.ComputeWorldVertices(slot, worldVerts);
 
 			Handles.color = Color.green;
 			Vector3 lastVert = Vector3.zero;
@@ -378,9 +374,8 @@ namespace Spine.Unity.Editor {
 			if (pointAttachment == null) return;
 
 			Vector2 localPos;
-			var bonePose = bone.AppliedPose;
-			pointAttachment.ComputeWorldPosition(bonePose, out localPos.x, out localPos.y);
-			float localRotation = pointAttachment.ComputeWorldRotation(bonePose);
+			pointAttachment.ComputeWorldPosition(bone, out localPos.x, out localPos.y);
+			float localRotation = pointAttachment.ComputeWorldRotation(bone);
 			Matrix4x4 m = Matrix4x4.TRS(localPos, Quaternion.Euler(0, 0, localRotation), Vector3.one) * Matrix4x4.TRS(Vector3.right * 0.25f, Quaternion.identity, Vector3.one);
 
 			DrawBoneCircle(skeletonTransform.TransformPoint(localPos), SpineHandles.PointColor, Vector3.back, 1.3f);
@@ -401,41 +396,31 @@ namespace Spine.Unity.Editor {
 
 			// Transform Constraints
 			handleColor = SpineHandles.TransformContraintColor;
-			foreach (IConstraint constraint in skeleton.Constraints) {
-				var transformConstraint = constraint as TransformConstraint;
-				if (transformConstraint == null) continue;
+			foreach (TransformConstraint tc in skeleton.TransformConstraints) {
+				Bone targetBone = tc.Target;
+				targetPos = targetBone.GetWorldPosition(transform, skeletonRenderScale, offset);
 
-				Bone sourceBone = transformConstraint.Source;
-				var sourcePose = sourceBone.AppliedPose;
-				targetPos = sourceBone.GetWorldPosition(transform, skeletonRenderScale, offset);
-
-				var tc = transformConstraint.AppliedPose;
 				if (tc.MixX > 0 || tc.MixY > 0) {
 					if ((tc.MixX > 0 && tc.MixX != 1f) ||
 						(tc.MixY > 0 && tc.MixY != 1f)) {
 						Handles.color = handleColor;
-						foreach (BonePose b in transformConstraint.Bones) {
+						foreach (Bone b in tc.Bones) {
 							pos = b.GetWorldPosition(transform, skeletonRenderScale, offset);
 							Handles.DrawDottedLine(targetPos, pos, Thickness);
 						}
 					}
 					SpineHandles.DrawBoneCircle(targetPos, handleColor, normal, 1.3f * skeletonRenderScale);
 					Handles.color = handleColor;
-					SpineHandles.DrawCrosshairs(targetPos, 0.2f, sourcePose.A, sourcePose.B, sourcePose.C, sourcePose.D, transform, skeletonRenderScale);
+					SpineHandles.DrawCrosshairs(targetPos, 0.2f, targetBone.A, targetBone.B, targetBone.C, targetBone.D, transform, skeletonRenderScale);
 				}
 			}
 
 			// IK Constraints
 			handleColor = SpineHandles.IkColor;
-			foreach (IConstraint constraint in skeleton.Constraints) {
-				var ikConstraint = constraint as IkConstraint;
-				if (ikConstraint == null) continue;
-
-				var ikc = ikConstraint.AppliedPose;
-				Bone targetBone = ikConstraint.Target;
-				BonePose targetBonePose = targetBone.AppliedPose;
+			foreach (IkConstraint ikc in skeleton.IkConstraints) {
+				Bone targetBone = ikc.Target;
 				targetPos = targetBone.GetWorldPosition(transform, skeletonRenderScale, offset);
-				ExposedList<BonePose> bones = ikConstraint.Bones;
+				ExposedList<Bone> bones = ikc.Bones;
 				active = ikc.Mix > 0;
 				if (active) {
 					pos = bones.Items[0].GetWorldPosition(transform, skeletonRenderScale, offset);
@@ -445,13 +430,13 @@ namespace Spine.Unity.Editor {
 						Handles.DrawLine(targetPos, pos);
 						SpineHandles.DrawBoneCircle(targetPos, handleColor, normal);
 						Matrix4x4 m = bones.Items[0].GetMatrix4x4();
-						m.m03 = targetBonePose.WorldX * skeletonRenderScale + offset.x;
-						m.m13 = targetBonePose.WorldY * skeletonRenderScale + offset.y;
+						m.m03 = targetBone.WorldX * skeletonRenderScale + offset.x;
+						m.m13 = targetBone.WorldY * skeletonRenderScale + offset.y;
 						SpineHandles.DrawArrowhead(transform.localToWorldMatrix * m);
 						break;
 					}
 					case 2: {
-						BonePose childBone = bones.Items[1];
+						Bone childBone = bones.Items[1];
 						Vector3 child = childBone.GetWorldPosition(transform, skeletonRenderScale, offset);
 						Handles.color = handleColor;
 						Handles.DrawLine(child, pos);
@@ -460,8 +445,8 @@ namespace Spine.Unity.Editor {
 						SpineHandles.DrawBoneCircle(child, handleColor, normal, 0.5f);
 						SpineHandles.DrawBoneCircle(targetPos, handleColor, normal);
 						Matrix4x4 m = childBone.GetMatrix4x4();
-						m.m03 = targetBonePose.WorldX * skeletonRenderScale + offset.x;
-						m.m13 = targetBonePose.WorldY * skeletonRenderScale + offset.y;
+						m.m03 = targetBone.WorldX * skeletonRenderScale + offset.x;
+						m.m13 = targetBone.WorldY * skeletonRenderScale + offset.y;
 						SpineHandles.DrawArrowhead(transform.localToWorldMatrix * m);
 						break;
 					}
@@ -472,14 +457,10 @@ namespace Spine.Unity.Editor {
 
 			// Path Constraints
 			handleColor = SpineHandles.PathColor;
-			foreach (IConstraint constraint in skeleton.Constraints) {
-				var pathConstraint = constraint as PathConstraint;
-				if (pathConstraint == null) continue;
-
-				var pc = pathConstraint.AppliedPose;
+			foreach (PathConstraint pc in skeleton.PathConstraints) {
 				active = pc.MixX > 0 || pc.MixY > 0 || pc.MixRotate > 0;
 				if (active)
-					foreach (BonePose b in pathConstraint.Bones)
+					foreach (Bone b in pc.Bones)
 						SpineHandles.DrawBoneCircle(b.GetWorldPosition(transform, skeletonRenderScale, offset),
 							handleColor, normal, 1f * skeletonRenderScale);
 			}
@@ -552,9 +533,7 @@ namespace Spine.Unity.Editor {
 				Undo.RecordObject(skeletonGraphic, "Change Offset to Pivot");
 				Vector3 localScaledOffset = skeletonGraphic.transform.InverseTransformPoint(newWorldSpacePosition);
 				skeletonGraphic.SetScaledPivotOffset(localScaledOffset);
-
-				skeletonGraphic.UpdateBuffersToInstructions(true);
-				skeletonGraphic.UpdateMeshAndMaterialsToBuffers();
+				skeletonGraphic.UpdateMeshToInstructions();
 			}
 			Handles.DrawSolidDisc(newWorldSpacePosition, skeletonGraphic.transform.forward, discSize);
 			Handles.color = savedColor;

@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -61,7 +61,7 @@ namespace Spine.Unity.Examples {
 		[Tooltip("Default rotational limit value. Min is negative this value, Max is this value.")]
 		public float rotationLimit = 20;
 		public float rootMass = 20;
-		[Tooltip("If your ragdoll seems unstable or unaffected by limits, try lowering this value.")]
+		[Tooltip("If your ragdoll seems unstable or uneffected by limits, try lowering this value.")]
 		[Range(0.01f, 1f)]
 		public float massFalloffFactor = 0.4f;
 		[Tooltip("The layer assigned to all of the rigidbody parts.")]
@@ -71,7 +71,7 @@ namespace Spine.Unity.Examples {
 		public bool oldRagdollBehaviour = false;
 		#endregion
 
-		ISkeletonRenderer targetSkeletonComponent;
+		ISkeletonAnimation targetSkeletonComponent;
 		Skeleton skeleton;
 		struct BoneFlipEntry {
 			public BoneFlipEntry (bool flipX, bool flipY) {
@@ -98,8 +98,10 @@ namespace Spine.Unity.Examples {
 				parentSpaceHelper.hideFlags = HideFlags.HideInHierarchy;
 			}
 
-			targetSkeletonComponent = GetComponent<ISkeletonRenderer>();
+			targetSkeletonComponent = GetComponent<SkeletonRenderer>() as ISkeletonAnimation;
+			if (targetSkeletonComponent == null) Debug.LogError("Attached Spine component does not implement ISkeletonAnimation. This script is not compatible.");
 			skeleton = targetSkeletonComponent.Skeleton;
+
 			if (applyOnStart) {
 				yield return null;
 				Apply();
@@ -151,9 +153,8 @@ namespace Spine.Unity.Examples {
 						ragdollRoot.localPosition = new Vector3(skeleton.X, skeleton.Y, 0);
 						ragdollRoot.localRotation = (skeleton.ScaleX < 0) ? Quaternion.Euler(0, 0, 180.0f) : Quaternion.identity;
 					} else {
-						var parentPose = b.Parent.AppliedPose;
-						ragdollRoot.localPosition = new Vector3(parentPose.WorldX, parentPose.WorldY, 0);
-						ragdollRoot.localRotation = Quaternion.Euler(0, 0, parentPose.WorldRotationX - parentPose.ShearX);
+						ragdollRoot.localPosition = new Vector3(b.Parent.WorldX, b.Parent.WorldY, 0);
+						ragdollRoot.localRotation = Quaternion.Euler(0, 0, b.Parent.WorldRotationX - b.Parent.ShearX);
 					}
 					parentTransform = ragdollRoot;
 					rootOffset = t.position - transform.position;
@@ -185,7 +186,7 @@ namespace Spine.Unity.Examples {
 			for (int x = 0; x < boneColliders.Count; x++) {
 				for (int y = 0; y < boneColliders.Count; y++) {
 					if (x == y) continue;
-					UnityEngine.Physics.IgnoreCollision(boneColliders[x], boneColliders[y]);
+					Physics.IgnoreCollision(boneColliders[x], boneColliders[y]);
 				}
 			}
 
@@ -212,30 +213,28 @@ namespace Spine.Unity.Examples {
 			}
 
 			// Disable skeleton constraints.
-			ExposedList<IConstraint> constraints = skeleton.Constraints;
-			IConstraint[] constraintsItems = constraints.Items;
-			for (int i = 0, n = constraints.Count; i < n; i++) {
-				var constraint = constraintsItems[i];
-				if (constraint is IkConstraint && disableIK) {
-					var ikConstraint = ((IkConstraint)constraint);
-					ikConstraint.Pose.Mix = 0;
-				} else if (disableOtherConstraints) {
-					if (constraint is TransformConstraint) {
-						var transformConstraint = (TransformConstraint)constraint;
-						var constraintPose = transformConstraint.Pose;
-						constraintPose.MixRotate = 0;
-						constraintPose.MixScaleX = 0;
-						constraintPose.MixScaleY = 0;
-						constraintPose.MixShearY = 0;
-						constraintPose.MixX = 0;
-						constraintPose.MixY = 0;
-					} else if (constraint is PathConstraint) {
-						var pathConstraint = (PathConstraint)constraint;
-						var constraintPose = pathConstraint.Pose;
-						constraintPose.MixRotate = 0;
-						constraintPose.MixX = 0;
-						constraintPose.MixY = 0;
-					}
+			if (disableIK) {
+				ExposedList<IkConstraint> ikConstraints = skeleton.IkConstraints;
+				for (int i = 0, n = ikConstraints.Count; i < n; i++)
+					ikConstraints.Items[i].Mix = 0;
+			}
+
+			if (disableOtherConstraints) {
+				ExposedList<TransformConstraint> transformConstraints = skeleton.TransformConstraints;
+				for (int i = 0, n = transformConstraints.Count; i < n; i++) {
+					transformConstraints.Items[i].MixRotate = 0;
+					transformConstraints.Items[i].MixScaleX = 0;
+					transformConstraints.Items[i].MixScaleY = 0;
+					transformConstraints.Items[i].MixShearY = 0;
+					transformConstraints.Items[i].MixX = 0;
+					transformConstraints.Items[i].MixY = 0;
+				}
+
+				ExposedList<PathConstraint> pathConstraints = skeleton.PathConstraints;
+				for (int i = 0, n = pathConstraints.Count; i < n; i++) {
+					pathConstraints.Items[i].MixRotate = 0;
+					pathConstraints.Items[i].MixX = 0;
+					pathConstraints.Items[i].MixY = 0;
 				}
 			}
 
@@ -251,7 +250,7 @@ namespace Spine.Unity.Examples {
 			float startTime = Time.time;
 			float startMix = mix;
 			while (mix > 0) {
-				skeleton.SetupPoseBones();
+				skeleton.SetBonesToSetupPose();
 				mix = Mathf.SmoothStep(startMix, target, (Time.time - startTime) / duration);
 				yield return null;
 			}
@@ -270,7 +269,7 @@ namespace Spine.Unity.Examples {
 				t.position -= offset;
 
 			UpdateSpineSkeleton(null);
-			skeleton.UpdateWorldTransform(Physics.Update);
+			skeleton.UpdateWorldTransform(Skeleton.Physics.Update);
 		}
 
 		/// <summary>Removes the ragdoll instance and effect from the animated skeleton.</summary>
@@ -302,10 +301,9 @@ namespace Spine.Unity.Examples {
 			boneTable.Add(b, t);
 
 			t.parent = transform;
-			var bonePose = b.AppliedPose;
-			t.localPosition = new Vector3(bonePose.WorldX, bonePose.WorldY, 0);
-			t.localRotation = Quaternion.Euler(0, 0, bonePose.WorldRotationX - bonePose.ShearX);
-			t.localScale = new Vector3(bonePose.WorldScaleX, bonePose.WorldScaleY, 1);
+			t.localPosition = new Vector3(b.WorldX, b.WorldY, 0);
+			t.localRotation = Quaternion.Euler(0, 0, b.WorldRotationX - b.ShearX);
+			t.localScale = new Vector3(b.WorldScaleX, b.WorldScaleY, 1);
 
 			List<Collider> colliders = AttachBoundingBoxRagdollColliders(b);
 			if (colliders.Count == 0) {
@@ -326,7 +324,7 @@ namespace Spine.Unity.Examples {
 				RecursivelyCreateBoneProxies(child);
 		}
 
-		void UpdateSpineSkeleton (ISkeletonRenderer skeletonRenderer) {
+		void UpdateSpineSkeleton (ISkeletonAnimation skeletonRenderer) {
 			bool parentFlipX;
 			bool parentFlipY;
 			GetStartBoneParentFlipState(out parentFlipX, out parentFlipY);
@@ -342,9 +340,8 @@ namespace Spine.Unity.Examples {
 					parentFlipX = parentBoneFlip.flipX;
 					parentFlipY = parentBoneFlip.flipY;
 				}
-				var bonePose = b.Pose;
-				bool flipX = parentFlipX ^ (bonePose.ScaleX < 0);
-				bool flipY = parentFlipY ^ (bonePose.ScaleY < 0);
+				bool flipX = parentFlipX ^ (b.ScaleX < 0);
+				bool flipY = parentFlipY ^ (b.ScaleY < 0);
 
 				BoneFlipEntry boneFlip;
 				boneFlipTable.TryGetValue(b, out boneFlip);
@@ -357,10 +354,9 @@ namespace Spine.Unity.Examples {
 
 				if (!oldRagdollBehaviour && isStartingBone) {
 					if (b != skeleton.RootBone) { // RagdollRoot is not skeleton root.
-						var parentPose = parentBone.AppliedPose;
-						ragdollRoot.localPosition = new Vector3(parentPose.WorldX, parentPose.WorldY, 0);
-						ragdollRoot.localRotation = Quaternion.Euler(0, 0, parentPose.WorldRotationX - parentPose.ShearX);
-						ragdollRoot.localScale = new Vector3(parentPose.WorldScaleX, parentPose.WorldScaleY, 1);
+						ragdollRoot.localPosition = new Vector3(parentBone.WorldX, parentBone.WorldY, 0);
+						ragdollRoot.localRotation = Quaternion.Euler(0, 0, parentBone.WorldRotationX - parentBone.ShearX);
+						ragdollRoot.localScale = new Vector3(parentBone.WorldScaleX, parentBone.WorldScaleY, 1);
 					}
 				}
 				Vector3 parentTransformWorldPosition = parentTransform.position;
@@ -372,11 +368,10 @@ namespace Spine.Unity.Examples {
 
 				if (oldRagdollBehaviour) {
 					if (isStartingBone && b != skeleton.RootBone) {
-						var parentPose = b.Parent.AppliedPose;
-						Vector3 localPosition = new Vector3(parentPose.WorldX, parentPose.WorldY, 0);
+						Vector3 localPosition = new Vector3(b.Parent.WorldX, b.Parent.WorldY, 0);
 						parentSpaceHelper.position = ragdollRoot.TransformPoint(localPosition);
-						parentSpaceHelper.localRotation = Quaternion.Euler(0, 0, parentPose.WorldRotationX - parentPose.ShearX);
-						parentSpaceHelper.localScale = new Vector3(parentPose.WorldScaleX, parentPose.WorldScaleY, 1);
+						parentSpaceHelper.localRotation = Quaternion.Euler(0, 0, parentBone.WorldRotationX - parentBone.ShearX);
+						parentSpaceHelper.localScale = new Vector3(parentBone.WorldScaleX, parentBone.WorldScaleY, 1);
 					}
 				}
 
@@ -392,9 +387,9 @@ namespace Spine.Unity.Examples {
 				if (parentFlipXOR) boneLocalRotation *= -1f;
 				if (parentFlipX != flipX) boneLocalRotation += 180;
 
-				bonePose.X = Mathf.Lerp(bonePose.X, boneLocalPosition.x, mix);
-				bonePose.Y = Mathf.Lerp(bonePose.Y, boneLocalPosition.y, mix);
-				bonePose.Rotation = Mathf.Lerp(bonePose.Rotation, boneLocalRotation, mix);
+				b.X = Mathf.Lerp(b.X, boneLocalPosition.x, mix);
+				b.Y = Mathf.Lerp(b.Y, boneLocalPosition.y, mix);
+				b.Rotation = Mathf.Lerp(b.Rotation, boneLocalRotation, mix);
 				//b.AppliedRotation = Mathf.Lerp(b.AppliedRotation, boneLocalRotation, mix);
 			}
 		}
@@ -404,9 +399,8 @@ namespace Spine.Unity.Examples {
 			parentFlipY = skeleton.ScaleY < 0;
 			Bone parent = this.StartingBone == null ? null : this.StartingBone.Parent;
 			while (parent != null) {
-				var parentPose = parent.Pose;
-				parentFlipX ^= parentPose.ScaleX < 0;
-				parentFlipY ^= parentPose.ScaleY < 0;
+				parentFlipX ^= parent.ScaleX < 0;
+				parentFlipY ^= parent.ScaleY < 0;
 				parent = parent.Parent;
 			}
 		}
@@ -427,7 +421,7 @@ namespace Spine.Unity.Examples {
 					foreach (Skin.SkinEntry entry in skinEntries) {
 						BoundingBoxAttachment bbAttachment = entry.Attachment as BoundingBoxAttachment;
 						if (bbAttachment != null) {
-							if (!entry.Placeholder.ToLower().Contains(AttachmentNameMarker))
+							if (!entry.Name.ToLower().Contains(AttachmentNameMarker))
 								continue;
 
 							BoxCollider bbCollider = go.AddComponent<BoxCollider>();

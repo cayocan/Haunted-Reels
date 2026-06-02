@@ -1,13 +1,13 @@
 {
 "skeleton": {
-	"hash": "NMNyF75EBus",
-	"spine": "4.3.74-beta",
-	"x": -252.71397,
-	"y": -232.55397,
-	"width": 456.70795,
-	"height": 360.6879,
+	"hash": "tfwPbA2MCzE",
+	"spine": "4.2.22",
+	"x": -252.71,
+	"y": -232.55,
+	"width": 456.71,
+	"height": 360.69,
 	"images": "./images/",
-	"audio": null
+	"audio": ""
 },
 "bones": [
 	{ "name": "root" },
@@ -23,19 +23,14 @@
 	{ "name": "screen", "bone": "screen", "color": "0670c6ff", "attachment": "whirly", "blend": "screen" },
 	{ "name": "additive", "bone": "additive", "color": "0670c6ff", "attachment": "whirly", "blend": "additive" }
 ],
-"constraints": [
+"transform": [
 	{
-		"type": "transform",
 		"name": "rotation",
-		"source": "_rotation",
 		"bones": [ "additive", "multiply", "normal", "screen" ],
-		"properties": {
-			"rotate": {
-				"to": {
-					"rotate": { "max": 100 }
-				}
-			}
-		}
+		"target": "_rotation",
+		"mixX": 0,
+		"mixScaleX": 0,
+		"mixShearY": 0
 	}
 ],
 "skins": [
@@ -63,8 +58,8 @@
 			"_rotation": {
 				"rotate": [
 					{},
-					{ "time": 0.3333333, "value": -120 },
-					{ "time": 0.6666667, "value": -240 },
+					{ "time": 0.3333, "value": -120 },
+					{ "time": 0.6667, "value": -240 },
 					{ "time": 1, "value": -360 }
 				]
 			}

@@ -2,7 +2,7 @@
  * Spine Runtimes License Agreement
  * Last updated April 5, 2025. Replaces all prior versions.
  *
- * Copyright (c) 2013-2026, Esoteric Software LLC
+ * Copyright (c) 2013-2025, Esoteric Software LLC
  *
  * Integration of the Spine Runtimes into software or otherwise creating
  * derivative works of the Spine Runtimes is permitted under the terms and
@@ -48,8 +48,7 @@ namespace Spine.Unity.AnimationTools {
 				return new Vector2(x, y);
 			} else {
 				BoneData boneData = skeletonData.Bones.Items[timeline.BoneIndex];
-				var setup = boneData.GetSetupPose();
-				return new Vector2(setup.X + x, setup.Y + y);
+				return new Vector2(boneData.X + x, boneData.Y + y);
 			}
 		}
 
@@ -70,7 +69,7 @@ namespace Spine.Unity.AnimationTools {
 				BoneData[] bonesItems = skeletonData.Bones.Items;
 				BoneData boneDataX = bonesItems[xTimeline.BoneIndex];
 				BoneData boneDataY = bonesItems[yTimeline.BoneIndex];
-				return new Vector2(boneDataX.GetSetupPose().X + x, boneDataY.GetSetupPose().Y + y);
+				return new Vector2(boneDataX.X + x, boneDataY.Y + y);
 			}
 		}
 
@@ -86,7 +85,7 @@ namespace Spine.Unity.AnimationTools {
 				return rotation;
 			} else {
 				BoneData boneData = skeletonData.Bones.Items[timeline.BoneIndex];
-				return (boneData.GetSetupPose().Rotation + rotation);
+				return (boneData.Rotation + rotation);
 			}
 		}
 
@@ -150,7 +149,7 @@ namespace Spine.Unity.AnimationTools {
 
 				TransformConstraintTimeline transformConstraintTimeline = timeline as TransformConstraintTimeline;
 				if (transformConstraintTimeline != null &&
-					transformConstraintTimeline.ConstraintIndex == transformConstraintIndex)
+					transformConstraintTimeline.TransformConstraintIndex == transformConstraintIndex)
 					return transformConstraintTimeline;
 			}
 			return null;
