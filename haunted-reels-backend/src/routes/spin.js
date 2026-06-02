@@ -95,8 +95,9 @@ module.exports = async function (fastify, opts) {
         return reply.code(400).send({ error: 'betPerLine deve ser inteiro >= 1' });
       }
     }
-    const bet = (betPerLine !== undefined && betPerLine !== null) ? betPerLine : session.betPerLine;
-    const totalBet = bet * PAYLINES.length; // use engine config payline count
+    // frontend envia aposta total; betPerLine interno = totalBet / nº de paylines
+    const totalBet = (betPerLine !== undefined && betPerLine !== null) ? betPerLine : session.betPerLine;
+    const bet = totalBet / PAYLINES.length;
 
     // Decrementa free spins antes de qualquer lógica de custo
     const isFreePin = session.freeSpinsRemaining > 0;
@@ -117,7 +118,6 @@ module.exports = async function (fastify, opts) {
 
     const spin = engine.evaluateSpin(stops, bet);
 
-    // Adiciona ganhos à sessão
     session.coins = (session.coins || 0) + spin.totalWin;
     if (spin.triggerFreeSpins) session.freeSpinsRemaining = (session.freeSpinsRemaining || 0) + spin.freeSpinsAwarded;
 

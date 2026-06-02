@@ -80,7 +80,8 @@ function countScatters(grid) {
 }
 
 function evaluateSpin(stopPositions, betPerLine = 1) {
-  const totalBet = betPerLine * PAYLINES.length;
+  // totalBet é o que o jogador efetivamente paga (inteiro)
+  const totalBet = Math.round(betPerLine * PAYLINES.length);
   const grid = buildWindow(stopPositions);
 
   const { lineWins, lineWinTotal } = evaluateLines(grid, betPerLine);
