@@ -1,0 +1,9 @@
+# Haunted Reels — configuração de ambiente
+# Development Build (Debug) usa DEV_API_URL
+# Release Build usa PROD_API_URL
+
+DEV_API_URL=http://localhost:3000
+PROD_API_URL=https://api.hauntedreels.com
+
+# Descomente para usar PROD no Editor:
+# USE_PROD_API_IN_EDITOR=true
