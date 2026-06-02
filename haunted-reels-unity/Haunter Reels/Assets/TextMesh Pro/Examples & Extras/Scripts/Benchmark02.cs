@@ -35,7 +35,7 @@ namespace TMPro.Examples
 
                     textMeshPro.alignment = TextAlignmentOptions.Bottom;
                     textMeshPro.fontSize = 96;
-                    textMeshPro.fontFeatures.Clear();
+                    //textMeshPro.fontFeatures.Clear(); // fontFeatures not available in TMP 3.0.x
 
                     textMeshPro.color = new Color32(255, 255, 0, 255);
                     textMeshPro.text = "!";

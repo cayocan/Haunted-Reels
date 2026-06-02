@@ -65,7 +65,7 @@ namespace TMPro.Examples
                 m_textMeshPro.fontSize = 24;
                 //m_textMeshPro.enableExtraPadding = true;
                 //m_textMeshPro.enableShadows = false;
-                m_textMeshPro.fontFeatures.Clear();
+                //m_textMeshPro.fontFeatures.Clear(); // fontFeatures not available in TMP 3.0.x
                 m_textMeshPro.text = string.Empty;
                 m_textMeshPro.isTextObjectScaleStatic = IsTextObjectScaleStatic;
 
