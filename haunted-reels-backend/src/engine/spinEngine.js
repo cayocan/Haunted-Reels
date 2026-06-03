@@ -59,13 +59,13 @@ function evaluateLines(grid, betPerLine) {
 
     if (count >= 3 && PAYTABLE[baseSymbol]) {
       const multiplier = PAYTABLE[baseSymbol][count - 3] || 0;
-      const coins = multiplier * betPerLine;
+      const coins = round2(multiplier * betPerLine);
       const cells = pl.path.slice(0, count).map((row, col) => [col, row]);
       lineWins.push({ lineId: pl.id, lineName: pl.name, symbolId: baseSymbol, count, multiplier, coins, cells });
     }
   }
 
-  const lineWinTotal = lineWins.reduce((s, w) => s + w.coins, 0);
+  const lineWinTotal = round2(lineWins.reduce((s, w) => s + w.coins, 0));
   return { lineWins, lineWinTotal };
 }
 
@@ -79,9 +79,10 @@ function countScatters(grid) {
   return c;
 }
 
+const round2 = v => Math.round(v * 100) / 100;
+
 function evaluateSpin(stopPositions, betPerLine = 1) {
-  // totalBet é o que o jogador efetivamente paga (inteiro)
-  const totalBet = Math.round(betPerLine * PAYLINES.length);
+  const totalBet = round2(betPerLine * PAYLINES.length);
   const grid = buildWindow(stopPositions);
 
   const { lineWins, lineWinTotal } = evaluateLines(grid, betPerLine);
@@ -95,13 +96,13 @@ function evaluateSpin(stopPositions, betPerLine = 1) {
   }
 
   const scatterCoins = (scatterCount in SCATTER_MULTIPLIERS)
-    ? SCATTER_MULTIPLIERS[scatterCount] * totalBet
+    ? round2(SCATTER_MULTIPLIERS[scatterCount] * totalBet)
     : 0;
 
   const triggerFreeSpins = scatterCount >= 3;
   const freeSpinsAwarded = triggerFreeSpins ? 8 : 0;
 
-  const totalWin = lineWinTotal + scatterCoins;
+  const totalWin = round2(lineWinTotal + scatterCoins);
 
   let winLevel = 'none';
   if (totalWin > 0)                   winLevel = 'small';

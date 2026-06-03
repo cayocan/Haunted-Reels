@@ -3,8 +3,10 @@ const engine = require('../engine/spinEngine');
 const logger = require('../logger/logger');
 const { PAYLINES } = require('../engine/config');
 
+const round2 = v => Math.round(v * 100) / 100;
+
 function deductCoins(session, amount) {
-  session.coins -= amount;
+  session.coins = round2((session.coins || 0) - amount);
 }
 
 const spinResponseSchema = {
@@ -35,7 +37,7 @@ const spinResponseSchema = {
         scatterCoins:     { type: 'number' },
         triggerFreeSpins: { type: 'boolean' },
         freeSpinsAwarded: { type: 'integer' },
-        totalBet:         { type: 'integer' },
+        totalBet:         { type: 'number' },
         totalWin:         { type: 'number' },
         winLevel:         { type: 'string', enum: ['none', 'small', 'big', 'mega', 'jackpot'] },
       },
@@ -43,7 +45,7 @@ const spinResponseSchema = {
     session: {
       type: 'object',
       properties: {
-        coins:              { type: 'integer' },
+        coins:              { type: 'number' },
         freeSpinsRemaining: { type: 'integer' },
         nonce:              { type: 'integer' },
         serverSeedHash:     { type: 'string' },
@@ -72,7 +74,7 @@ module.exports = async function (fastify, opts) {
         type: 'object',
         properties: {
           sessionId:  { type: 'string', description: 'ID da sessão ativa' },
-          betPerLine: { type: 'integer', minimum: 1, description: 'Aposta por linha (padrão: betPerLine da sessão)' },
+          betPerLine: { type: 'number', minimum: 0.01, description: 'Aposta por linha — aceita decimais (padrão: betPerLine da sessão)' },
         },
       },
       response: {
@@ -91,8 +93,8 @@ module.exports = async function (fastify, opts) {
 
     // Valida betPerLine se fornecido explicitamente
     if (betPerLine !== undefined && betPerLine !== null) {
-      if (!Number.isInteger(betPerLine) || betPerLine < 1) {
-        return reply.code(400).send({ error: 'betPerLine deve ser inteiro >= 1' });
+      if (typeof betPerLine !== 'number' || betPerLine < 0.01) {
+        return reply.code(400).send({ error: 'betPerLine deve ser número >= 0.01' });
       }
     }
     // frontend envia aposta total; betPerLine interno = totalBet / nº de paylines
@@ -118,7 +120,7 @@ module.exports = async function (fastify, opts) {
 
     const spin = engine.evaluateSpin(stops, bet);
 
-    session.coins = (session.coins || 0) + spin.totalWin;
+    session.coins = round2((session.coins || 0) + spin.totalWin);
     // re-trigger permitido também durante free spins (acumula +8 ao saldo restante)
     if (spin.triggerFreeSpins)
       session.freeSpinsRemaining = (session.freeSpinsRemaining || 0) + spin.freeSpinsAwarded;

@@ -5,8 +5,8 @@ const sessionStateSchema = {
   properties: {
     sessionId:           { type: 'string', format: 'uuid' },
     serverSeedHash:      { type: 'string', description: 'SHA-256 do server seed ativo' },
-    coins:               { type: 'integer', example: 100 },
-    betPerLine:          { type: 'integer', example: 1 },
+    coins:               { type: 'number', example: 100 },
+    betPerLine:          { type: 'number', example: 1 },
     nonce:               { type: 'integer', example: 0 },
     freeSpinsRemaining:  { type: 'integer', example: 0 },
     clientSeed:          { type: 'string',  nullable: true },
