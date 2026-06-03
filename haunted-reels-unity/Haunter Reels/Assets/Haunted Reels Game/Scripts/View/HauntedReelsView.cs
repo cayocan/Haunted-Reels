@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using Cysharp.Threading.Tasks;
@@ -67,6 +68,13 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
     [Header("Efeitos")]
     [SerializeField] private ParticleSystem _multiplierParticles;
 
+    [Header("Efeito Trovão (Scatter)")]
+    [SerializeField] private Image          _thunderFlashImage;
+    [SerializeField] private AnimationCurve _thunderAlphaCurve;
+    [SerializeField] private float          _thunderDuration = 1f;
+
+    private Coroutine _thunderCoroutine;
+
     [Header("Animação de Giro")]
     [SerializeField] private int _reelStopDelayMs = 300;
 
@@ -88,14 +96,19 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
     //  Ciclo de vida
     // ═════════════════════════════════════════════════════════════════════════
 
+    private void Reset()
+    {
+        _thunderAlphaCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 0f);
+    }
+
     private void Awake()
     {
         if (_reels != null && _symbolLibrary != null)
             foreach (var reel in _reels)
                 if (reel != null) reel.Init(_symbolLibrary);
 
-        if (_spinButton     != null) _spinButton.onClick.AddListener(() => OnSpinRequested?.Invoke());
-        if (_autoSpinButton != null) _autoSpinButton.onClick.AddListener(() => OnAutoSpinToggled?.Invoke());
+        if (_spinButton     != null) _spinButton.onClick.AddListener(() => { HauntedAudioManager.Instance?.Play("ConfirmClick"); OnSpinRequested?.Invoke(); });
+        if (_autoSpinButton != null) _autoSpinButton.onClick.AddListener(() => { HauntedAudioManager.Instance?.Play("ConfirmClick"); OnAutoSpinToggled?.Invoke(); });
     }
 
     private void Start()
@@ -263,6 +276,7 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
 
     private void OpenPanel()
     {
+        HauntedAudioManager.Instance?.Play("ConfirmClick");
         if (_betInput != null) _betInput.text = (_currentBet * _paylineCount).ToString();
         if (_betPanel != null) _betPanel.SetActive(true);
         ValidateInput(_betInput != null ? _betInput.text : "");
@@ -270,12 +284,14 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
 
     private void ClosePanel()
     {
+        HauntedAudioManager.Instance?.Play("CancelClick");
         if (_betPanel     != null) _betPanel.SetActive(false);
         if (_betErrorText != null) _betErrorText.gameObject.SetActive(false);
     }
 
     private void OnConfirm()
     {
+        HauntedAudioManager.Instance?.Play("ConfirmClick");
         if (_betInput != null && int.TryParse(_betInput.text, out int totalBetValue) && _paylineCount > 0)
         {
             int betPerLine = Mathf.Clamp(totalBetValue / _paylineCount, _minBet, _maxBet);
@@ -371,8 +387,6 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
         }
         if (_prizeText != null) _prizeText.text = "$0.00";
 
-        // Cada célula anima no máximo uma vez; alpha é controlado por payline
-        var seenCells = new HashSet<(int col, int row)>();
         for (int i = 0; i < winGroups.Count; i++)
         {
             var (cells, coins, multiplier, symbolId) = winGroups[i];
@@ -382,9 +396,14 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
             foreach (var kvp in allSlots)
                 kvp.Value.DOFade(groupSet.Contains(kvp.Key) ? 1f : 0.3f, 0.2f);
 
-            var freshCells = cells.FindAll(c => seenCells.Add(c));
-            if (freshCells.Count > 0)
-                await AnimateCellGroupAsync(freshCells, symbolId);
+            if (symbolId == SymbolId.Scatter)
+            {
+                HauntedAudioManager.Instance?.Play("Thunder");
+                PlayThunderFlash();
+            }
+
+            if (cells.Count > 0)
+                await AnimateCellGroupAsync(cells, symbolId);
 
             if (_runningWinText != null)
             {
@@ -589,6 +608,35 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
 
         if (visible && _runningWinText != null)
             _runningWinText.gameObject.SetActive(false);
+    }
+
+    // ═════════════════════════════════════════════════════════════════════════
+    //  Efeito Trovão
+    // ═════════════════════════════════════════════════════════════════════════
+
+    public void PlayThunderFlash()
+    {
+        if (_thunderFlashImage == null) return;
+        if (_thunderCoroutine != null) StopCoroutine(_thunderCoroutine);
+        _thunderCoroutine = StartCoroutine(ThunderFlashRoutine());
+    }
+
+    private IEnumerator ThunderFlashRoutine()
+    {
+        float elapsed = 0f;
+        var color = _thunderFlashImage.color;
+
+        while (elapsed < _thunderDuration)
+        {
+            elapsed += Time.deltaTime;
+            color.a = _thunderAlphaCurve.Evaluate(Mathf.Clamp01(elapsed / _thunderDuration));
+            _thunderFlashImage.color = color;
+            yield return null;
+        }
+
+        color.a = _thunderAlphaCurve.Evaluate(1f);
+        _thunderFlashImage.color = color;
+        _thunderCoroutine = null;
     }
 
     // ═════════════════════════════════════════════════════════════════════════

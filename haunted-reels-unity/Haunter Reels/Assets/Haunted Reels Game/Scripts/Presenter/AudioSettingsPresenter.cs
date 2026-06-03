@@ -34,15 +34,21 @@ public class AudioSettingsPresenter : MonoBehaviour
 
     private void OnOpen()
     {
+        HauntedAudioManager.Instance?.Play("ConfirmClick");
         SyncVisuals();
         _view.Open();
     }
 
-    private void OnClose() => _view.Close();
+    private void OnClose()
+    {
+        HauntedAudioManager.Instance?.Play("CancelClick");
+        _view.Close();
+    }
 
     private void OnMusicToggle()
     {
         if (HauntedAudioManager.Instance == null) return;
+        HauntedAudioManager.Instance.Play("ConfirmClick");
         HauntedAudioManager.Instance.ToggleMute(AudioType.Music);
         _view.SetMusicMuted(HauntedAudioManager.Instance.IsMuted(AudioType.Music));
     }
@@ -50,6 +56,7 @@ public class AudioSettingsPresenter : MonoBehaviour
     private void OnSFXToggle()
     {
         if (HauntedAudioManager.Instance == null) return;
+        HauntedAudioManager.Instance.Play("ConfirmClick");
         HauntedAudioManager.Instance.ToggleMute(AudioType.SFX);
         _view.SetSFXMuted(HauntedAudioManager.Instance.IsMuted(AudioType.SFX));
     }

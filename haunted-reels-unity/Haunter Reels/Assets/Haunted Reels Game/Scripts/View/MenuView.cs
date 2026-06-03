@@ -98,6 +98,8 @@ public class MenuView : MonoBehaviour
 
     private void OnPlayClicked()
     {
+        if (HauntedAudioManager.Instance != null)
+            HauntedAudioManager.Instance.Play("ConfirmClick");
         HandlePlayAsync(_cts.Token).Forget();
     }
 

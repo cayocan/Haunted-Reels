@@ -23,6 +23,9 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
+        if (HauntedAudioManager.Instance != null)
+            HauntedAudioManager.Instance.Play("Music");
+
         _wakePresenter = new BackendWakeUpPresenter(backendWakeUpView, backendHealthService, this);
 
         if (!ShouldRunWakeUp())
