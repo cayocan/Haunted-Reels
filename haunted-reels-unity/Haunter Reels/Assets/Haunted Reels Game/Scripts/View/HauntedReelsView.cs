@@ -136,7 +136,7 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
     public void UpdateCoins(int coins)
     {
         _coins = coins;
-        if (_coinsText != null) _coinsText.text = $"{coins:N0}";
+        if (_coinsText != null) _coinsText.text = FormatCoins(coins);
         if (_betPanel != null && _betPanel.activeSelf)
             ValidateInput(_betInput != null ? _betInput.text : "");
     }
@@ -151,11 +151,7 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
             ValidateInput(_betInput != null ? _betInput.text : "");
     }
 
-    private static string FormatCoins(float coins)
-    {
-        float rounded = (float)System.Math.Round(coins, 2);
-        return rounded == Mathf.Floor(rounded) ? $"{rounded:N0}" : $"{rounded:N2}";
-    }
+    private static string FormatCoins(float coins) => $"${coins:N2}";
 
     public void UpdateFreeSpins(int remaining)
     {
@@ -262,7 +258,7 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
         _minBet       = minBet;
         _maxBet       = maxBet;
         _paylineCount = bet > 0 ? totalBet / bet : 1;
-        if (_betDisplayText != null) _betDisplayText.text = totalBet.ToString();
+        if (_betDisplayText != null) _betDisplayText.text = $"${totalBet:N2}";
     }
 
     private void OpenPanel()
@@ -373,7 +369,7 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
             _runningWinText.text = string.Empty;
             _runningWinText.gameObject.SetActive(false);
         }
-        if (_prizeText != null) _prizeText.text = "0";
+        if (_prizeText != null) _prizeText.text = "$0.00";
 
         // Cada célula anima no máximo uma vez; alpha é controlado por payline
         var seenCells = new HashSet<(int col, int row)>();
@@ -417,7 +413,7 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
 
             accumulated += coins;
             if (_prizeText != null)
-                _prizeText.text = $"+{accumulated:N2}";
+                _prizeText.text = $"+${accumulated:N2}";
 
             if (i == winGroups.Count - 1)
                 await UniTask.Delay(300);
@@ -455,21 +451,18 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
             var tcs = new UniTaskCompletionSource();
             pending.Add(tcs);
 
-            if (isHighSymbol)
+            // Tenta Spine apenas se for símbolo alto E tiver SkeletonGraphic (Wild é sprite puro)
+            var skeletonForCell = isHighSymbol
+                ? (instance.GetComponent<SkeletonGraphic>() ?? instance.GetComponentInChildren<SkeletonGraphic>())
+                : null;
+
+            if (skeletonForCell != null)
             {
-                // símbolos H1/H2/H3 usam SkeletonGraphic (UI Canvas), não SkeletonAnimation
-                var skeleton = instance.GetComponent<SkeletonGraphic>()
-                            ?? instance.GetComponentInChildren<SkeletonGraphic>();
-                if (skeleton == null)
-                    Debug.LogWarning($"[HauntedReelsView] SkeletonGraphic não encontrado em '{instance.name}' (col={col}, row={row})");
-                AnimateHighSymbolAsync(instance.transform, skeleton, tcs).Forget();
+                AnimateHighSymbolAsync(instance.transform, skeletonForCell, tcs).Forget();
             }
             else
             {
-                // zoom in → gira esq → gira dir → volta ao normal (×2 loops, ~1.26 s)
-                if (_debugLogGrid)
-                    Debug.Log($"[HauntedReelsView] DOTween: symbolId={symbolId} col={col} row={row} instance={instance.name}");
-
+                // DOTween: sprites puros (L1-L3, Wild) e fallback de H1-H3 sem Spine
                 var tr = instance.transform;
                 DOTween.Sequence()
                     .Append(tr.DOScale(Vector3.one * 1.30f, 0.15f).SetEase(Ease.OutBack))
