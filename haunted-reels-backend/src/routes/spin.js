@@ -29,14 +29,14 @@ const spinResponseSchema = {
             },
           },
         },
-        lineWinTotal:     { type: 'integer' },
+        lineWinTotal:     { type: 'number' },
         scatterCount:     { type: 'integer' },
         scatterPositions: { type: 'array', items: { type: 'array', items: { type: 'integer' } } },
-        scatterCoins:     { type: 'integer' },
+        scatterCoins:     { type: 'number' },
         triggerFreeSpins: { type: 'boolean' },
         freeSpinsAwarded: { type: 'integer' },
         totalBet:         { type: 'integer' },
-        totalWin:         { type: 'integer' },
+        totalWin:         { type: 'number' },
         winLevel:         { type: 'string', enum: ['none', 'small', 'big', 'mega', 'jackpot'] },
       },
     },
@@ -119,7 +119,9 @@ module.exports = async function (fastify, opts) {
     const spin = engine.evaluateSpin(stops, bet);
 
     session.coins = (session.coins || 0) + spin.totalWin;
-    if (spin.triggerFreeSpins) session.freeSpinsRemaining = (session.freeSpinsRemaining || 0) + spin.freeSpinsAwarded;
+    // re-trigger só é permitido em spins pagos — free spins não acumulam mais free spins
+    if (spin.triggerFreeSpins && !isFreePin)
+      session.freeSpinsRemaining = (session.freeSpinsRemaining || 0) + spin.freeSpinsAwarded;
 
     // Log via pino + broadcast SSE
     const logObj = {

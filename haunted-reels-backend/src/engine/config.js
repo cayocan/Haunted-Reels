@@ -41,11 +41,11 @@ const SCATTER_MULTIPLIERS = {
 // Weights por símbolo em cada reel. Ordem: [H1, H2, H3, L1, L2, L3, Wild, Scatter]
 // Reels 0 e 4 (bordas) sem Wild — soma = 30 por reel
 const REEL_WEIGHTS = [
-  [4, 4, 4, 5, 5, 6, 0, 2],  // reel 1 — sem wild
-  [3, 3, 4, 5, 5, 6, 2, 2],  // reel 2
-  [3, 3, 4, 5, 5, 6, 2, 2],  // reel 3 — central
-  [3, 3, 4, 5, 5, 6, 2, 2],  // reel 4
-  [4, 4, 4, 5, 5, 6, 0, 2],  // reel 5 — sem wild
+  [5, 4, 4, 5, 4, 6, 0, 2],  // reel 1 — sem wild
+  [5, 4, 4, 5, 4, 4, 2, 2],  // reel 2
+  [5, 4, 4, 5, 4, 4, 2, 2],  // reel 3 — central
+  [5, 4, 4, 5, 4, 4, 2, 2],  // reel 4
+  [5, 4, 4, 5, 4, 6, 0, 2],  // reel 5 — sem wild
 ];
 
 function expandAndShuffle(weights) {
