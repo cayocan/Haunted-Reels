@@ -119,8 +119,8 @@ module.exports = async function (fastify, opts) {
     const spin = engine.evaluateSpin(stops, bet);
 
     session.coins = (session.coins || 0) + spin.totalWin;
-    // re-trigger só é permitido em spins pagos — free spins não acumulam mais free spins
-    if (spin.triggerFreeSpins && !isFreePin)
+    // re-trigger permitido também durante free spins (acumula +8 ao saldo restante)
+    if (spin.triggerFreeSpins)
       session.freeSpinsRemaining = (session.freeSpinsRemaining || 0) + spin.freeSpinsAwarded;
 
     // Log via pino + broadcast SSE
