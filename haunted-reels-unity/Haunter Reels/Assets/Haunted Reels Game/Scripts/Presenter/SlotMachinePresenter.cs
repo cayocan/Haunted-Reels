@@ -8,6 +8,7 @@ public class SlotMachinePresenter : MonoBehaviour
 
     private SlotStateMachine _stateMachine;
     private SlotGameContext  _ctx;
+    private SessionModel     _model;
 
     private void Start()
     {
@@ -24,7 +25,8 @@ public class SlotMachinePresenter : MonoBehaviour
             return;
         }
 
-        var model = sp.Model;
+        _model = sp.Model;
+        var model = _model;
 
         _stateMachine = new SlotStateMachine();
         // paylineCount=1: BetPerLine no contexto representa a aposta total visível ao jogador
@@ -40,7 +42,7 @@ public class SlotMachinePresenter : MonoBehaviour
         _view.OnBetSetRequested += OnBetSet;
         model.OnCoinsChanged    += OnCoinsChanged;
 
-        _view.UpdateCoins(_ctx.Model.Coins);
+        _view.UpdateCoinsFloat(_model.CoinsFloat);
         _view.UpdateFreeSpins(model.FreeSpinsRemaining);
         _view.UpdateBetPerLine(_ctx.BetPerLine, _config.minBet, _config.maxBet, _ctx.TotalBet);
 
@@ -88,7 +90,7 @@ public class SlotMachinePresenter : MonoBehaviour
     {
         if (_stateMachine.IsIn<IdleState>())
         {
-            _view.UpdateCoins(coins);
+            _view.UpdateCoinsFloat(_model.CoinsFloat);
             _view.SetSpinInteractable(_ctx.CanSpin);
         }
     }

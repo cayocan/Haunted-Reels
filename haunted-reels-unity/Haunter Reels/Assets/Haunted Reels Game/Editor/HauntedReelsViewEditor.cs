@@ -1,36 +1,6 @@
-using System.Collections.Generic;
 using UnityEditor;
-using UnityEngine;
 
+// HauntedReelsView agora é standalone — editor padrão é suficiente.
+// Arquivo mantido caso seja necessário customizar o Inspector no futuro.
 [CustomEditor(typeof(HauntedReelsView))]
-public class HauntedReelsViewEditor : Editor
-{
-    // campos herdados que não fazem sentido nesta view
-    private static readonly HashSet<string> _hidden = new HashSet<string>
-    {
-        "_betIncreaseButton",
-        "_betDecreaseButton",
-        "_betPerLineText",
-    };
-
-    public override void OnInspectorGUI()
-    {
-        serializedObject.Update();
-
-        // m_Script (desabilitado, padrão Unity)
-        GUI.enabled = false;
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("m_Script"));
-        GUI.enabled = true;
-
-        var prop = serializedObject.GetIterator();
-        prop.NextVisible(true); // avança além de m_Script
-
-        while (prop.NextVisible(false))
-        {
-            if (_hidden.Contains(prop.name)) continue;
-            EditorGUILayout.PropertyField(prop, true);
-        }
-
-        serializedObject.ApplyModifiedProperties();
-    }
-}
+public class HauntedReelsViewEditor : Editor { }

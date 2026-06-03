@@ -64,11 +64,12 @@ public class SpinRequest
 [Serializable]
 public class LineWin
 {
-    public int   lineId;
-    public int   symbolId;
-    public int   count;
-    public float multiplier; // paytable pode ter valores como 1.5
-    public float coins;      // multiplier × betPerLine pode ser float
+    public int    lineId;
+    public string lineName;  // ex.: "Linha do meio", "V invertido"
+    public int    symbolId;
+    public int    count;
+    public float  multiplier; // paytable pode ter valores como 1.5
+    public float  coins;      // multiplier × betPerLine pode ser float
     public int[][] cells;
 }
 

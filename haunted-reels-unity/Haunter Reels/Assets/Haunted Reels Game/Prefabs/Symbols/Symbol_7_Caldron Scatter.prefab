@@ -110,7 +110,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -50.385, y: -50.385}
+  m_SizeDelta: {x: -6.0806, y: -6.0806}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7336337485385680116
 CanvasRenderer:
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1834872323004688856, guid: ecc51520c52f8b84bb59546abf4575f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a1bad5775b6db0409a887eca462b3ef, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -234,6 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4876375929151511859}
+  - component: {fileID: -7540255228131683985}
   m_Layer: 0
   m_Name: Symbol_7_Caldron Scatter
   m_TagString: Untagged
@@ -263,3 +264,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &-7540255228131683985
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6839193538484977858}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
