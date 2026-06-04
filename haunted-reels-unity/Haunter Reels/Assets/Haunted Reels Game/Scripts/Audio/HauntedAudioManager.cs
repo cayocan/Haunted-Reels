@@ -44,6 +44,7 @@ public class HauntedAudioManager : AudioManager
         public Coroutine   coroutine;
     }
     private readonly Dictionary<string, LoopHandle> _loopHandles = new();
+    private readonly Dictionary<string, (AudioSource src, Coroutine co)> _sweepHandles = new();
 
     // ── Ciclo de vida ─────────────────────────────────────────────────────
 
@@ -72,6 +73,9 @@ public class HauntedAudioManager : AudioManager
 
     private void OnDestroy()
     {
+        foreach (var key in new List<string>(_sweepHandles.Keys))
+            StopSweep(key);
+
         foreach (var key in new List<string>(_loopHandles.Keys))
             StopSeamlessLoop(key);
 
@@ -103,6 +107,64 @@ public class HauntedAudioManager : AudioManager
 
     public void ToggleMute(AudioType type) => SetMute(type, !IsMuted(type));
 
+    // ── Sweep de pitch (Shepard-lite) ─────────────────────────────────────
+
+    /// <summary>
+    /// Toca o clip em startPitch e faz Lerp até endPitch ao longo de duration segundos.
+    /// Respects mute de SFX. Cancela automaticamente qualquer sweep anterior do mesmo nome.
+    /// </summary>
+    public void PlayWithPitchSweep(string audioName, float startPitch, float endPitch, float duration)
+    {
+        if (!_addressablesReady) return;
+        if (IsMuted(GetAudioType(audioName))) return;
+
+        StopSweep(audioName);
+
+        var entry = GetEntry(audioName);
+        if (entry?.clip == null)
+        {
+            Debug.LogWarning($"[HauntedAudioManager] PlayWithPitchSweep: entry '{audioName}' não encontrada ou sem clip.");
+            return;
+        }
+
+        var src    = CreateLoopSource(audioName + "_sweep");
+        src.clip   = entry.clip;
+        src.volume = entry.volume;
+        src.pitch  = startPitch;
+        src.loop   = false;
+        src.Play();
+
+        var co = StartCoroutine(PitchSweepRoutine(src, startPitch, endPitch, duration, audioName));
+        _sweepHandles[audioName] = (src, co);
+    }
+
+    private IEnumerator PitchSweepRoutine(AudioSource src, float startPitch, float endPitch, float duration, string audioName)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            if (src == null) yield break;
+            src.pitch = Mathf.Lerp(startPitch, endPitch, elapsed / duration);
+            yield return null;
+        }
+
+        if (src != null)
+        {
+            src.Stop();
+            Destroy(src.gameObject);
+        }
+        _sweepHandles.Remove(audioName);
+    }
+
+    private void StopSweep(string audioName)
+    {
+        if (!_sweepHandles.TryGetValue(audioName, out var h)) return;
+        if (h.co  != null) StopCoroutine(h.co);
+        if (h.src != null) { h.src.Stop(); Destroy(h.src.gameObject); }
+        _sweepHandles.Remove(audioName);
+    }
+
     // ── Play com checagem de mute e loop perfeito ─────────────────────────
 
     public new void Play(string audioName, float pitch = 1f)
@@ -128,12 +190,15 @@ public class HauntedAudioManager : AudioManager
 
     public new void Stop(string audioName)
     {
+        StopSweep(audioName);
         StopSeamlessLoop(audioName);
         base.Stop(audioName);
     }
 
     public new void StopAll()
     {
+        foreach (var key in new List<string>(_sweepHandles.Keys))
+            StopSweep(key);
         foreach (var key in new List<string>(_loopHandles.Keys))
             StopSeamlessLoop(key);
         base.StopAll();
