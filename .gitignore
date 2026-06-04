@@ -46,6 +46,10 @@ build/
 # WebGL build output (commitar apenas se for hospedar do repo)
 /WebGL/
 
+# Exceção: pasta Build do gh-pages deve ser versionada para o GitHub Pages
+!gh-pages/game/Build/
+!gh-pages/game/Build/**
+
 # ─── OS ───────────────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
