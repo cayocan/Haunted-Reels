@@ -91,6 +91,13 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
     [SerializeField] private UIPaylineRenderer _paylineRenderer;
     [SerializeField] private Canvas            _canvas;
 
+    [Header("Payline Audio")]
+    [SerializeField] private string _paylineSweepAudioName = "PaylineSweep";
+    [SerializeField] private float  _sweepBaseStart        = 0.7f;
+    [SerializeField] private float  _sweepStep             = 0.15f;
+    [SerializeField] private float  _sweepRange            = 0.4f;
+    [SerializeField] private float  _sweepDuration         = 0.6f;
+
     [Header("Efeito Trovão (Scatter)")]
     [SerializeField] private Image          _thunderFlashImage;
     [SerializeField] private AnimationCurve _thunderAlphaCurve;
@@ -435,6 +442,9 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
             var groupSet = new HashSet<(int col, int row)>(cells);
 
             ShowPayline(linePath, count);
+            float sweepStart = _sweepBaseStart + i * _sweepStep;
+            HauntedAudioManager.Instance?.PlayWithPitchSweep(
+                _paylineSweepAudioName, sweepStart, sweepStart + _sweepRange, _sweepDuration);
 
             // Slots da payline atual = alpha 1, demais = 0.3
             foreach (var kvp in allSlots)
