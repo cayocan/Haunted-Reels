@@ -42,6 +42,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8b36b2f64dd38d40a3046cf8ac8a641
+    m_Address: Assets/Haunted Reels Game/Audio/FX/Haunted Payline Shepard Tone Note.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 6623926ae02981043b980b4a8a37a68f, type: 2}
   m_SchemaSet:

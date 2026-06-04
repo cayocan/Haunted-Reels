@@ -6,4 +6,4 @@ DEV_API_URL=http://localhost:3000
 PROD_API_URL=https://hoarse-unneedfully-cecilia.ngrok-free.dev
 
 # Descomente para usar PROD no Editor:
-USE_PROD_API_IN_EDITOR=false
+USE_PROD_API_IN_EDITOR=true
