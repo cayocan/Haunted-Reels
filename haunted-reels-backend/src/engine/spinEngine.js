@@ -59,9 +59,10 @@ function evaluateLines(grid, betPerLine) {
 
     if (count >= 3 && PAYTABLE[baseSymbol]) {
       const multiplier = PAYTABLE[baseSymbol][count - 3] || 0;
-      const coins = round2(multiplier * betPerLine);
-      const cells = pl.path.slice(0, count).map((row, col) => [col, row]);
-      lineWins.push({ lineId: pl.id, lineName: pl.name, symbolId: baseSymbol, count, multiplier, coins, cells });
+      const coins    = round2(multiplier * betPerLine);
+      const cells    = pl.path.slice(0, count).map((row, colIdx) => [colIdx, row]);
+      const linePath = pl.path.map((row, colIdx) => [colIdx, row]); // caminho completo das 5 colunas
+      lineWins.push({ lineId: pl.id, lineName: pl.name, symbolId: baseSymbol, count, multiplier, coins, cells, linePath });
     }
   }
 

@@ -28,6 +28,7 @@ const spinResponseSchema = {
               multiplier: { type: 'number' },
               coins:      { type: 'number' },
               cells:      { type: 'array', items: { type: 'array', items: { type: 'integer' } } },
+              linePath:   { type: 'array', items: { type: 'array', items: { type: 'integer' } } },
             },
           },
         },
