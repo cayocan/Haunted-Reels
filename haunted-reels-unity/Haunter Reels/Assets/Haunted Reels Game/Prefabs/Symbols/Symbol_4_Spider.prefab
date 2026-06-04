@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3579699381380128345}
   - component: {fileID: 375303622896076350}
+  - component: {fileID: 5759259667325743499}
   m_Layer: 0
   m_Name: Symbol_4_Spider
   m_TagString: Untagged
@@ -51,6 +52,20 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5759259667325743499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705953353812206940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d942fb61a50b0c9469fca92046b044cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatDistance: 5
+  _duration: 1.5
 --- !u!1 &2659320488310841452
 GameObject:
   m_ObjectHideFlags: 0

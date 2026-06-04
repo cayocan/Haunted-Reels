@@ -68,6 +68,10 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
     [Header("Efeitos")]
     [SerializeField] private ParticleSystem _multiplierParticles;
 
+    [Header("Payline Renderer")]
+    [SerializeField] private UIPaylineRenderer _paylineRenderer;
+    [SerializeField] private Canvas            _canvas;
+
     [Header("Efeito Trovão (Scatter)")]
     [SerializeField] private Image          _thunderFlashImage;
     [SerializeField] private AnimationCurve _thunderAlphaCurve;
@@ -89,8 +93,9 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
 
     // ── Estado interno do painel de aposta ────────────────────────────────────
 
-    private int   _currentBet, _minBet, _maxBet, _paylineCount, _coins;
-    private float _coinsFloat;
+    private int   _currentBet, _minBet, _maxBet, _paylineCount;
+    private float _coins, _coinsFloat;
+    private bool  _floatCoinsInitialized;
 
     // ═════════════════════════════════════════════════════════════════════════
     //  Ciclo de vida
@@ -148,18 +153,26 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
 
     public void UpdateCoins(int coins)
     {
-        _coins = coins;
-        if (_coinsText != null) _coinsText.text = FormatCoins(coins);
+        // O SlotEngine chama este método com model.Coins (int truncado).
+        // Após a primeira chamada a UpdateCoinsFloat, o display passa a ser
+        // controlado exclusivamente por UpdateCoinsFloat/StopSpinVisualAsync
+        // para nunca perder centavos.
+        if (!_floatCoinsInitialized)
+        {
+            _coins      = coins;
+            _coinsFloat = coins;
+            if (_coinsText != null) _coinsText.text = FormatCoins(coins);
+        }
         if (_betPanel != null && _betPanel.activeSelf)
             ValidateInput(_betInput != null ? _betInput.text : "");
     }
 
     public void UpdateCoinsFloat(float coins)
     {
+        _floatCoinsInitialized = true;
+        _coins      = coins;
         _coinsFloat = coins;
-        _coins = (int)coins;
-        if (_coinsText != null)
-            _coinsText.text = FormatCoins(coins);
+        if (_coinsText != null) _coinsText.text = FormatCoins(coins);
         if (_betPanel != null && _betPanel.activeSelf)
             ValidateInput(_betInput != null ? _betInput.text : "");
     }
@@ -253,11 +266,15 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
 
         await AnimateWinnersAsync(response);
 
+        LogSpinResult(response.spin);
+        ShowWinInfo(response.spin.totalWin, response.spin.winLevel);
+
         if (response.spin.totalWin > 0)
             await UniTask.Delay(750);
 
-        LogSpinResult(response.spin);
-        ShowWinInfo(response.spin.totalWin, response.spin.winLevel);
+        // Atualiza saldo somente após exibir o ganho
+        if (response?.session != null)
+            UpdateCoinsFloat(response.session.coins);
     }
 
     // ═════════════════════════════════════════════════════════════════════════
@@ -329,7 +346,7 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
         bool hasScatterWin  = result.spin.scatterCount >= 3;
         if (result?.spin == null || (result.spin.totalWin <= 0 && !hasLineWins && !hasScatterWin)) return;
 
-        var winGroups = new List<(List<(int col, int row)> cells, float coins, float multiplier, int symbolId)>();
+        var winGroups = new List<(List<(int col, int row)> cells, float coins, float multiplier, int symbolId, int count, int[][] linePath)>();
 
         if (result.spin.lineWins != null)
             foreach (var win in result.spin.lineWins)
@@ -342,7 +359,7 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
                     for (int col = 0; col < win.count; col++)
                         group.Add((col, 1));
                 if (group.Count > 0)
-                    winGroups.Add((group, win.coins, win.multiplier, win.symbolId));
+                    winGroups.Add((group, win.coins, win.multiplier, win.symbolId, win.count, win.linePath));
             }
 
         if (result.spin.scatterCount >= 3 && result.spin.scatterPositions != null && result.spin.scatterPositions.Length > 0)
@@ -351,7 +368,7 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
             foreach (var pos in result.spin.scatterPositions)
                 if (pos.Length >= 2) sc.Add((pos[0], pos[1]));
             if (sc.Count > 0)
-                winGroups.Add((sc, result.spin.scatterCoins, 0f, SymbolId.Scatter));
+                winGroups.Add((sc, result.spin.scatterCoins, 0f, SymbolId.Scatter, 0, null));
         }
 
         if (winGroups.Count == 0) return;
@@ -389,8 +406,10 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
 
         for (int i = 0; i < winGroups.Count; i++)
         {
-            var (cells, coins, multiplier, symbolId) = winGroups[i];
+            var (cells, coins, multiplier, symbolId, count, linePath) = winGroups[i];
             var groupSet = new HashSet<(int col, int row)>(cells);
+
+            ShowPayline(linePath, count);
 
             // Slots da payline atual = alpha 1, demais = 0.3
             foreach (var kvp in allSlots)
@@ -438,9 +457,10 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
                 await UniTask.Delay(300);
         }
 
-        // Restaura opacidade de todos os slots
+        // Restaura opacidade de todos os slots e esconde a payline
         foreach (var cg in allSlots.Values)
             if (cg != null) cg.DOFade(1f, 0.25f);
+        if (_paylineRenderer != null) _paylineRenderer.Clear();
     }
 
     private async UniTask AnimateCellGroupAsync(List<(int col, int row)> group, int symbolId)
@@ -591,6 +611,7 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
             {
                 _winInfoPanel.transform.localScale = Vector3.zero;
                 _winInfoPanel.SetActive(true);
+                HauntedAudioManager.Instance?.Play("WinFunfair");
             }
             _winInfoPanel.transform.DOKill();
             DOTween.Sequence()
@@ -608,6 +629,36 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
 
         if (visible && _runningWinText != null)
             _runningWinText.gameObject.SetActive(false);
+    }
+
+    // ═════════════════════════════════════════════════════════════════════════
+    //  Payline Renderer
+    // ═════════════════════════════════════════════════════════════════════════
+
+    private void ShowPayline(int[][] linePath, int litCount)
+    {
+        if (_paylineRenderer == null || linePath == null || linePath.Length < 2) return;
+
+        var cam    = _canvas != null ? _canvas.worldCamera : null;
+        var points = new List<Vector2>(linePath.Length);
+
+        foreach (var pos in linePath)
+        {
+            if (pos.Length < 2) continue;
+            int col = pos[0], row = pos[1];
+            if (col < 0 || col >= _reels.Length || _reels[col] == null) continue;
+
+            var inst = _reels[col].GetResultInstance(row);
+            if (inst == null) continue;
+
+            Vector2 screen = RectTransformUtility.WorldToScreenPoint(cam, inst.transform.position);
+            if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    _paylineRenderer.rectTransform, screen, cam, out Vector2 local))
+                points.Add(local);
+        }
+
+        if (points.Count >= 2)
+            _paylineRenderer.SetLine(points, litCount);
     }
 
     // ═════════════════════════════════════════════════════════════════════════

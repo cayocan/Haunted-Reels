@@ -148,10 +148,10 @@ TextureImporter:
       name: Change bet_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 0
-        width: 663
-        height: 1024
+        x: 50
+        y: 316
+        width: 427
+        height: 425
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: Change bet_1
       rect:
         serializedVersion: 2
-        x: 551
-        y: 312
-        width: 431
-        height: 430
+        x: 552
+        y: 314
+        width: 427
+        height: 428
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +190,10 @@ TextureImporter:
       name: Change bet_2
       rect:
         serializedVersion: 2
-        x: 700
-        y: 0
-        width: 805
-        height: 1024
+        x: 1059
+        y: 313
+        width: 427
+        height: 424
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,7 +210,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3bff7b2b9fb87c6449a35d995e870407
     internalID: 0
     vertices: []
     indices: 

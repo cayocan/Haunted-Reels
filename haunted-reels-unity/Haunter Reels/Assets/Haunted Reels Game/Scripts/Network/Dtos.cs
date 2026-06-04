@@ -71,6 +71,7 @@ public class LineWin
     public float  multiplier; // paytable pode ter valores como 1.5
     public float  coins;      // multiplier × betPerLine pode ser float
     public int[][] cells;
+    public int[][] linePath; // caminho completo das 5 colunas [[col,row],...]
 }
 
 [Serializable]
@@ -82,7 +83,7 @@ public class SpinData
     public float lineWinTotal;  // soma de multiplier × betPerLine (pode ser float)
     public int   scatterCount;
     public int[][] scatterPositions;
-    public int   scatterCoins;
+    public float scatterCoins;
     public bool  triggerFreeSpins;
     public int   freeSpinsAwarded;
     public int   totalBet;

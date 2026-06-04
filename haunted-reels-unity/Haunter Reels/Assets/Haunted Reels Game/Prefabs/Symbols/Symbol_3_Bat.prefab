@@ -160,6 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5942356381971412830}
   - component: {fileID: 5695405597383723459}
+  - component: {fileID: 1077805398268224978}
   m_Layer: 0
   m_Name: Symbol_3_Bat
   m_TagString: Untagged
@@ -201,6 +202,20 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1077805398268224978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8288685998676736506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d942fb61a50b0c9469fca92046b044cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatDistance: 5
+  _duration: 1.5
 --- !u!1 &8448897554966911604
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,6 +31,11 @@ public class GameSceneEntrance : MonoBehaviour
     [SerializeField] private float         _infoPanelSlideDistance = 350f;
     [SerializeField] private float         _infoPanelSlideDuration = 0.5f;
 
+    [Header("BG Slot Machine — fade in (após todas as animações)")]
+    [SerializeField] private CanvasGroup _slotMachineBg;
+    [SerializeField] private float       _bgFadeDuration  = 0.5f;
+    [SerializeField] [Range(0f, 1f)] private float _bgTargetAlpha = 1f;
+
     // posições originais (capturadas antes de mover para fora da tela)
     private Vector2   _slotOrigPos;
     private Vector2[] _rightButtonsOrigPos;
@@ -77,6 +82,8 @@ public class GameSceneEntrance : MonoBehaviour
             foreach (var p in _panels)
                 if (p != null) p.localScale = Vector3.zero;
 
+        if (_slotMachineBg != null) _slotMachineBg.alpha = 0f;
+
         if (_slotMachine  != null)
             _slotMachine.anchoredPosition = _slotOrigPos + Vector2.up * _slotSlideDistance;
 
@@ -116,6 +123,15 @@ public class GameSceneEntrance : MonoBehaviour
             tasks.Add(AnimateSlideAsync(_infoPanel, _infoPanelOrigPos, _infoPanelSlideDuration, Ease.OutBack, 0.1f, ct));
 
         await UniTask.WhenAll(tasks);
+
+        if (_slotMachineBg != null && !ct.IsCancellationRequested)
+        {
+            var tcs = new UniTaskCompletionSource();
+            _slotMachineBg.DOFade(_bgTargetAlpha, _bgFadeDuration)
+                .OnComplete(() => tcs.TrySetResult())
+                .OnKill   (() => tcs.TrySetResult());
+            await tcs.Task;
+        }
     }
 
     private async UniTask AnimatePanelZoomAsync(RectTransform rt, float delay, CancellationToken ct)

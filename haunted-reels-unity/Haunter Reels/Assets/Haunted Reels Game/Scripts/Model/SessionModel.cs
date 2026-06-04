@@ -36,7 +36,7 @@ public class SessionModel : IGameModel
         SessionId          = r.sessionId;
         ServerSeedHash     = r.serverSeedHash;
         ClientSeed         = r.clientSeed;
-        _coinsFloat        = r.coins;
+        _coinsFloat        = (float)System.Math.Round(r.coins, 2);
         BetPerLine         = r.betPerLine;
         Nonce              = r.nonce;
         FreeSpinsRemaining = r.freeSpinsRemaining;
@@ -54,7 +54,7 @@ public class SessionModel : IGameModel
         {
             float previous = _coinsFloat;
 
-            _coinsFloat        = r.session.coins;
+            _coinsFloat        = (float)System.Math.Round(r.session.coins, 2);
             Nonce              = r.session.nonce;
             FreeSpinsRemaining = r.session.freeSpinsRemaining;
             ServerSeedHash     = r.session.serverSeedHash;
