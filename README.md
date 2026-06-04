@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="gh-pages/assets/Logo.png" alt="Haunted Reels" width="520">
+</p>
+
 # 🎃 Haunted Reels
 
 > Slot machine Halloween desenvolvida como **teste técnico para a Hourglass Studios**.
