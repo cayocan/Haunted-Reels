@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Haunted Reels — Slot Halloween Provably Fair com 5 reels, 10 paylines, Wild Fantasma e Free Spins">
+  <meta property="og:title" content="Haunted Reels">
+  <meta property="og:description" content="Slot Halloween Provably Fair · 5 Reels · 10 Paylines · Free Spins">
+  <title>Haunted Reels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Variables ─────────────────────────────────────────────── */
+    :root {
+      --bg:       #06000e;
+      --bg2:      #0d0520;
+      --card:     rgba(16, 5, 36, 0.92);
+      --border:   rgba(185, 60, 255, 0.22);
+      --border-o: rgba(255, 140, 0, 0.3);
+      --orange:   #ff8c00;
+      --amber:    #ffb347;
+      --purple:   #c060ff;
+      --violet:   #8b3dff;
+      --gold:     #ffd700;
+      --green:    #00e676;
+      --text:     #eed8ff;
+      --muted:    #7a5a9a;
+      --glow-o:   rgba(255, 140, 0, 0.4);
+      --glow-p:   rgba(185, 60, 255, 0.4);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--violet); border-radius: 3px; }
+
+    /* ── Animations ─────────────────────────────────────────────── */
+    @keyframes float {
+      0%,100% { transform: translateY(0px); }
+      50%      { transform: translateY(-18px); }
+    }
+    @keyframes logo-glow {
+      0%,100% { filter: drop-shadow(0 0 25px rgba(255,140,0,.5)) drop-shadow(0 0 60px rgba(185,60,255,.4)); }
+      50%     { filter: drop-shadow(0 0 50px rgba(255,140,0,.8)) drop-shadow(0 0 100px rgba(185,60,255,.6)); }
+    }
+    @keyframes flicker {
+      0%,18%,22%,24%,28%,70%,72%,100% { opacity: 1; }
+      20%,23%,27%,71% { opacity: .85; }
+    }
+    @keyframes shine-sweep {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    @keyframes border-glow {
+      0%,100% { box-shadow: 0 0 12px var(--glow-p); }
+      50%      { box-shadow: 0 0 28px var(--glow-p), 0 0 50px var(--glow-o); }
+    }
+    @keyframes fog {
+      0%   { transform: translateX(-4%); }
+      100% { transform: translateX(4%);  }
+    }
+    @keyframes star-twinkle {
+      0%,100% { opacity: .6; }
+      50%      { opacity: 1; }
+    }
+
+    /* ── Particles canvas ───────────────────────────────────────── */
+    #fx-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Fog ────────────────────────────────────────────────────── */
+    .fog {
+      position: fixed;
+      bottom: 0; left: -10%; right: -10%;
+      height: 260px;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(ellipse 60% 100% at 50% 100%,
+        rgba(185,60,255,.08) 0%, transparent 70%);
+      animation: fog 12s ease-in-out infinite alternate;
+    }
+
+    /* ── Vignette ───────────────────────────────────────────────── */
+    .vignette {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(ellipse 100% 100% at 50% 50%,
+        transparent 55%, rgba(0,0,0,.55) 100%);
+    }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    header {
+      position: relative;
+      z-index: 2;
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 80% 55% at 50% -8%, rgba(255,140,0,.15) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 90% at  5% 50%, rgba(185,60,255,.10) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 90% at 95% 50%, rgba(185,60,255,.10) 0%, transparent 60%);
+      border-bottom: 1px solid var(--border);
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--orange), var(--purple), var(--orange), transparent);
+      background-size: 200% 100%;
+      animation: shine-sweep 5s linear infinite;
+    }
+
+    .logo-wrap {
+      display: inline-block;
+      margin-bottom: 1.4rem;
+      animation: float 7s ease-in-out infinite;
+    }
+    .logo-wrap img {
+      max-width: min(560px, 88vw);
+      height: auto;
+      animation: logo-glow 4s ease-in-out infinite;
+    }
+    .tagline {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(.8rem, 2vw, 1rem);
+      color: var(--muted);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .55rem;
+    }
+    .badge {
+      padding: .3rem .9rem;
+      border-radius: 99px;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border: 1px solid;
+    }
+    .bo { color: var(--amber);  border-color: rgba(255,179,71,.45);  background: rgba(255,140,0,.09); }
+    .bp { color: var(--purple); border-color: rgba(192,96,255,.45);  background: rgba(192,96,255,.08); }
+    .bg { color: var(--gold);   border-color: rgba(255,215,0,.45);   background: rgba(255,215,0,.08); }
+
+    /* ── Nav ─────────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6,0,14,.88);
+      backdrop-filter: blur(24px) saturate(1.6);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .2rem;
+      padding: .5rem 1rem;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: .4rem 1rem;
+      border-radius: 7px;
+      transition: color .18s, background .18s;
+    }
+    nav a:hover {
+      color: var(--orange);
+      background: rgba(255,140,0,.1);
+    }
+
+    /* ── Sections ────────────────────────────────────────────────── */
+    section {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem;
+    }
+    section + section {
+      border-top: 1px solid rgba(185,60,255,.08);
+    }
+    .sec-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: .35rem;
+      animation: flicker 9s linear infinite;
+    }
+    .sec-sub {
+      color: var(--muted);
+      font-size: .85rem;
+      margin-bottom: 1.25rem;
+    }
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Game (16:9) ─────────────────────────────────────────────── */
+    .game-outer {
+      max-width: 980px;
+      margin: 0 auto;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      animation: border-glow 5s ease-in-out infinite;
+    }
+    .game-ratio {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16 / 9 */
+      background: #000;
+    }
+    .game-ratio iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── Paytable ────────────────────────────────────────────────── */
+    .pt-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .875rem;
+    }
+    .pt-table thead tr {
+      background: rgba(185,60,255,.1);
+    }
+    .pt-table th {
+      padding: .8rem 1.1rem;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      border-bottom: 1px solid var(--border);
+    }
+    .pt-table th:first-child { text-align: left; padding-left: 1.4rem; }
+    .pt-table td {
+      padding: .75rem 1.1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(185,60,255,.07);
+      transition: background .15s;
+    }
+    .pt-table td:first-child { text-align: left; padding-left: 1.4rem; }
+    .pt-table tr:hover td { background: rgba(185,60,255,.06); }
+    .sym-cell {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .sym-img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px var(--glow-p));
+      flex-shrink: 0;
+    }
+    .sym-emoji {
+      width: 42px;
+      height: 42px;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 8px var(--glow-o));
+    }
+    .sym-label { font-weight: 500; color: var(--text); font-size: .88rem; }
+    .sym-tier  { font-size: .66rem; color: var(--muted); margin-top: .1rem; }
+    .mx { font-weight: 700; font-size: .88rem; color: var(--amber); }
+    .mx-h { color: var(--gold); }
+    .mx-s { color: #ffec6e; }
+
+    /* ── Paylines ────────────────────────────────────────────────── */
+    .pl-grid-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 1rem;
+    }
+    .pl-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.1rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .pl-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px var(--glow-p);
+    }
+    .pl-header {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: .75rem;
+    }
+    .pl-num {
+      font-size: .66rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      background: rgba(185,60,255,.2);
+      border: 1px solid rgba(185,60,255,.35);
+      color: var(--purple);
+      padding: .15rem .5rem;
+      border-radius: 5px;
+    }
+    .pl-name {
+      font-size: .72rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .pl-cells {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .pl-cell {
+      aspect-ratio: 1;
+      border-radius: 5px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.06);
+      transition: background .15s;
+    }
+    .pl-cell.lit {
+      background: rgba(255,140,0,.5);
+      border-color: rgba(255,140,0,.85);
+      box-shadow: 0 0 9px rgba(255,140,0,.6), inset 0 0 6px rgba(255,200,60,.3);
+    }
+
+    /* ── Rule cards ──────────────────────────────────────────────── */
+    .rule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.25rem;
+    }
+    .rule-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.6rem 1.4rem;
+      display: flex;
+      gap: 1.1rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .rule-card:hover {
+      box-shadow: 0 6px 30px var(--glow-p);
+      transform: translateY(-2px);
+    }
+    .ri { font-size: 2.1rem; flex-shrink: 0; line-height: 1; }
+    .rt {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--amber);
+      margin-bottom: .4rem;
+    }
+    .rd { color: var(--muted); font-size: .84rem; }
+    .rd strong { color: var(--text); }
+    .rd code {
+      font-size: .8rem;
+      padding: .05rem .35rem;
+      background: rgba(185,60,255,.15);
+      border-radius: 4px;
+      color: var(--purple);
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────── */
+    footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,.35);
+      color: var(--muted);
+      font-size: .78rem;
+    }
+    footer a { color: var(--purple); text-decoration: none; transition: color .15s; }
+    footer a:hover { color: var(--orange); }
+
+    /* ── Responsive ──────────────────────────────────────────────── */
+    @media (max-width: 680px) {
+      header { padding: 3rem 1rem 2.5rem; }
+      .pl-grid-wrap { grid-template-columns: repeat(2, 1fr); }
+      .rule-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 420px) {
+      .pl-grid-wrap { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="fx-canvas"></canvas>
+<div class="fog"></div>
+<div class="vignette"></div>
+
+<!-- ══ HEADER ══════════════════════════════════════════════════════ -->
+<header>
+  <div class="logo-wrap">
+    <img src="assets/Logo.png" alt="Haunted Reels">
+  </div>
+  <p class="tagline">Provably Fair &middot; 5 Reels &middot; 10 Paylines &middot; Free Spins</p>
+  <div class="badges">
+    <span class="badge bo">RTP &gt;95%</span>
+    <span class="badge bp">HMAC-SHA256</span>
+    <span class="badge bg">5M spins testados</span>
+    <span class="badge bo">Free Spins</span>
+    <span class="badge bp">Wild Fantasma</span>
+    <span class="badge bg">Scatter Caldeirão</span>
+  </div>
+</header>
+
+<!-- ══ NAV ═════════════════════════════════════════════════════════ -->
+<nav>
+  <a href="#jogo">&#127918; Jogar</a>
+  <a href="#paytable">&#128176; Prêmios</a>
+  <a href="#paylines">&#8596; Paylines</a>
+  <a href="#regras">&#128218; Regras</a>
+  <a href="#provably">&#128272; Provably Fair</a>
+</nav>
+
+<!-- ══ JOGO ════════════════════════════════════════════════════════ -->
+<section id="jogo">
+  <div class="sec-title">Jogar</div>
+  <div class="sec-sub">Clique no jogo para ativar o áudio. Funciona direto no navegador — sem instalação.</div>
+  <div class="divider"></div>
+  <div class="game-outer">
+    <div class="game-ratio">
+      <iframe src="game/index.html" allow="fullscreen" title="Haunted Reels" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PAYTABLE ════════════════════════════════════════════════════ -->
+<section id="paytable">
+  <div class="sec-title">Tabela de Prêmios</div>
+  <div class="sec-sub">Multiplicadores sobre a aposta por linha (aposta total &divide; 10). Pagar da esquerda para a direita.</div>
+  <div class="divider"></div>
+  <table class="pt-table">
+    <thead>
+      <tr>
+        <th>Símbolo</th>
+        <th>&times; 3 em linha</th>
+        <th>&times; 4 em linha</th>
+        <th>&times; 5 em linha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="sym-cell"><img src="assets/witch.PNG" class="sym-img" alt="Bruxa"><div><div class="sym-label">Bruxa</div><div class="sym-tier">H1 — Alto Valor</div></div></div></td>
+        <td><span class="mx mx-h">5&times;</span></td>
+        <td><span class="mx mx-h">25&times;</span></td>
+        <td><span class="mx mx-h">150&times;</span></td>
+      </tr>
+      <tr>
+        <td><div class="sym-cell"><img src="assets/pumpkin.PNG" class="sym-img" alt="Abóbora"><div><div class="sym-label">Abóbora</div><div class="sym-tier">H2 — Alto Valor</div></div></div></td>
+        <td><span class="mx mx-h">4&times;</span></td>
+        <td><span class="mx mx-h">15&times;</span></td>
+        <td><span class="mx mx-h">100&times;</span></td>
+      </tr>
+      <tr>
+        <td><div class="sym-cell"><img src="assets/skull.PNG" class="sym-img" alt="Caveira"><div><div class="sym-label">Caveira</div><div class="sym-tier">H3 — Alto Valor</div></div></div></td>
+        <td><span class="mx mx-h">3&times;</span></td>
+        <td><span class="mx mx-h">10&times;</span></td>
+        <td><span class="mx mx-h">60&times;</span></td>
+      </tr>
+      <tr>
+        <td><div class="sym-cell"><img src="assets/bat.png" class="sym-img" alt="Morcego"><div><div class="sym-label">Morcego</div><div class="sym-tier">L1 — Baixo Valor</div></div></div></td>
+        <td><span class="mx">2&times;</span></td>
+        <td><span class="mx">8&times;</span></td>
+        <td><span class="mx">30&times;</span></td>
+      </tr>
+      <tr>
+        <td><div class="sym-cell"><img src="assets/spider.png" class="sym-img" alt="Aranha"><div><div class="sym-label">Aranha</div><div class="sym-tier">L2 — Baixo Valor</div></div></div></td>
+        <td><span class="mx">1.5&times;</span></td>
+        <td><span class="mx">6&times;</span></td>
+        <td><span class="mx">20&times;</span></td>
+      </tr>
+      <tr>
+        <td><div class="sym-cell"><img src="assets/potion.png" class="sym-img" alt="Poção"><div><div class="sym-label">Poção</div><div class="sym-tier">L3 — Baixo Valor</div></div></div></td>
+        <td><span class="mx">1&times;</span></td>
+        <td><span class="mx">4&times;</span></td>
+        <td><span class="mx">15&times;</span></td>
+      </tr>
+      <tr>
+        <td><div class="sym-cell"><img src="assets/ghost.png" class="sym-img" alt="Fantasma Wild"><div><div class="sym-label">Fantasma</div><div class="sym-tier">WILD — Colunas 2, 3, 4</div></div></div></td>
+        <td colspan="3" style="color:var(--purple);font-size:.82rem;text-align:left;padding-left:1.1rem">
+          Substitui qualquer símbolo exceto o Scatter Caldeirão.
+        </td>
+      </tr>
+      <tr>
+        <td><div class="sym-cell"><img src="assets/scatter.png" class="sym-img" alt="Caldeirão Scatter"><div><div class="sym-label">Caldeirão</div><div class="sym-tier">SCATTER — Qualquer posição</div></div></div></td>
+        <td><span class="mx mx-s">2&times; aposta total</span></td>
+        <td><span class="mx mx-s">5&times;</span></td>
+        <td><span class="mx mx-s">20&times;</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:.74rem;color:var(--muted);margin-top:1.1rem">
+    * 3 ou mais Caldeirões também concedem <strong style="color:var(--orange)">8 Free Spins</strong> que podem ser re-trigados.
+  </p>
+</section>
+
+<!-- ══ PAYLINES ════════════════════════════════════════════════════ -->
+<section id="paylines">
+  <div class="sec-title">Linhas de Pagamento</div>
+  <div class="sec-sub">10 paylines sempre ativas. Células laranja indicam as posições cobertas em cada reel (linha 0 = topo, 1 = meio, 2 = base).</div>
+  <div class="divider"></div>
+  <div class="pl-grid-wrap" id="pl-list"></div>
+</section>
+
+<!-- ══ REGRAS ══════════════════════════════════════════════════════ -->
+<section id="regras">
+  <div class="sec-title">Como Jogar</div>
+  <div class="divider"></div>
+  <div class="rule-grid">
+    <div class="rule-card">
+      <div class="ri">&#127920;</div>
+      <div>
+        <div class="rt">Objetivo</div>
+        <div class="rd">Combine <strong>3 ou mais símbolos iguais</strong> da esquerda para a direita em uma das 10 paylines. O Wild Fantasma substitui qualquer símbolo exceto o Scatter.</div>
+      </div>
+    </div>
+    <div class="rule-card">
+      <div class="ri">&#128176;</div>
+      <div>
+        <div class="rt">Apostas</div>
+        <div class="rd">Defina a <strong>aposta total</strong> antes de girar. O valor é dividido entre as 10 linhas. Use o <strong>modo automático</strong> para girar repetidamente sem intervir.</div>
+      </div>
+    </div>
+    <div class="rule-card">
+      <div class="ri">&#129668;</div>
+      <div>
+        <div class="rt">Scatter &amp; Free Spins</div>
+        <div class="rd"><strong>3 ou mais Caldeirões</strong> em qualquer posição pagam multiplicadores sobre a aposta total E concedem <strong>8 rodadas grátis</strong>. Free Spins podem ser re-trigados!</div>
+      </div>
+    </div>
+    <div class="rule-card">
+      <div class="ri">&#128123;</div>
+      <div>
+        <div class="rt">Wild Fantasma</div>
+        <div class="rd">O Fantasma aparece nas <strong>colunas 2, 3 e 4</strong> e substitui qualquer símbolo para completar combinações vencedoras.</div>
+      </div>
+    </div>
+    <div class="rule-card">
+      <div class="ri">&#9889;</div>
+      <div>
+        <div class="rt">Efeitos Especiais</div>
+        <div class="rd">Scatters disparam um efeito de <strong>trovão</strong>. Grandes vitórias exibem animações de paylines iluminadas, partículas e sons especiais.</div>
+      </div>
+    </div>
+    <div class="rule-card">
+      <div class="ri">&#128202;</div>
+      <div>
+        <div class="rt">RTP</div>
+        <div class="rd">Retorno ao jogador <strong>superior a 95%</strong>, validado em mais de 5 milhões de giros simulados. Backend open source e auditável.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROVABLY FAIR ════════════════════════════════════════════════ -->
+<section id="provably">
+  <div class="sec-title">Provably Fair</div>
+  <div class="sec-sub">Cada giro é verificável matematicamente. Nenhum resultado pode ser adulterado pelo servidor ou pelo jogador.</div>
+  <div class="divider"></div>
+  <div class="rule-grid">
+    <div class="rule-card" style="border-color:var(--border-o)">
+      <div class="ri">&#128272;</div>
+      <div>
+        <div class="rt" style="color:var(--orange)">HMAC-SHA256</div>
+        <div class="rd">Cada stop position é derivada de <code>HMAC-SHA256(serverSeed, clientSeed + nonce)</code>. O server seed é comprometido via hash <strong>antes</strong> do jogo começar.</div>
+      </div>
+    </div>
+    <div class="rule-card" style="border-color:rgba(255,215,0,.3)">
+      <div class="ri">&#127807;</div>
+      <div>
+        <div class="rt" style="color:var(--gold)">Client Seed</div>
+        <div class="rd">Você define o seu próprio client seed. Combinado com o server seed e o nonce incremental, <strong>nem o servidor pode prever</strong> ou manipular resultados.</div>
+      </div>
+    </div>
+    <div class="rule-card" style="border-color:rgba(0,230,118,.25)">
+      <div class="ri">&#9989;</div>
+      <div>
+        <div class="rt" style="color:var(--green)">Verificação</div>
+        <div class="rd">Após a sessão o server seed é revelado. Qualquer spin pode ser verificado na rota <code>/verify</code> usando os dados <code>provablyFair</code> retornados em cada resposta.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════════ -->
+<footer>
+  <p>Haunted Reels &copy; 2025 &nbsp;&middot;&nbsp; Desenvolvido com Unity 2022.3 LTS &nbsp;&middot;&nbsp; Open Source</p>
+  <p style="margin-top:.5rem">
+    <a href="https://github.com/cayocan/Haunted-Reels" target="_blank" rel="noopener">GitHub</a>
+  </p>
+</footer>
+
+<script>
+// ── Canvas: Stars + Bats ───────────────────────────────────────────
+(function () {
+  const cv = document.getElementById('fx-canvas');
+  const cx = cv.getContext('2d');
+  let W, H;
+
+  const STARS = [];
+  const BATS  = [];
+
+  function resize() {
+    W = cv.width  = window.innerWidth;
+    H = cv.height = window.innerHeight;
+    STARS.length = 0;
+    const count = Math.floor(W * H / 5000);
+    for (let i = 0; i < count; i++) {
+      STARS.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: .5 + Math.random() * 1.2,
+        phase: Math.random() * Math.PI * 2,
+        speed: .004 + Math.random() * .008,
+      });
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function spawnBat() {
+    BATS.push({
+      x:    -70,
+      y:    H * (.05 + Math.random() * .55),
+      vx:   .35 + Math.random() * .55,
+      wave: Math.random() * Math.PI * 2,
+      wv:   .012 + Math.random() * .01,
+      amp:  18 + Math.random() * 28,
+      s:    .45 + Math.random() * .75,
+      flap: Math.random() * Math.PI * 2,
+      fv:   .07 + Math.random() * .07,
+    });
+  }
+
+  function drawBat(x, y, s, flap) {
+    cx.save();
+    cx.translate(x, y);
+    cx.scale(s, s);
+    const a = Math.sin(flap);
+    cx.fillStyle = 'rgba(185, 60, 255, 0.38)';
+    // body
+    cx.beginPath();
+    cx.ellipse(0, 0, 5, 3.5, 0, 0, Math.PI * 2);
+    cx.fill();
+    // ears
+    cx.beginPath(); cx.moveTo(-3, -3); cx.lineTo(-5, -7); cx.lineTo(-1, -4); cx.closePath(); cx.fill();
+    cx.beginPath(); cx.moveTo( 3, -3); cx.lineTo( 5, -7); cx.lineTo( 1, -4); cx.closePath(); cx.fill();
+    // left wing
+    cx.beginPath();
+    cx.moveTo(-3, 0);
+    cx.bezierCurveTo(-10, a * -12, -20, a * -10, -15, 5);
+    cx.bezierCurveTo(-10, 9, -5, 5, -3, 2);
+    cx.closePath(); cx.fill();
+    // right wing
+    cx.beginPath();
+    cx.moveTo(3, 0);
+    cx.bezierCurveTo(10, a * -12, 20, a * -10, 15, 5);
+    cx.bezierCurveTo(10, 9, 5, 5, 3, 2);
+    cx.closePath(); cx.fill();
+    cx.restore();
+  }
+
+  let lastSpawn = 0;
+  function loop(ts) {
+    cx.clearRect(0, 0, W, H);
+
+    // Stars
+    for (const s of STARS) {
+      s.phase += s.speed;
+      const alpha = .35 + .55 * Math.abs(Math.sin(s.phase));
+      cx.beginPath();
+      cx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      cx.fillStyle = `rgba(220, 190, 255, ${alpha})`;
+      cx.fill();
+    }
+
+    // Spawn bats
+    if (ts - lastSpawn > 2800 + Math.random() * 3500) {
+      spawnBat();
+      lastSpawn = ts;
+    }
+
+    // Draw & move bats
+    for (let i = BATS.length - 1; i >= 0; i--) {
+      const b = BATS[i];
+      b.x    += b.vx;
+      b.wave += b.wv;
+      b.flap += b.fv;
+      if (b.x > W + 80) { BATS.splice(i, 1); continue; }
+      drawBat(b.x, b.y + Math.sin(b.wave) * b.amp, b.s, b.flap);
+    }
+
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+
+// ── Paylines renderer ──────────────────────────────────────────────
+(function () {
+  const PAYLINES = [
+    { id:  1, name: 'Linha do meio',  path: [1,1,1,1,1] },
+    { id:  2, name: 'Linha de cima',  path: [0,0,0,0,0] },
+    { id:  3, name: 'Linha de baixo', path: [2,2,2,2,2] },
+    { id:  4, name: 'V invertido',    path: [0,1,2,1,0] },
+    { id:  5, name: 'V normal',       path: [2,1,0,1,2] },
+    { id:  6, name: 'Diagonal \u2198', path: [0,0,1,2,2] },
+    { id:  7, name: 'Diagonal \u2197', path: [2,2,1,0,0] },
+    { id:  8, name: 'Escada \u2198',  path: [0,1,1,2,2] },
+    { id:  9, name: 'Escada \u2197',  path: [2,1,1,0,0] },
+    { id: 10, name: 'Onda suave \u2198', path: [0,1,1,1,2] },
+  ];
+
+  const list = document.getElementById('pl-list');
+
+  PAYLINES.forEach(function (pl) {
+    const card = document.createElement('div');
+    card.className = 'pl-card';
+
+    card.innerHTML =
+      '<div class="pl-header">' +
+        '<span class="pl-num">#' + pl.id + '</span>' +
+        '<span class="pl-name">' + pl.name + '</span>' +
+      '</div>' +
+      '<div class="pl-cells" id="plc-' + pl.id + '"></div>';
+
+    list.appendChild(card);
+
+    const cells = document.getElementById('plc-' + pl.id);
+    for (let row = 0; row < 3; row++) {
+      for (let col = 0; col < 5; col++) {
+        const cell = document.createElement('div');
+        cell.className = 'pl-cell' + (pl.path[col] === row ? ' lit' : '');
+        cells.appendChild(cell);
+      }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
