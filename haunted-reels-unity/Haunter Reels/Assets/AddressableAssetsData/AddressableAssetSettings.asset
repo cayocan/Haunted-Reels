@@ -61,7 +61,7 @@ MonoBehaviour:
       - m_Id: 391bb6c3a8fd9c042ace3d6faae3d59e
         m_Value: ServerData/[BuildTarget]
       - m_Id: 4e9766e9453dd5c478a44dfdc0f5bdce
-        m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+        m_Value: https://cayocan.github.io/Haunted-Reels/game/aa/WebGL
       - m_Id: 5cbae9289b673d444b6f6daf6b767e23
         m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: c4b0eb482dcaee24399d3cc86cdbfb61
