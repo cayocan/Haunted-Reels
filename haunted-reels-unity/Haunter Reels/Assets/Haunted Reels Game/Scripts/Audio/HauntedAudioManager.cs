@@ -144,7 +144,7 @@ public class HauntedAudioManager : AudioManager
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            if (src == null) yield break;
+            if (src == null) { _sweepHandles.Remove(audioName); yield break; }
             src.pitch = Mathf.Lerp(startPitch, endPitch, elapsed / duration);
             yield return null;
         }
