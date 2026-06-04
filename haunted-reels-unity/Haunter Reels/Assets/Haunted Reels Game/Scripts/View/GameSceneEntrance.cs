@@ -5,9 +5,20 @@ using DG.Tweening;
 using UnityEngine;
 
 /// <summary>
-/// Anima a entrada da GameScene.
-/// Adicione este componente a qualquer GameObject da cena e atribua as referências no Inspector.
+/// Orquestra as animações de entrada da GameScene, rodando todas em paralelo via UniTask.WhenAll.
 /// </summary>
+/// <remarks>
+/// Grupos de animação:
+/// <list type="bullet">
+///   <item><b>Painéis UI</b> — zoom in com bounce e stagger configurável.</item>
+///   <item><b>Slot machine</b> — cai de cima com efeito OutBounce.</item>
+///   <item><b>Botões direita</b> — chegam da direita com OutBack e stagger.</item>
+///   <item><b>Painel info</b> — sobe de baixo com OutBack.</item>
+///   <item><b>BG slot machine</b> — fade in após todas as animações completarem.</item>
+/// </list>
+/// As posições originais são capturadas no <c>Awake</c> antes de tudo ser deslocado para
+/// fora da tela, garantindo que o layout do Editor seja preservado como posição final.
+/// </remarks>
 public class GameSceneEntrance : MonoBehaviour
 {
     [Header("Painéis — zoom in/out (atribua todos os painéis de UI)")]

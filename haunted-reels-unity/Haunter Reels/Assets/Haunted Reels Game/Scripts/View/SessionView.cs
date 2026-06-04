@@ -3,6 +3,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// View de debug/informação da sessão. Exibe saldo, free spins, server seed hash truncado
+/// e client seed, além de um botão para rotacionar o seed manualmente.
+/// Implementa <see cref="ISessionView"/> e se registra no <see cref="SessionPresenter"/> via
+/// <c>SetView/ClearView</c> no ciclo Start/OnDestroy.
+/// </summary>
 public class SessionView : MonoBehaviour, ISessionView
 {
     [Header("Estado da Sessão")]

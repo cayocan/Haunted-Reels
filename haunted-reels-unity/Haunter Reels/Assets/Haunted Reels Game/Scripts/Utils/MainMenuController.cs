@@ -1,6 +1,19 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Controlador da cena de menu. Orquestra a sequência de inicialização:
+/// verifica se o backend precisa ser "acordado" e, quando pronto, ativa o menu principal.
+/// </summary>
+/// <remarks>
+/// Fluxo de inicialização:
+/// <list type="number">
+///   <item>Inicia a música de menu via <see cref="HauntedAudioManager"/>.</item>
+///   <item>Se a URL da API for a mesma que a DEV (localhost), pula o wake-up.</item>
+///   <item>Caso contrário, inicia o <see cref="BackendWakeUpPresenter"/> que faz ping até responder.</item>
+///   <item>Quando o backend responde, ativa o <c>menuRoot</c> com o <see cref="MenuView"/>.</item>
+/// </list>
+/// </remarks>
 public class MainMenuController : MonoBehaviour
 {
     [Header("Backend Wake-up")]
@@ -39,6 +52,11 @@ public class MainMenuController : MonoBehaviour
         _wakePresenter.StartWakeUp(OnWakeUpComplete);
     }
 
+    /// <summary>
+    /// Retorna <c>true</c> se a URL configurada em <see cref="EnvConfig.ApiUrl"/> aponta para
+    /// um servidor remoto (produção/ngrok), indicando que o wake-up é necessário.
+    /// Retorna <c>false</c> em desenvolvimento local (localhost), pulando a espera.
+    /// </summary>
     private bool ShouldRunWakeUp()
     {
         try
@@ -62,6 +80,10 @@ public class MainMenuController : MonoBehaviour
 
     private void OnDestroy() => _wakePresenter?.StopWakeUp();
 
+    /// <summary>
+    /// Força o pulo do wake-up (útil para botão de debug na UI).
+    /// Para o ping loop e ativa o menu imediatamente.
+    /// </summary>
     public void SkipWakeUp()
     {
         _wakePresenter?.StopWakeUp();

@@ -3,6 +3,7 @@ using SlotEngine;
 
 // ─── Compartilhado ────────────────────────────────────────────────────────────
 
+/// <summary>Envelope de erro retornado pelo backend em respostas HTTP 4xx/5xx.</summary>
 [Serializable]
 public class ErrorResponse
 {
@@ -11,6 +12,10 @@ public class ErrorResponse
 
 // ─── Session ──────────────────────────────────────────────────────────────────
 
+/// <summary>
+/// Estado completo de uma sessão retornado por <c>POST /session</c> e <c>GET /session/:id</c>.
+/// Contém tudo necessário para sincronizar o <see cref="SessionModel"/>.
+/// </summary>
 [Serializable]
 public class SessionStateResponse
 {
@@ -54,6 +59,7 @@ public class RotateResponse
 
 // ─── Spin ─────────────────────────────────────────────────────────────────────
 
+/// <summary>Corpo do request <c>POST /spin</c>.</summary>
 [Serializable]
 public class SpinRequest
 {
@@ -74,6 +80,10 @@ public class LineWin
     public int[][] linePath; // caminho completo das 5 colunas [[col,row],...]
 }
 
+/// <summary>
+/// Resultado calculado de um spin: grid de 5×3 símbolos, paylines ganhadoras,
+/// informações de scatter/free spins e classificação de vitória.
+/// </summary>
 [Serializable]
 public class SpinData
 {
@@ -108,6 +118,11 @@ public class ProvablyFairData
     public int nonce;
 }
 
+/// <summary>
+/// Resposta completa de <c>POST /spin</c>. Implementa <see cref="ISpinResult"/> para
+/// integração com o SlotEngine. Contém o resultado do spin, o novo estado da sessão
+/// e os dados Provably Fair para verificação futura.
+/// </summary>
 [Serializable]
 public class SpinResponse : ISpinResult
 {
@@ -136,6 +151,10 @@ public class VerifyResponse
 
 // ─── Constantes ───────────────────────────────────────────────────────────────
 
+/// <summary>
+/// Classificação do nível de vitória retornado em <see cref="SpinData.winLevel"/>.
+/// Usado pela view para selecionar o header animado correto (Small, Big, Mega, Jackpot).
+/// </summary>
 public static class WinLevel
 {
     public const string None    = "none";

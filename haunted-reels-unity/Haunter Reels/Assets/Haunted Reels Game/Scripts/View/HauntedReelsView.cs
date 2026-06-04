@@ -10,6 +10,25 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// View principal da máquina caça-níquel. Implementa <see cref="ISlotMachineView"/> do SlotEngine
+/// e controla toda a apresentação visual do jogo: reels, painel de aposta, painel de vitória,
+/// animações de paylines vencedoras e o efeito de trovão do Scatter.
+/// </summary>
+/// <remarks>
+/// Fluxo de spin:
+/// <list type="number">
+///   <item><see cref="StartSpinVisual"/> — inicia a animação de giro em todos os reels.</item>
+///   <item><see cref="StopSpinVisualAsync"/> — para os reels em cascata com delay,
+///         anima os símbolos vencedores, renderiza as paylines e exibe o painel de ganho.</item>
+/// </list>
+/// Efeitos visuais:
+/// <list type="bullet">
+///   <item>Símbolos H1-H3 usam animações Spine ("die"/"idle").</item>
+///   <item>Símbolos L1-L3 e Wild usam sequências DOTween (scale + rotation).</item>
+///   <item>Scatter dispara o efeito de flash de trovão via <see cref="PlayThunderFlash"/>.</item>
+/// </list>
+/// </remarks>
 public class HauntedReelsView : MonoBehaviour, ISlotMachineView
 {
     // ── Reels ─────────────────────────────────────────────────────────────────
@@ -239,6 +258,12 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
             if (reel != null) reel.StartSpin();
     }
 
+    /// <summary>
+    /// Para os reels em cascata (col 0 → 4 com <see cref="_reelStopDelayMs"/> entre cada),
+    /// anima os símbolos vencedores por grupo de payline, renderiza as linhas no canvas
+    /// e exibe o painel de ganho. O saldo só é atualizado na UI após todas as animações.
+    /// </summary>
+    /// <param name="result">Resultado do spin retornado pelo backend, convertido para ISpinResult.</param>
     public async UniTask StopSpinVisualAsync(ISpinResult result)
     {
         var response = result as SpinResponse;
@@ -665,6 +690,11 @@ public class HauntedReelsView : MonoBehaviour, ISlotMachineView
     //  Efeito Trovão
     // ═════════════════════════════════════════════════════════════════════════
 
+    /// <summary>
+    /// Dispara o efeito de flash de trovão (Scatter). Avalia a <see cref="_thunderAlphaCurve"/>
+    /// ao longo de <see cref="_thunderDuration"/> segundos para animar a opacidade da <see cref="_thunderFlashImage"/>.
+    /// Se já estiver em execução, reinicia do início.
+    /// </summary>
     public void PlayThunderFlash()
     {
         if (_thunderFlashImage == null) return;

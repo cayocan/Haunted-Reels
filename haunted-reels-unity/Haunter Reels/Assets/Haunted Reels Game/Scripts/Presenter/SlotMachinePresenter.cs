@@ -1,6 +1,21 @@
 using UnityEngine;
 using SlotEngine;
 
+/// <summary>
+/// Presenter da máquina caça-níquel. Conecta a view (<see cref="HauntedReelsView"/>)
+/// ao SlotEngine via <see cref="SlotStateMachine"/> e <see cref="SlotGameContext"/>.
+/// </summary>
+/// <remarks>
+/// Responsabilidades:
+/// <list type="bullet">
+///   <item>Inicializar a state machine com <see cref="IdleState"/> no Start.</item>
+///   <item>Traduzir eventos da view (OnSpinRequested, OnAutoSpinToggled, OnBetSetRequested)
+///         em transições de estado.</item>
+///   <item>Manter o estado de aposta em sincronia com o modelo da sessão.</item>
+/// </list>
+/// Não faz chamadas de rede diretamente — delega ao <see cref="SessionPresenter"/> via
+/// <see cref="ISpinProvider"/> injetado no contexto.
+/// </remarks>
 public class SlotMachinePresenter : MonoBehaviour
 {
     [SerializeField] private HauntedReelsView  _view;

@@ -3,8 +3,19 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using SlotEngine;
 
+/// <summary>
+/// Presenter singleton que gerencia o ciclo de vida da sessão de jogo.
+/// Faz a ponte entre <see cref="ApiClient"/> (rede), <see cref="SessionModel"/> (estado)
+/// e <see cref="ISessionView"/> (UI), seguindo o padrão MVP.
+/// </summary>
+/// <remarks>
+/// Sobrevive à troca de cenas via <c>DontDestroyOnLoad</c>, garantindo que o estado
+/// da sessão persista entre o MenuScene e o GameScene.
+/// Implementa <see cref="ISpinProvider"/> para integração com o SlotEngine.
+/// </remarks>
 public class SessionPresenter : MonoBehaviour, ISpinProvider
 {
+    /// <summary>Instância singleton global; acessível de qualquer cena.</summary>
     public static SessionPresenter Instance { get; private set; }
 
     private ISessionView _view;
@@ -42,6 +53,10 @@ public class SessionPresenter : MonoBehaviour, ISpinProvider
         if (Instance == this) Instance = null;
     }
 
+    /// <summary>
+    /// Registra a view ativa. Se a sessão já existe, sincroniza a UI imediatamente.
+    /// Chamado pelo MonoBehaviour da view em seu <c>Start()</c>.
+    /// </summary>
     public void SetView(ISessionView view)
     {
         _view = view;
@@ -50,6 +65,12 @@ public class SessionPresenter : MonoBehaviour, ISpinProvider
 
     public void ClearView() => _view = null;
 
+    /// <summary>
+    /// Inicializa a sessão: cria sessão no backend, gera client seed e o registra.
+    /// Chamado pelo <see cref="MenuView"/> ao apertar Play.
+    /// </summary>
+    /// <param name="ct">Token de cancelamento (normalmente o CTS do MonoBehaviour chamador).</param>
+    /// <returns><c>true</c> se a sessão foi criada com sucesso; <c>false</c> em caso de erro de rede.</returns>
     public async UniTask<bool> InitAsync(CancellationToken ct = default)
     {
         using var linked = CancellationTokenSource.CreateLinkedTokenSource(ct, _cts.Token);
@@ -82,6 +103,13 @@ public class SessionPresenter : MonoBehaviour, ISpinProvider
         }
     }
 
+    /// <summary>
+    /// Executa um spin via API e atualiza o modelo. Implementa <see cref="ISpinProvider"/>
+    /// para o SlotEngine chamar diretamente durante a state machine de SpinningState.
+    /// </summary>
+    /// <param name="betPerLine">Aposta por linha; 0 reutiliza a última aposta.</param>
+    /// <param name="ct">Token de cancelamento opcional.</param>
+    /// <returns><c>true</c> se o spin foi concluído com sucesso.</returns>
     public async UniTask<bool> SpinAsync(int betPerLine = 0, CancellationToken ct = default)
     {
         if (!_model.HasSession)

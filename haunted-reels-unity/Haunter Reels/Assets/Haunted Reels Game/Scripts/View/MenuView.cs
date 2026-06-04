@@ -6,6 +6,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// View do menu principal. Gerencia as animações de entrada (logo desliza de cima,
+/// botão Play faz zoom in) e o fluxo de navegação para a GameScene.
+/// </summary>
+/// <remarks>
+/// Fluxo de navegação:
+/// <list type="number">
+///   <item>Ao apertar Play, chama <see cref="SessionPresenter.InitAsync"/> para criar sessão.</item>
+///   <item>Se sucesso, carrega a GameScene via <see cref="UnityEngine.SceneManagement.SceneManager.LoadScene(string)"/>.</item>
+///   <item>Se erro, exibe mensagem e reativa o botão.</item>
+/// </list>
+/// </remarks>
 public class MenuView : MonoBehaviour
 {
     [Header("UI")]

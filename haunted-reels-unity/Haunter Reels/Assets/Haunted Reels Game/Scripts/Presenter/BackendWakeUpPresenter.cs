@@ -2,6 +2,15 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Presenter responsável pelo fluxo de "wake-up" do backend.
+/// Exibe a tela de espera enquanto faz ping no endpoint <c>/health</c> até o servidor responder,
+/// rotacionando mensagens temáticas e animando os três pontos de carregamento.
+/// </summary>
+/// <remarks>
+/// Não é MonoBehaviour — recebe um <paramref name="coroutineRunner"/> externo para rodar coroutines.
+/// Isso o mantém testável e desacoplado do Unity.
+/// </remarks>
 public class BackendWakeUpPresenter
 {
     private readonly BackendWakeUpView    _view;
@@ -10,17 +19,16 @@ public class BackendWakeUpPresenter
 
     private readonly string[] _messages =
     {
-        "Acordando os fantasmas...",
-        "As criaturas estão saindo das tumbas...",
-        "Preparando a caldeirão...",
-        "A bruxa está montando sua vassoura...",
-        "Quase lá, aguenta mais um pouco!",
-        "As abóboras estão se iluminando...",
-        "Os morcegos estão se reunindo...",
-        "O cemitério está ganhando vida...",
-        "Os espíritos estão despertando...",
-        "A lua cheia está quase a pino...",
-        "Os dados do destino estão sendo lançados..."
+        "Waking up the backend",
+        "Summoning the spirits of the server",
+        "Communicating with the other side",
+        "Checking the health of the haunted machine",
+        "Aligning the reels with the astral plane",
+        "Performing a ritual to awaken the backend",
+        "Consulting the ancient logs of the server",
+        "Invoking the spirits of uptime",
+        "Sending a ping to the netherworld",
+        "Channeling the energy of the backend",
     };
 
     private int      _messageIndex = 0;
@@ -37,6 +45,11 @@ public class BackendWakeUpPresenter
         _coroutineRunner = coroutineRunner ?? throw new ArgumentNullException(nameof(coroutineRunner));
     }
 
+    /// <summary>
+    /// Inicia o fluxo de wake-up: exibe a view, começa a rotação de mensagens e o ping loop.
+    /// Não faz nada se já estiver em execução.
+    /// </summary>
+    /// <param name="onComplete">Callback invocado após o backend responder com sucesso.</param>
     public void StartWakeUp(Action onComplete)
     {
         if (_isRunning) return;
@@ -50,6 +63,7 @@ public class BackendWakeUpPresenter
             HealthService.PingLoop(OnPingSuccess, _ => { }));
     }
 
+    /// <summary>Para imediatamente o ping loop, as animações e esconde a view.</summary>
     public void StopWakeUp()
     {
         if (!_isRunning) return;

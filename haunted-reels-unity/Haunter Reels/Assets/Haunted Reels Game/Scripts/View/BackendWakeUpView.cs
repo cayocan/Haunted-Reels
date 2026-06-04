@@ -3,6 +3,11 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// View de tela de carregamento exibida enquanto o backend está acordando.
+/// Expõe métodos simples de show/hide, fade e troca de mensagem para que o
+/// <see cref="BackendWakeUpPresenter"/> controle toda a lógica sem tocar em Unity diretamente.
+/// </summary>
 public class BackendWakeUpView : MonoBehaviour
 {
     [Header("References")]
@@ -36,6 +41,7 @@ public class BackendWakeUpView : MonoBehaviour
         messageText.alpha = 1f;
     }
 
+    /// <summary>Troca a mensagem com fade out → troca de texto → fade in.</summary>
     public void FadeMessageTo(string nextMessage)
     {
         if (_messageFadeTween != null) _messageFadeTween.Kill();
@@ -51,6 +57,11 @@ public class BackendWakeUpView : MonoBehaviour
         if (dotsText != null) dotsText.text = dots;
     }
 
+    /// <summary>
+    /// Faz fade out do canvas e desativa o GameObject ao final.
+    /// Invoca <paramref name="onComplete"/> após a animação — usado pelo presenter para
+    /// liberar o fluxo principal e ativar o menu.
+    /// </summary>
     public void PlayFadeOut(Action onComplete)
     {
         if (_fadeTween != null) _fadeTween.Kill();

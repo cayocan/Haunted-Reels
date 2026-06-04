@@ -2,12 +2,25 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Carrega variáveis de Assets/Resources/app.env
-// Formato: chave=valor  (# para comentários)
-// Exemplo:
-//   DEV_API_URL=http://localhost:3000
-//   PROD_API_URL=https://api.hauntedreels.com
-
+/// <summary>
+/// Utilitário estático que carrega variáveis de ambiente do arquivo <c>Resources/app.txt</c>
+/// em tempo de execução e as expõe como propriedades tipadas.
+/// </summary>
+/// <remarks>
+/// Formato do arquivo (chave=valor, linhas começando com # são comentários):
+/// <code>
+/// DEV_API_URL=http://localhost:3000
+/// PROD_API_URL=https://meu-ngrok.ngrok-free.app
+/// USE_PROD_API_IN_EDITOR=false
+/// </code>
+/// Lógica de seleção de URL (<see cref="ApiUrl"/>):
+/// <list type="bullet">
+///   <item>No Editor: usa DEV_API_URL, a menos que USE_PROD_API_IN_EDITOR=true.</item>
+///   <item>Em build de desenvolvimento (<c>Debug.isDebugBuild=true</c>): usa DEV_API_URL.</item>
+///   <item>Em build de release (<c>Debug.isDebugBuild=false</c>): usa PROD_API_URL.</item>
+/// </list>
+/// O arquivo é carregado lazy na primeira chamada e cacheado para o restante da sessão.
+/// </remarks>
 public static class EnvConfig
 {
     private const string ResourcePath = "app";
