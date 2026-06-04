@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using SlotEngine;
 
 public enum AudioType { Music, SFX }
@@ -18,11 +21,20 @@ public class HauntedAudioManager : AudioManager
     [Tooltip("Nomes das AudioEntries que são Música (o restante é SFX).")]
     [SerializeField] private string[] _musicEntryNames;
 
+    [Header("Addressables")]
+    [Tooltip("Mapeie cada AudioEntry pelo nome à sua AssetReference no grupo Addressable.")]
+    [SerializeField] private AddressableAudioEntry[] _addressableEntries;
+
     private const string PrefMusicMuted = "audio_music_muted";
     private const string PrefSFXMuted   = "audio_sfx_muted";
 
     private bool _musicMuted;
     private bool _sfxMuted;
+
+    // Addressables
+    private bool                                    _addressablesReady;
+    private readonly List<AsyncOperationHandle>     _handles      = new();
+    private readonly Queue<(string name, float pitch)> _pendingPlays = new();
 
     // Dual-buffer seamless loop: um par de AudioSources por entrada em loop
     private struct LoopHandle
@@ -53,10 +65,19 @@ public class HauntedAudioManager : AudioManager
         _sfxMuted   = PlayerPrefs.GetInt(PrefSFXMuted,   0) == 1;
     }
 
+    private void Start()
+    {
+        StartCoroutine(LoadAddressablesRoutine());
+    }
+
     private void OnDestroy()
     {
         foreach (var key in new List<string>(_loopHandles.Keys))
             StopSeamlessLoop(key);
+
+        foreach (var h in _handles)
+            if (h.IsValid()) Addressables.Release(h);
+        _handles.Clear();
     }
 
     // ── API de mute ───────────────────────────────────────────────────────
@@ -86,12 +107,17 @@ public class HauntedAudioManager : AudioManager
 
     public new void Play(string audioName, float pitch = 1f)
     {
+        if (!_addressablesReady)
+        {
+            _pendingPlays.Enqueue((audioName, pitch));
+            return;
+        }
+
         if (IsMuted(GetAudioType(audioName))) return;
 
         var entry = GetEntry(audioName);
         if (entry != null && entry.loop)
         {
-            // Só inicia se ainda não está tocando
             if (!_loopHandles.ContainsKey(audioName))
                 StartSeamlessLoop(audioName, entry);
             return;
@@ -174,6 +200,65 @@ public class HauntedAudioManager : AudioManager
         }
     }
 
+    // ── Addressables load ─────────────────────────────────────────────────
+
+    private IEnumerator LoadAddressablesRoutine()
+    {
+        if (_addressableEntries == null || _addressableEntries.Length == 0)
+        {
+            _addressablesReady = true;
+            yield break;
+        }
+
+        // Dispara todos os loads em paralelo
+        var handles = new AsyncOperationHandle<AudioClip>[_addressableEntries.Length];
+        for (int i = 0; i < _addressableEntries.Length; i++)
+            handles[i] = _addressableEntries[i].clipRef.LoadAssetAsync<AudioClip>();
+
+        // Aguarda todos finalizarem
+        foreach (var h in handles)
+            yield return h;
+
+        // Injeta os clips nas AudioEntries da base (AudioEntry é classe — referência compartilhada com _lookup)
+        var field = typeof(SlotEngine.AudioManager)
+            .GetField("_entries", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        if (field?.GetValue(this) is AudioEntry[] entries)
+        {
+            for (int i = 0; i < _addressableEntries.Length; i++)
+            {
+                if (handles[i].Status != AsyncOperationStatus.Succeeded)
+                {
+                    Debug.LogWarning($"[HauntedAudioManager] Falhou ao carregar: '{_addressableEntries[i].name}'");
+                    continue;
+                }
+
+                var clip     = handles[i].Result;
+                var entryName = _addressableEntries[i].name;
+
+                foreach (var e in entries)
+                {
+                    if (string.Equals(e.name, entryName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        e.clip = clip;
+                        _handles.Add(handles[i]);
+                        break;
+                    }
+                }
+            }
+        }
+
+        _addressablesReady = true;
+        Debug.Log($"[HauntedAudioManager] Addressables prontos ({_addressableEntries.Length} clips).");
+
+        // Executa plays que chegaram antes do load terminar
+        while (_pendingPlays.Count > 0)
+        {
+            var (name, pitch) = _pendingPlays.Dequeue();
+            Play(name, pitch);
+        }
+    }
+
     // ── Internos ──────────────────────────────────────────────────────────
 
     private AudioType GetAudioType(string audioName)
@@ -202,4 +287,12 @@ public class HauntedAudioManager : AudioManager
         foreach (var name in _musicEntryNames)
             Stop(name);
     }
+}
+
+[Serializable]
+public struct AddressableAudioEntry
+{
+    [Tooltip("Deve coincidir exatamente com o campo 'name' da AudioEntry correspondente.")]
+    public string                     name;
+    public AssetReferenceT<AudioClip> clipRef;
 }

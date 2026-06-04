@@ -12,4 +12,5 @@ EditorBuildSettings:
     path: Assets/Haunted Reels Game/Scenes/GameScene.unity
     guid: b5d532dff86aa8b48af81864201f2fb5
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 0e175ccdbfad81e44b2de09466b702f7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
